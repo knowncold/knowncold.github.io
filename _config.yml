@@ -1,4 +1,4 @@
-baseurl: http://yinwang.org
+baseurl: llLord.github.io
 permalink: /blog-cn/:year/:month/:day/:title
 markdown: rdiscount
 pygments: true
