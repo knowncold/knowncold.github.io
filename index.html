@@ -1,7 +1,24 @@
-<h1>llLord's HomePage</h1>It works.
-<<<<<<< HEAD
-<h3>3级</h3>
-=======
-<h2>测试</h2>
-<h3>三级</h3>
->>>>>>> e8d22ae6aefb5fa7fbdd358a7042af272d0b6754
+---
+layout: default
+title: 当然我在扯淡
+---
+
+
+<a href="http://www.mindomo.com/view.htm?m=4006528863454a93b643329beae2729a">思维导图目录</a>
+|
+<a href="http://en.yinwang.org">部分英文博文</a>
+|
+<a href="http://www.mindomo.com/view.htm?m=8cc4f95228f942f8886106d876d1b041">中期记忆</a>
+|
+<a href="mailto:shredderyin@gmail.com">给我来信</a>
+|
+<a href="https://plus.google.com/117380487359344039293">Google+</a>
+
+
+<ul>
+　　{% for post in site.posts %}
+　　　　<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+　　{% endfor %}
+</ul>
+
+<img src="http://www.yinwang.org/images/yin-barcode.gif">
