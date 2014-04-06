@@ -1,4 +1,4 @@
-baseurl: /blog
+baseurl: /blog-cn
 permalink: :year/:month/:day/:title
 markdown: rdiscount
 pygments: true
