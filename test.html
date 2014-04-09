@@ -1,0 +1,36 @@
+---
+layout: default
+title: 测试
+---
+<blockquote>测试引用</blockquote>
+代码测试一遍
+<code>
+int Sensitivity = 20;
+int touch[6] = {0,0,0,0,0,0};
+char key[6] = {'A','W','S','D','J','K'};
+int i = 0;
+int analog = A0;
+
+void setup()
+{	
+for(int analog=A0; analog <= A5; analog++){
+pinMode(analog,INPUT_PULLUP);
+}
+
+}
+void loop()
+{
+analog = A0;
+for(int i=0; i<6; i++,analog++){
+touch[i] = 1024 - analogRead(analog);
+}
+for(int i=0; i<6; i++){
+if(touch[i] > Sensitivity){
+Keyboard.press(key[i]);
+}else{
+Keyboard.release(key[i]);
+}
+       }
+       delay(80);
+} 
+</code>
