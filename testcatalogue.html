@@ -1,0 +1,20 @@
+---
+layout: default
+title: 我只是在扯淡
+---
+<a href="">Make</a>&nbsp;
+|&nbsp;
+<a href="http://lllord.github.io/baedeker.html">入门手册</a>&nbsp;
+|&nbsp;
+<a href="">英文博客</a>&nbsp;
+|&nbsp;
+<a href="mailto:llLord43@gmail.com">给我来信</a>&nbsp;
+|&nbsp;
+<a href="http://lllord.github.io/about.html">About</a>
+
+
+<ul>
+　　{% for post in site.wiki %}
+　　　　<li><a href="http://lllord.github.io/blog-cn{{ post.url }}">{{ post.title }}</a></li>
+　　{% endfor %}
+</ul>
