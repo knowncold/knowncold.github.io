@@ -1,3 +1,7 @@
+---
+layout: default
+title: Ubuntu下sublime text 2中文输入
+---
 先安装能在sublime text 2显示中文的字体，有一个非常好的开源字体，叫做“文泉驿字体”，安装如下：
 
 	$ sudo apt-get install xfonts-wqy
