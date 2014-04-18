@@ -32,3 +32,5 @@ title: Linux命令行
 	$ head file
 	$ tail file
 	$ touch
+
+	$ man command
