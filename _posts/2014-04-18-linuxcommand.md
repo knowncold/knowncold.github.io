@@ -34,3 +34,5 @@ title: Linux命令行
 	$ touch
 
 	$ man command
+
+	$ tree 
