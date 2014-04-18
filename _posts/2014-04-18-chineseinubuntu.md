@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ubunt安装输入法
+title: Ubuntu安装输入法
 ---
 
 	$ sudo apt-get install ibus-googlepinyin
