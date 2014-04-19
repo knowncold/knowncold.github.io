@@ -35,4 +35,6 @@ title: Linux命令行
 
 	$ man command
 
-	$ tree 
+	$ tree
+	
+	$ scp /home/file root@192.168.1.105:home/pi 
