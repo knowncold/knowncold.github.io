@@ -18,3 +18,4 @@ Linux下使用[XAMPP](https://www.apachefriends.org/zh_cn/index.html)
 	$ sudo ./xampp-linux-1.8.3-4-installer.run
 	
 	会出现图形化安装界面。
+	$ sudo chmod 777 /opt/lampp/htdocs/ -R
