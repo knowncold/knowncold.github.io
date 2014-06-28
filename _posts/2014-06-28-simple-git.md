@@ -1,5 +1,5 @@
 ---
-layout: defult
+layout: default
 title: Git 常用
 ---
 		$ git status
