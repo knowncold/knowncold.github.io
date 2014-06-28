@@ -4,6 +4,7 @@ title: 树莓派编译运行雷神之锤3
 ---
 好不容易找到一个树莓派上可以玩的大型游戏。
 官方有很详细的[说明](http://www.raspbian.org/RaspbianQuake3),具体命令如下。
+
 - 更新
 	sudo apt-get update
     	sudo apt-get dist-upgrade
@@ -30,4 +31,4 @@ title: 树莓派编译运行雷神之锤3
 - 运行ioquake3.arm，开始玩耍吧。
 
 
-参考：［http://ju.outofmemory.cn/entry/3235］（http://ju.outofmemory.cn/entry/3235）
+参考：[http://ju.outofmemory.cn/entry/3235](http://ju.outofmemory.cn/entry/3235)
