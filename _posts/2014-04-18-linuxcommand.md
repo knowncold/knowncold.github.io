@@ -37,4 +37,6 @@ title: Linux命令行
 
 	$ tree
 	
-	$ scp /home/file root@192.168.1.105:home/pi 
+	$ scp /home/file root@192.168.1.105:home/pi
+	
+	$ tar -jxvf xxx.tar.bz2
