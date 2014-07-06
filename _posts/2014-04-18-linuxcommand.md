@@ -40,3 +40,10 @@ title: Linux命令行
 	$ scp /home/file root@192.168.1.105:home/pi
 	
 	$ tar -jxvf xxx.tar.bz2
+	
+	$ unzip xxx.zip
+
+	$ df -h
+	$ sudo dd bs=1M if=~/下载/2014-01-07-wheezy-raspbian.img of=/dev/sdb
+
+	$ sudo umount /dev/sdb1
