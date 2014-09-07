@@ -214,6 +214,24 @@ title: 如何用一个下午（3小时）完成三个人合作的浙江省二等
 
 ###使用蓝牙###
 使用蓝牙，可以把数据发送到配对的手机或电脑上，这里使用了OpenJumper的蓝牙模块，使用很简单，和串口几乎一样。
+
+	#include <NewPing.h>
+
+	#define TRIGGER_PIN  12  
+	#define ECHO_PIN     11  
+
+	NewPing sonar(TRIGGER_PIN, ECHO_PIN); //设置相关的引脚定义
+
+	void setup() {
+	  Serial.begin(9600); //设置串口
+	}
+
+	void loop() {
+	  delay(50);//每50ms发射接收一次
+	  unsigned int hait = sonar.ping()/100;//接收数据
+	  Serial.print(hait);
+	}
+
 效果如下：
 
 ![蓝牙效果](http://ww3.sinaimg.cn/mw690/c7749b66gw1ek45u64sgjj20k00zk76v.jpg)
