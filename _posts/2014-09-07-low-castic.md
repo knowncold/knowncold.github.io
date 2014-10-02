@@ -33,6 +33,7 @@ title: 如何用一个下午（3小时）完成三个人合作的浙江省二等
 主角是超声波传感器，所以先去下载了超声波库，在GoogleCode上，如果下载不了，可以去[这里](http://pan.baidu.com/s/1eQ9ZYSE)。
 
 实验一下库里的例程，就基本会用了。
+
 	#include <NewPing.h>
 	
 	#define TRIGGER_PIN  12  
