@@ -2,14 +2,11 @@
 layout: default
 title: Windows下通过USB线Edison刷Yocto指南
 ---
-
-
----
 >看到论坛已经有很多上手开机教程了，但没有人写怎么刷机，而且学会刷机之后就不怕玩坏板子了:）  
 >测试系统：Windows8.1
 
 ###下载镜像
----
+
 既然要刷机，首先就要[下载Yocto系统镜像](http://www.intel.com/support/edison/sb/CS-035180.htm)
 在网页上找到它。  
 ![Yocto](https://farm8.staticflickr.com/7323/15946001653_f111e4836e_o.png)
@@ -23,7 +20,7 @@ title: Windows下通过USB线Edison刷Yocto指南
 ![Yocto](https://farm9.staticflickr.com/8654/15943653494_3f21597932_z.jpg)
 中间的USB接口使用来供电和数据交换的，角落的USB接口则是用来串口调试的，由于我手头没有合适的DC插头，所以通过USB供电。
 >注意：
->USB连接线质量必须过关
+>USB连接线质量必须过关  
 >将中间的拨动开关拨到指向USB接口的一侧
 
 连接正常的话，Edison的绿灯会亮起来,计算机会识别出一个储存设备，记住此时的盘符（比如我这幅图的F）。  
