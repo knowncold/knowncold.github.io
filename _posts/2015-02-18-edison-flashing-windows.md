@@ -1,4 +1,9 @@
-#Windows下通过USB线Edison刷Yocto指南
+---
+layout: default
+title: Windows下通过USB线Edison刷Yocto指南
+---
+
+
 ---
 >看到论坛已经有很多上手开机教程了，但没有人写怎么刷机，而且学会刷机之后就不怕玩坏板子了:）  
 >测试系统：Windows8.1
