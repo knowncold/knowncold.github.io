@@ -63,6 +63,7 @@ build/release-linux-arm/baseq3:
 
 `pak0.pk3`, `pak1.pk3`, `pak2.pk3`, `pak3.pk3`, `pak4.pk3`, `pak5.pk3`, `pak6.pk3`, p`ak7.pk3`, `pak8.pk3`  
 网上有人整理好了,去[网盘](http://dl.vmall.com/c0dylv4dzp)下载就行。
+
 - 提升pi用户的权限
 
 ```
