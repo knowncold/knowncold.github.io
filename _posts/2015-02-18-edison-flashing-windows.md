@@ -43,7 +43,7 @@ title: Windows下通过USB线Edison刷Yocto指南
 ![Yocto](https://farm8.staticflickr.com/7452/16565075892_0e36b93b93_o.png)
 ###重启Edison，并更新。
 打开设备管理器，找到Edison的串口  
-![Yocto](https://farm8.staticflickr.com/7418/16380266467_0b3be070b0_b.jpg)
+![Yocto](https://farm8.staticflickr.com/7418/16380266467_0b3be070b0.jpg)
 记住这个`COM5`
 >为了保险，可以右键打开属性
 >查看端口设置

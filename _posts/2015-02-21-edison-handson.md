@@ -38,6 +38,7 @@ Edison供电有两种方式
 打开设备管理器，找到Edison的串口    ![](https://farm8.staticflickr.com/7418/16380266467_0b3be070b0.jpg)  
 
 >注意：务必右键查看串口属性，并使其每秒位数为115200  
+
 ![](https://farm8.staticflickr.com/7419/16596254741_ce2f081dd7_z.jpg)
 
 ![](https://farm8.staticflickr.com/7407/16378720610_a4f143b23c_o.png)  
