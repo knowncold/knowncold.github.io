@@ -19,7 +19,7 @@ title: Edison上手
 |两根Micro USB连接线|或者一根Micro USB连接线和一个7-15V的DC电源适配器|
 
 下面就介绍一下windows下上手Edison的过程。
-![](https://farm8.staticflickr.com/7283/16597444615_aa10ebc358_c.jpg)
+![](https://farm8.staticflickr.com/7283/16597444615_aa10ebc358.jpg)
 
  - 第一步当然要组装好Edison，接到Arduino扩展板上，跳帽什么的就先不要动了。
  - 上电和连接  
@@ -35,7 +35,7 @@ Edison供电有两种方式
 下载[FTDI驱动](http://www.ftdichip.com/Drivers/CDM/CDM%20v2.10.00%20WHQL%20Certified.exe)，按照提示，一步步下去安装完成即可。  
 
  - 用Putty进行串口调试  
-打开设备管理器，找到Edison的串口    ![](https://farm8.staticflickr.com/7418/16380266467_0b3be070b0_b.jpg)  
+打开设备管理器，找到Edison的串口    ![](https://farm8.staticflickr.com/7418/16380266467_0b3be070b0.jpg)  
 
 >注意：务必右键查看串口属性，并使其每秒位数为115200  
 ![](https://farm8.staticflickr.com/7419/16596254741_ce2f081dd7_z.jpg)
@@ -65,6 +65,6 @@ configure_edison --password
 ifconfig
 ```
 可以查看Edison的ip地址，在浏览器中输入相应的地址，即可查看它的web页面。  
-![](https://farm8.staticflickr.com/7351/16411604119_91e83b442c_b.jpg)
+![](https://farm8.staticflickr.com/7351/16411604119_91e83b442c.jpg)
 参考：
- - http://www.intel.com/support/edison/sb/CS-035336.htm
+ - [http://www.intel.com/support/edison/sb/CS-035336.htm](http://www.intel.com/support/edison/sb/CS-035336.htm)
