@@ -1,25 +1,27 @@
 ---
-titie: Arduino M0 Pro 上手
+title: Arduino M0 Pro 上手
 layout: default
 ---
 首先为了连接Arduino M0 Pro，需要一根Micro USB线，同时提供供电和编程功能。  
-连接USB线到板上的Programming端口，这个端口靠近DC电源接口，为了烧写代码，在IDE中从工具>主板的菜单选择Arduino M0 Pro (Programming port)，在串口选择里面选择正确的串口。
+连接USB线到板上的Programming端口，这个端口靠近DC电源接口，为了烧写代码，在IDE中从 工具>主板 的菜单选择Arduino M0 Pro(Programming port)，在串口选择里面选择正确的串口。
 
->必须要使用Arduino.org家的Arduino IDE1.7.5或之后的IDE,也可以尝试Arduino Studio。
+>必须要使用Arduino.org家的Arduino IDE1.7.5或之后的IDE  
+>也可以尝试Arduino Studio。
 
-##和其他基于Atmega主板的区别  
+###和其他基于Atmega主板的区别  
 Arduino M0 Pro有和UNO的一样的接口布局，总体而言，你可以像使用其他的主板一样使用M0 Pro，显然这里会有很多重要的区别和一些函数的扩展。
 
 ##电压  
 M0 Pro上的单片机的工作电压是3.3V，这也就意味着你不能够在它的IO口上使用超过3.3V的电压，当你连接传感器和驱动器的时候也一定要注意电压限制，如果使用一般主板支持的5V电压，当然会造成不可逆的伤害。  
 板子也可以通过DC电源接口来获得电源（6-20V）。  
+
 M0 Pro有一个支持USBhost协议的高效电压转换器，使用Native port作为USB host的时，主板要给这些USB设备供电，比如鼠标或键盘。
 
 ##M0 Pro上的串口  
 Arduino M0 Pro有两个USB端口，Native port(通过SerialUSB对象来支持CDC虚拟通信)直接连在SAMD21单片机上，另一个Programming port则是连接在ATMEL embedded debugger (EDBG)，作为板上的编程器和调试器同时扮演着USB转串口的角色，Programming port是默认的用来烧写代码和通信的端口。
 Programming port 连接在SAMD21的第一个UART上，在写代码的时候它就是"Serial"对象。
 
-而Native port直接连在SAMD21的USBhost引脚上，使用Native port可以让M0 Pro直接作为USB外围设备连接到电脑上，也可以连接其他的外围USB设备包括鼠标、键盘、Android手机，在写代码的时候就可以使用"SerialUSB"来操作。
+而Native port直接连在SAMD21的USBhost引脚上，使用Native port可以让M0 Pro直接作为USB外围设备连接到电脑上，也可以连接其他的外围USB设备包括鼠标、键盘、Android手机，在写代码的时候就可以通过"SerialUSB"对象来操作。
 
 ##Native port  
 以1200波特率打开或关闭这个串口的时：flash的内存会被擦除，然后重新启动bootloader。这个过程是被单片机控制着的，所以如果单片机被任何原因打断，很可能这个擦除过程会失败。
