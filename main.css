@@ -15,6 +15,7 @@ H1 {
 H2 {
     font-family: STKaiti, "Kaiti SC", "SimSun", "Palatino Linotype", "Book Antiqua", Palatino, serif;
     margin-bottom: 60px;
+    margin-bottom: 40px;
     padding: 5px;
     border-bottom: 2px LightGrey solid;
     width: 90%;
@@ -90,8 +91,12 @@ a:hover {
 
 
 img {
+    margin-left: 10px;
     display: block;
-    margin: 30px auto 30px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 
