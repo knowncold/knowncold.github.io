@@ -1,7 +1,7 @@
 baseurl: 
 permalink: :year/:month/:day/:title
 markdown: Kramdown
-highlighter: pygments
+highlighter: rouge
 date_format: "ordinal"
 subscribe_rss: /atom.xml
 gems: [jekyll-paginate]
