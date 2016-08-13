@@ -1,0 +1,54 @@
+<p>感觉还是很早以前买的市面上第一本书最好《微信公众平台应用开发和实战》，虽然后来又买了两本，一本很全，一本专讲高级接口，但还是打算先看完前一本，讲得很明了简单。</p>
+
+<p>运行在云端的服务器中的PHP文件，其实就是我们一直通过API或者APP或者浏览器访问的文件，它在Apache软件下，可以同时对许多请求作出回复，即公众平台对所有用户的同时回复。</p>
+
+<p>微信公众平台原理就是移动端发送消息到微信官方服务器，官方服务器再转给我的虚拟主机，在这里就需要验证是否为正常请求。</p>
+
+<p>验证方式就是使用三个参数，
+|signature	|微信加密签名|
+|timestamp	|时间戳|
+|nonce		|随机数|</p>
+
+<p>还有一个参数是，</p>
+
+<p>步骤为
+- 获取GET数据
+- 将token、timestamp、nonce进行字典序排序
+- 拼接成一个字符串进行SHA1加密（不可逆）
+- PHP得到自己的签名，如果得到的签名和请求的签名一样，那就是正常请求了</p>
+
+<p>写成一个PHP函数就是：
+```php
+function checksignature(){
+	$signature = $_GET[‘signature’];
+	$timestamp = $_GET[‘timestamp’];
+	$nonce = $_GET[‘nonce’];
+	$sgnary = array($signature,$timestamp,$nonce);
+	sort($sgnary);
+	$sgnstr = implode($sgnary);
+	$sgnmy = sha1(sgnstr);
+	if ($sgnmy == $signature) {
+		return true;
+	}else{
+		return false;
+	}
+}</p>
+
+<p>```</p>
+
+<p>还有一个参数是，</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>echostr</td>
+      <td>随机字符串</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>它只用在开始时后台接口配置，此时官方服务器对于公众平台主机的请求会多一个echostr&gt;，虚拟主机返回一个echostr，才能实现验证。</p>
+
+<p>书中说到：针对可能第三方截获到signature、timestamp、nonce，并发起恶意请求，此时可以对timestamp和当前时间进行比较，时间差大于一定值就判定恶意，但书中没有相应的代码。</p>
+
+<p>问题：如果有人知道我的Token，是否意味就可以发起恶意请求？</p>
