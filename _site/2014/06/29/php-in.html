@@ -1,0 +1,66 @@
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="http://blog.knowncold.me/main.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+<title>PHP入门杂</title>
+</head>
+
+
+<h2>PHP入门杂</h2>
+
+<ul>
+  <li>开头要有<code class="highlighter-rouge">&lt;?php</code>,结尾要有<code class="highlighter-rouge">?&gt;</code>。</li>
+  <li>常量定义
+  define (“TOKEN”,random);</li>
+  <li>变量直接使用，不用定义类型。
+  $a = 1;
+  $b = “我是变量”;</li>
+  <li>语句结束有引号。</li>
+  <li>函数声明。
+<code class="highlighter-rouge">php
+function name(){
+  //code
+  return 0;
+}
+</code></li>
+  <li>退出
+  exit(0);</li>
+  <li>等于<code class="highlighter-rouge">==</code>
+<code class="highlighter-rouge">0</code>和<code class="highlighter-rouge">false</code>等于</li>
+  <li>全等于<code class="highlighter-rouge">===</code>
+可区分<code class="highlighter-rouge">0</code>、<code class="highlighter-rouge">false</code>、空字符串和空数组。</li>
+  <li>
+    <p>内建函数
+<code class="highlighter-rouge">php
+  simplexml_load_string(data)；//处理XML
+  $a = array($a,$b,$c);		//组装数组
+  sort ( $array );		//字典排序，即按照字母顺序
+  $d = implode ( $array );	//将数组合并成字符串
+  sha1 ($d);			//字符串SHA1加密
+  var_dump($ary);
+  var_export($ary);	//返回值，无类型,有格式
+  file_put_contents("/st.txt","$a",FILE_APPEND);
+</code></p>
+  </li>
+  <li>echo “<br />”;</li>
+  <li>echo $a;</li>
+  <li>
+    <p>echo “$a,$b”; ==  echo $a.”,”.$b;</p>
+  </li>
+  <li>数组
+$ary = array(“s”,”w”,2);
+$ary[0]= “s”;
+$ary = array(
+  ‘dog’ =&gt; 23;
+  2 =&gt; 38
+);
+$ary[‘q’] = “asd”;</li>
+</ul>
+
+
+
+</body>
+
+</html>

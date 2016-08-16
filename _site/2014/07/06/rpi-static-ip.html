@@ -1,0 +1,82 @@
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="http://blog.knowncold.me/main.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+<title>树莓派设置静态地址</title>
+</head>
+
+
+<h2>树莓派设置静态地址</h2>
+
+<p>由于学校机房的特殊环境，一根网线好像对应一个静态地址，所以树莓派不能使用原装的dhcp方式，需要手动设置。</p>
+
+<p>一次性设置方式：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo ifconfig eth0 192.168.1.222 netmask 255.255.255.0
+$ sudo route add default gw 192.168.1.1
+$ sudo ifconfig eth0 up
+</code></pre>
+</div>
+
+<p>可以马上测试一下</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo apt-get update
+</code></pre>
+</div>
+
+<p>永久性测试方式：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo vim /etc/network/interfaces
+</code></pre>
+</div>
+
+<p>修改为</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>auto lo
+
+iface lo inet loopback
+iface eth0 inet static
+
+address 192.168.1.222
+netmask 255.255.255.0
+gateway 192.168.1.1
+
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+</code></pre>
+</div>
+
+<p>重启服务
+	$ sudo service networking restart</p>
+
+<p>修改DNS</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo vim /etc/resolv.conf
+</code></pre>
+</div>
+
+<p>改为类似于这样的</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>nameserver 8.8.8.8
+nameserver 8.8.4.4
+nameserver 208.67.220.220
+nameserver 208.67.222.222	
+</code></pre>
+</div>
+
+<p>再测试一下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo apt-get update
+</code></pre>
+</div>
+
+<p>PS:  似乎设置静态地址对于WiFi连接也有影响。</p>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="http://blog.knowncold.me/main.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+<title>Ubuntu下sublime text 2中文输入</title>
+</head>
+
+
+<h2>Ubuntu下sublime text 2中文输入</h2>
+
+<p>先安装能在sublime text 2显示中文的字体，有一个非常好的开源字体，叫做“文泉驿字体”，安装如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ sudo apt-get install xfonts-wqy
+</code></pre>
+</div>
+
+<p>官方网站：http://wenq.org/index.cgi?%E9%A6%96%E9%A1%B5</p>
+
+<p>然后配置sublime text 2的 “Settings-User”，在里面加上：
+	“font_face”: “WenQuanYi Micro Hei Mono”</p>
+
+<p>最后安装一个sublime text 2的插件 InputHelper，用于输入中文，安装如下：
+	cd ~/.config/sublime-text-2/Packages
+	git clone https://github.com/xgenvn/InputHelper.git
+使用方法：</p>
+
+<ol>
+  <li>保证ibus/scim是在gtk程序下正常运行。</li>
+  <li>Ctrl+Shift+Z 调出输入框（虽然不习惯也不爽，但能支持中文输入已经不错啦^_^)</li>
+  <li>在输入框窗口输入中文，然后按下Enter或者Ctrl+Enter键输入文字到sublime text 2</li>
+</ol>
+
+<p>来源：<a href="http://www.zhihu.com/question/20163104">知乎</a></p>
+
+
+
+</body>
+
+</html>

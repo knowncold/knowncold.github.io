@@ -1,0 +1,78 @@
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="http://blog.knowncold.me/main.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+<title>Windows下通过USB线Edison刷Yocto指南</title>
+</head>
+
+
+<h2>Windows下通过USB线Edison刷Yocto指南</h2>
+
+<blockquote>
+  <p>看到论坛已经有很多上手开机教程了，但没有人写怎么刷机，而且学会刷机之后就不怕玩坏板子了:）<br />
+测试系统：Windows8.1</p>
+</blockquote>
+
+<p>###下载镜像</p>
+
+<p>既然要刷机，首先就要<a href="http://www.intel.com/support/edison/sb/CS-035180.htm">下载Yocto系统镜像</a>
+在网页上找到它。<br />
+<img src="https://farm8.staticflickr.com/7323/15946001653_f111e4836e_o.png" alt="Yocto" /></p>
+
+<p>解压后可能是这样的</p>
+
+<p><img src="https://farm9.staticflickr.com/8598/16566205225_5980201d67_b.jpg" alt="Yocto" /></p>
+
+<p>###连接Edison<br />
+<img src="https://farm9.staticflickr.com/8654/15943653494_3f21597932_z.jpg" alt="Yocto" />
+中间的USB接口使用来供电和数据交换的，角落的USB接口则是用来串口调试的，由于我手头没有合适的DC插头，所以通过USB供电。
+&gt;注意：
+&gt;USB连接线质量必须过关<br />
+&gt;将中间的拨动开关拨到指向USB接口的一侧</p>
+
+<p>连接正常的话，Edison的绿灯会亮起来,计算机会识别出一个储存设备，记住此时的盘符（比如我这幅图的F）。<br />
+<img src="https://farm9.staticflickr.com/8616/16565076942_412f555139_b.jpg" alt="Yocto" /></p>
+
+<p>###安装Edison必要的两个驱动
+在<a href="http://www.arduino.cn/thread-7894-1-1.html">这里</a>已经有介绍了，就先不重复了。
+###移除板上的系统
+打开Windows的命令行界面，<code class="highlighter-rouge">Win+R</code>，并输入<code class="highlighter-rouge">CMD</code>。<br />
+<img src="https://farm9.staticflickr.com/8622/15946001063_f173a31538_b.jpg" alt="Yocto" /></p>
+
+<p>输入刚才的盘符对应的字母<code class="highlighter-rouge">f:</code>，进入该目录，输入<code class="highlighter-rouge">dir</code>确保该目录是Edison。<br />
+<img src="https://farm9.staticflickr.com/8630/16566204175_b9c3901864_b.jpg" alt="Yocto" /></p>
+
+<p>输入<code class="highlighter-rouge">del *</code>,删除所有文件。可以再输入<code class="highlighter-rouge">dir</code>进行查看。</p>
+
+<p><img src="https://farm8.staticflickr.com/7457/16378519178_d383e149e9_o.png" alt="Yocto" />
+###复制并粘贴最新的镜像
+将之前的镜像文件解压后，全部复制到刚清空的盘里，并覆盖重复文件。<br />
+<img src="https://farm8.staticflickr.com/7452/16565075892_0e36b93b93_o.png" alt="Yocto" />
+###重启Edison，并更新。
+打开设备管理器，找到Edison的串口<br />
+<img src="https://farm8.staticflickr.com/7418/16380266467_0b3be070b0.jpg" alt="Yocto" />
+记住这个<code class="highlighter-rouge">COM5</code>
+&gt;为了保险，可以右键打开属性
+&gt;查看端口设置
+&gt;将每秒位数设置为115200</p>
+
+<p>打开PuTTY，输入相应的<code class="highlighter-rouge">COM</code>和<code class="highlighter-rouge">SPEED</code><br />
+<img src="https://farm8.staticflickr.com/7407/16378720610_a4f143b23c_o.png" alt="Yocto" /></p>
+
+<p>单击<code class="highlighter-rouge">Open</code>，进入串口调试。
+按一次回车键并登录，输入<code class="highlighter-rouge">reboot ota</code></p>
+
+<p><img src="https://farm8.staticflickr.com/7376/16566195995_8d1f17331e_b.jpg" alt="Yocto" />
+Edison就开始刷入新的系统了，你可以在PuTTY上看到全过程:）</p>
+
+<p><img src="https://farm8.staticflickr.com/7334/15945992803_a7aff15c25_b.jpg" alt="Yocto" />
+几分钟之后，就是一个全新的Edison了:D<br />
+<img src="https://farm8.staticflickr.com/7333/15943615694_5ba7a21614_b.jpg" alt="Yocto" /></p>
+
+
+
+</body>
+
+</html>
