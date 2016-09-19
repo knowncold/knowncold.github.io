@@ -1,5 +1,5 @@
 body {
-    font-family: "SimSun", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
     font-size: 18px;
     margin: 5% 20% 5% 20%;
     padding: 2% 5% 5% 5%;
@@ -9,11 +9,11 @@ body {
 }
 
 H1 {
-    font-family: STKaiti, "Kaiti SC", "SimSun", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
 }
 
 H2 {
-    font-family: STKaiti, "Kaiti SC", "SimSun", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
     margin-bottom: 60px;
     margin-bottom: 40px;
     padding: 5px;
@@ -25,7 +25,7 @@ H2 {
 
 
 H3 {
-    font-family: STKaiti, "Kaiti SC", "SimSun", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
     margin-top: 40px;
     margin-bottom: 30px;
     border-bottom: 1px LightGrey solid;
@@ -36,7 +36,7 @@ H3 {
 
 
 H4 {
-    font-family: STKaiti, "Kaiti SC", "SimSun", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
     margin-top: 40px;
     margin-bottom: 30px;
     border-bottom: 1px LightGrey solid;
