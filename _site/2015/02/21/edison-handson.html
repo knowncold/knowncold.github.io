@@ -52,10 +52,16 @@
   <li>第一步当然要组装好Edison，接到Arduino扩展板上，跳帽什么的就先不要动了。</li>
   <li>上电和连接<br />
 Edison供电有两种方式</li>
-  <li>第一种是直接连接右上角的接口，官网说7-15V DC，我暂时没有这种电源适配器，就选择了第二种方式。<br />
-  &gt; 但是如果你要使用Wifi，舵机或其他Arduino扩展板，比较推荐这种方式来供电。</li>
-  <li>第二种是通过USB线由计算机供电，首先需要将板子右边中间的拨动开关拨到朝两个USB口的位置，然后分别用两根USB线把这两个接口连到计算机的USB接口上，其中，靠上的那个接口用于供电和数据传输（包括后面的Arduino程序下载），下面的一个接口，则是用于串口调试。<br />
-  &gt;用于供电的计算机USB口可能会出现电流不足，比如我的笔记本一个USB口就出现了这种情况，这时可以使用额外供电的读卡器来充当计算机的USB口。</li>
+  <li>第一种是直接连接右上角的接口，官网说7-15V DC，我暂时没有这种电源适配器，就选择了第二种方式。
+    <blockquote>
+      <p>但是如果你要使用Wifi，舵机或其他Arduino扩展板，比较推荐这种方式来供电。</p>
+    </blockquote>
+  </li>
+  <li>第二种是通过USB线由计算机供电，首先需要将板子右边中间的拨动开关拨到朝两个USB口的位置，然后分别用两根USB线把这两个接口连到计算机的USB接口上，其中，靠上的那个接口用于供电和数据传输（包括后面的Arduino程序下载），下面的一个接口，则是用于串口调试。
+    <blockquote>
+      <p>用于供电的计算机USB口可能会出现电流不足，比如我的笔记本一个USB口就出现了这种情况，这时可以使用额外供电的读卡器来充当计算机的USB口。</p>
+    </blockquote>
+  </li>
   <li>上电后，板上的两个LED会亮起来，如果出现亮暗不稳定，就意味着电流不足。<br />
 如果计算机出现提示，有文件驱动器插入，则表明Edison已经正常启动。<br />
 <img src="https://farm9.staticflickr.com/8616/16565076942_412f555139_z.jpg" alt="" /></li>
@@ -74,33 +80,36 @@ Edison供电有两种方式</li>
 <p><img src="https://farm8.staticflickr.com/7419/16596254741_ce2f081dd7_z.jpg" alt="" /></p>
 
 <p><img src="https://farm8.staticflickr.com/7407/16378720610_a4f143b23c_o.png" alt="" /><br />
-在putty的串口连接中填写相应的串口号和速度即可连接。<br />
-&gt;连接后需回车一次才有显示。</p>
+在putty的串口连接中填写相应的串口号和速度即可连接。</p>
+<blockquote>
+  <p>连接后需回车一次才有显示。</p>
+</blockquote>
 
 <p><img src="https://farm8.staticflickr.com/7423/15977669613_a52ac6c0a6_z.jpg" alt="" />
 这就进入了Edison的命令行！</p>
 
 <ul>
   <li>设置用户名，密码，wifi等可以运行
-<code class="highlighter-rouge">
-configure_edison --setup
-</code>
-按照提示进行下去即可。
-也可以运行
-<code class="highlighter-rouge">
-configure_edison --wifi
-</code>
-来设置Wifi，而不设置用户名等，此时SSH服务无法打开，必须要设置密码才行。
-<code class="highlighter-rouge">
-configure_edison --password
-</code>
-输入
-<code class="highlighter-rouge">
-ifconfig
-</code>
-可以查看Edison的ip地址，在浏览器中输入相应的地址，即可查看它的web页面。<br />
+    <div class="highlighter-rouge"><pre class="highlight"><code>configure_edison --setup
+</code></pre>
+    </div>
+    <p>按照提示进行下去即可。
+也可以运行</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>configure_edison --wifi
+</code></pre>
+    </div>
+    <p>来设置Wifi，而不设置用户名等，此时SSH服务无法打开，必须要设置密码才行。</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>configure_edison --password
+</code></pre>
+    </div>
+    <p>输入</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code>ifconfig
+</code></pre>
+    </div>
+    <p>可以查看Edison的ip地址，在浏览器中输入相应的地址，即可查看它的web页面。<br />
 <img src="https://farm8.staticflickr.com/7351/16411604119_91e83b442c.jpg" alt="" />
-参考：</li>
+参考：</p>
+  </li>
   <li><a href="http://www.intel.com/support/edison/sb/CS-035336.htm">http://www.intel.com/support/edison/sb/CS-035336.htm</a></li>
 </ul>
 

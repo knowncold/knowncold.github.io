@@ -10,16 +10,18 @@
 
 <h2>Windows安装Vundle</h2>
 
-<p>###安装Git
-Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle可以在_vimrc里面通过简单的指令，一键安装/更新/删除所有插件。</p>
+<h3 id="git">安装Git</h3>
+<p>Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle可以在_vimrc里面通过简单的指令，一键安装/更新/删除所有插件。</p>
 
-<p>下载并安装<a href="https://git-for-windows.github.io/">Git-For-Windows</a>
-&gt;注意添加环境变量</p>
+<p>下载并安装<a href="https://git-for-windows.github.io/">Git-For-Windows</a></p>
+<blockquote>
+  <p>注意添加环境变量</p>
+</blockquote>
 
 <p>在命令提示符中输入<code class="highlighter-rouge">git --version</code>能正常显示时则安装成功</p>
 
-<p>###配置Curl脚本
-在Git的安装路径的cmd文件夹下新建一个curl.cmd文件，编辑内容为</p>
+<h3 id="curl">配置Curl脚本</h3>
+<p>在Git的安装路径的cmd文件夹下新建一个curl.cmd文件，编辑内容为</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>@rem Do not use "echo off" to not affect any child calls.
 @setlocal
@@ -43,7 +45,7 @@ Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle�
 
 <p>保存后，在命令提示符输入<code class="highlighter-rouge">curl --version</code>能正常显示时则安装成功</p>
 
-<p>###下载Vundle</p>
+<h3 id="vundle">下载Vundle</h3>
 
 <p>从Github上clone下来（其实下载去网页下载zip文件然后复制过去也是可以的）</p>
 
@@ -62,8 +64,8 @@ Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle�
 </code></pre>
 </div>
 
-<p>###配置Vundle并安装插件
-编辑_vimrc文件</p>
+<h3 id="vundle-1">配置Vundle并安装插件</h3>
+<p>编辑_vimrc文件</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>set nocompatible              " 去除VI一致性,必须
 filetype off                  " 必须
@@ -119,10 +121,10 @@ filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和
 
 <p>保存_vimrc文件后，打开<code class="highlighter-rouge">gvim</code>，运行<code class="highlighter-rouge">:PluginInstall</code></p>
 
-<p>###参考资料
-<a href="https://github.com/VundleVim/Vundle.vim/blob/master/README_ZH_CN.md">vundle_README</a><br />
+<h3 id="section">参考资料</h3>
+<p><a href="https://github.com/VundleVim/Vundle.vim/blob/master/README_ZH_CN.md">Vundle_README</a><br />
 <a href="http://blog.csdn.net/zhuxiaoyang2000/article/details/8636472">Windows下安装Vim插件管理Vundle</a><br />
-<a href="https://github.com/knowncold/IDE_Settings/blob/master/Vim/_vimrc">我的_vimrc文件</a></p>
+<a href="https://github.com/knowncold/IDE_Settings/blob/master/Vim/_vimrc">我的_vimrc</a></p>
 
 
 

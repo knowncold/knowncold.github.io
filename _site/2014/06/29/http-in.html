@@ -19,18 +19,18 @@
 <p>GET可以直接从链接看出来，比如
 	http://example.com/index.php?a=qwerqwr&amp;b=qwrqwr&amp;asdaf</p>
 
-<p>PHP拿到的GET数据<code class="highlighter-rouge">$_GET </code>就是一个数组，需要其中的数据时，可以这么写：
-<code class="highlighter-rouge">php
-	$a = $_GET ['a'];
+<p>PHP拿到的GET数据<code class="highlighter-rouge">$_GET </code>就是一个数组，需要其中的数据时，可以这么写：</p>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>	$a = $_GET ['a'];
 	$b = $_GET ['b'];
-</code></p>
+</code></pre>
+</div>
 
 <p>而POST数据不是数组，而且它的数据比GET大很多。
-在公众平台开发中，它通常是XML描述，需要数据时，可以这么写：
-<code class="highlighter-rouge">php
-$xmlobj = simplexml_load_string($HTTP_RAW_POST_DATA);
+在公众平台开发中，它通常是XML描述，需要数据时，可以这么写：</p>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>$xmlobj = simplexml_load_string($HTTP_RAW_POST_DATA);
 $a = $xmlobj -&gt; a;
-</code></p>
+</code></pre>
+</div>
 
 <p>GET和POST是主要的两种网络HTTP传输方式，不仅仅用在这里。</p>
 

@@ -3,7 +3,7 @@ layout: default
 title: Windows安装Vundle
 ---
 
-###安装Git
+### 安装Git
 Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle可以在_vimrc里面通过简单的指令，一键安装/更新/删除所有插件。
 
 下载并安装[Git-For-Windows](https://git-for-windows.github.io/)
@@ -11,7 +11,7 @@ Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle�
 
 在命令提示符中输入`git --version`能正常显示时则安装成功
 
-###配置Curl脚本
+### 配置Curl脚本
 在Git的安装路径的cmd文件夹下新建一个curl.cmd文件，编辑内容为
 
 	@rem Do not use "echo off" to not affect any child calls.
@@ -32,7 +32,7 @@ Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle�
 
 保存后，在命令提示符输入`curl --version`能正常显示时则安装成功
 
-###下载Vundle
+### 下载Vundle
 
 从Github上clone下来（其实下载去网页下载zip文件然后复制过去也是可以的）
 
@@ -47,7 +47,7 @@ Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle�
 	+---------vundle  
 	+------------autoload 
 
-###配置Vundle并安装插件
+### 配置Vundle并安装插件
 编辑_vimrc文件
 
 	set nocompatible              " 去除VI一致性,必须
@@ -100,7 +100,7 @@ Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle�
 
 保存_vimrc文件后，打开`gvim`，运行`:PluginInstall`
 
-###参考资料
-[vundle_README](https://github.com/VundleVim/Vundle.vim/blob/master/README_ZH_CN.md)  
+### 参考资料
+[Vundle_README](https://github.com/VundleVim/Vundle.vim/blob/master/README_ZH_CN.md)  
 [Windows下安装Vim插件管理Vundle](http://blog.csdn.net/zhuxiaoyang2000/article/details/8636472)  
-[我的_vimrc文件](https://github.com/knowncold/IDE_Settings/blob/master/Vim/_vimrc)  
+[我的_vimrc](https://github.com/knowncold/IDE_Settings/blob/master/Vim/_vimrc)  

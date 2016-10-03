@@ -23,18 +23,19 @@
 
 <p>还有一个参数是，</p>
 
-<p>步骤为
-- 获取GET数据
-- 将token、timestamp、nonce进行字典序排序
-- 拼接成一个字符串进行SHA1加密（不可逆）
-- PHP得到自己的签名，如果得到的签名和请求的签名一样，那就是正常请求了</p>
+<p>步骤为</p>
+<ul>
+  <li>获取GET数据</li>
+  <li>将token、timestamp、nonce进行字典序排序</li>
+  <li>拼接成一个字符串进行SHA1加密（不可逆）</li>
+  <li>PHP得到自己的签名，如果得到的签名和请求的签名一样，那就是正常请求了</li>
+</ul>
 
-<p>写成一个PHP函数就是：
-```php
-function checksignature(){
-	$signature = $_GET[‘signature’];
-	$timestamp = $_GET[‘timestamp’];
-	$nonce = $_GET[‘nonce’];
+<p>写成一个PHP函数就是：</p>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>function checksignature(){
+	$signature = $_GET['signature'];
+	$timestamp = $_GET['timestamp'];
+	$nonce = $_GET['nonce'];
 	$sgnary = array($signature,$timestamp,$nonce);
 	sort($sgnary);
 	$sgnstr = implode($sgnary);
@@ -44,9 +45,10 @@ function checksignature(){
 	}else{
 		return false;
 	}
-}</p>
+}
 
-<p>```</p>
+</code></pre>
+</div>
 
 <p>还有一个参数是，</p>
 
