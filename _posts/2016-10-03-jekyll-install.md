@@ -3,7 +3,7 @@ layout: default
 title: Jekyll本地安装
 ---
 
-	sudo apt install ruby-full
+	sudo apt install ruby-full  
 	sudo gem install jekyll
 
 

@@ -1,0 +1,31 @@
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="/main.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+<title>Kramdown 蛋疼的语法</title>
+</head>
+
+
+<h2>Kramdown 蛋疼的语法</h2>
+
+<p>多级标题无法解析，#形同虚设</p>
+
+<p>之前改过一次Jekyll的配置文件，把Markdown引擎改成了Kramdown，导致各种标题无法解析，一开始以为是引擎选错了，或者这个Kramdown引擎有特别的地方。</p>
+
+<p>翻了各种文档，并没有提到特别需要注意之处，终于刚刚搜到Kramdown的语法中，需要在#和标题之间加一个空格。</p>
+
+<p>而且正好在写这个的时候，发现头信息中的layout，title冒号后面也要加一个空格。</p>
+
+<p>还有Githuh的引擎要求引用<code class="highlighter-rouge">&gt;</code>之前需要一个空行呢</p>
+
+<blockquote>
+  <p>「厉害了我的哥」</p>
+</blockquote>
+
+
+
+</body>
+
+</html>

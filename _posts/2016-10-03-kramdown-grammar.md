@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Kramdown蛋疼的语法
+title: Kramdown 蛋疼的语法
 ---
 多级标题无法解析，#形同虚设
 
