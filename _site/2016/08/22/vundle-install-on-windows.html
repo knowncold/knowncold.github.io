@@ -11,7 +11,7 @@
 <h2>Windows安装Vundle</h2>
 
 <h3 id="git">安装Git</h3>
-<p>Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle可以在_vimrc里面通过简单的指令，一键安装/更新/删除所有插件。</p>
+<p>Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle可以在<code class="highlighter-rouge">_vimrc</code>里面通过简单的指令，一键安装/更新/删除所有插件。</p>
 
 <p>下载并安装<a href="https://git-for-windows.github.io/">Git-For-Windows</a></p>
 <blockquote>
@@ -21,7 +21,7 @@
 <p>在命令提示符中输入<code class="highlighter-rouge">git --version</code>能正常显示时则安装成功</p>
 
 <h3 id="curl">配置Curl脚本</h3>
-<p>在Git的安装路径的cmd文件夹下新建一个curl.cmd文件，编辑内容为</p>
+<p>在Git的安装路径的<code class="highlighter-rouge">cmd</code>文件夹下新建一个<code class="highlighter-rouge">curl.cmd</code>文件，编辑内容为</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>@rem Do not use "echo off" to not affect any child calls.
 @setlocal
@@ -47,7 +47,10 @@
 
 <h3 id="vundle">下载Vundle</h3>
 
-<p>从Github上clone下来（其实下载去网页下载zip文件然后复制过去也是可以的）</p>
+<p>从Github上clone下来</p>
+<blockquote>
+  <p>其实下载去网页下载zip文件然后复制过去也是可以的</p>
+</blockquote>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/gmarik/vundle "C:\Program Files (x86)\Vim\vimfiles\bundle\vundle"
 </code></pre>
@@ -65,7 +68,7 @@
 </div>
 
 <h3 id="vundle-1">配置Vundle并安装插件</h3>
-<p>编辑_vimrc文件</p>
+<p>编辑<code class="highlighter-rouge">_vimrc</code>文件</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>set nocompatible              " 去除VI一致性,必须
 filetype off                  " 必须
@@ -115,11 +118,11 @@ filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和
 </div>
 
 <blockquote>
-  <p>其中<code class="highlighter-rouge">Plugin</code>后面的Repository路径有多种写法
-推荐WakaTime插件</p>
+  <p>其中<code class="highlighter-rouge">Plugin</code>后面的<code class="highlighter-rouge">Repository</code>路径有多种写法<br />
+顺便推荐WakaTime插件</p>
 </blockquote>
 
-<p>保存_vimrc文件后，打开<code class="highlighter-rouge">gvim</code>，运行<code class="highlighter-rouge">:PluginInstall</code></p>
+<p>保存<code class="highlighter-rouge">_vimrc</code>文件后，打开<code class="highlighter-rouge">gvim</code>，运行<code class="highlighter-rouge">:PluginInstall</code></p>
 
 <h3 id="section">参考资料</h3>
 <p><a href="https://github.com/VundleVim/Vundle.vim/blob/master/README_ZH_CN.md">Vundle_README</a><br />

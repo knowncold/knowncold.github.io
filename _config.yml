@@ -8,6 +8,5 @@ gems: [jekyll-paginate]
 markdown: kramdown
 kramdown:
     input:  GFM
-    use_coderay: true
     syntax_highlighter: rouge
 

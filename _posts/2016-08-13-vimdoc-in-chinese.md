@@ -1,9 +1,9 @@
 ---
 layout: default
-title: vim中文文档
+title: Vim中文文档
 ---
 
-##Vundle
+### Vundle
 在vimrc中添加
 
 	Plugin 'vimcn/vimcdoc'
@@ -16,4 +16,5 @@ title: vim中文文档
 
 	:set helplang=cn
 
-参考:[vimdoc Github](https://github.com/vimcn/vimcdoc)
+### 参考: 
+[Vimdoc](https://github.com/vimcn/vimcdoc)
