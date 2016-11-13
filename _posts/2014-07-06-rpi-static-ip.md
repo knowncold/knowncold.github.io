@@ -36,6 +36,7 @@ title: 树莓派设置静态地址
 	wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
 
 重启服务
+
 	$ sudo service networking restart
 
 修改DNS
@@ -52,6 +53,34 @@ title: 树莓派设置静态地址
 再测试一下：
 
 	$ sudo apt-get update
+
+
+### 修改WiFi的静态地址
+原来可能是这样的
+	# interfaces(5) file used by ifup(8) and ifdown(8)
+
+	# Please note that this file is written to be used with dhcpcd
+	# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+
+	# Include files from /etc/network/interfaces.d:
+	source-directory /etc/network/interfaces.d
+
+	auto lo
+	iface lo inet loopback
+
+	iface eth0 inet manual
+
+	allow-hotplug wlan0
+	iface wlan0 inet manual
+	    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+	allow-hotplug wlan1
+	iface wlan1 inet manual
+	    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+
+
+
 
 
 
