@@ -9,5 +9,7 @@ title: Git 常用
 		$ git rm --cached <file>
 		$ git mv <file> <file-new>
 		$ git commit -m "____"
-		$ git pull origin master
+		$ git pull
 		$ git push origin master
+		$ git diff
+		$ git reset
