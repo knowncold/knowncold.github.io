@@ -4,3 +4,22 @@ title: 心愿单
 ---
 - Arduino Zero
 - Arduino Yun
+- Arduino Tian
+- Arduino UNO WIFI
+- Arduino Leonardo ETH
+- CurieNano
+- Raspberry Pi Zero
+- Raspberry Pi B+
+- Raspberry Pi
+- BeagleBone Black
+- Banana Pi
+- NANO Pi
+- Arduino 101
+- RPLIDAR
+- RPLIDAR A2
+
+
+- DarkSouls
+- 哈利波特围巾
+- HHKB
+- new NDS
