@@ -17,8 +17,6 @@ title: 心愿单
 - Arduino 101
 - RPLIDAR
 - RPLIDAR A2
-
-
 - DarkSouls
 - 哈利波特围巾
 - HHKB
