@@ -38,6 +38,9 @@ title: Linux命令行
 	$ tree
 	
 	$ scp /home/file root@192.168.1.105:home/pi
+	$ scp root@192.168.1.105:home/pi /home/knoc
+	$ scp -r home/pi/ root@asd:home/pi
+	$ scp -r root@as.sd.awq.we:home/pi /home/pi 
 	
 	$ tar -jxvf xxx.tar.bz2
 	
