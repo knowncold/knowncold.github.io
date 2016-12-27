@@ -21,3 +21,5 @@ title: 心愿单
 - 哈利波特围巾
 - HHKB
 - new NDS
+- 《他改变了中国》
+- Nintendo Switch
