@@ -20,6 +20,17 @@ title: 心愿单
 - DarkSouls
 - 哈利波特围巾
 - HHKB
-- new NDS
-- 《他改变了中国》
+- new 3DS
 - Nintendo Switch
+- Albums
+	* Hebe
+	* Jaychou
+	* MayDay
+- Book
+	* 《他改变了中国》
+	* 《大人的科学》
+	* 《C++ Primer》
+	* 《Probabilistic Robotics》
+	* 《HTDP》
+	* 《SICP》
+
