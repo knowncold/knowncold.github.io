@@ -76,10 +76,10 @@ code {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
     font-size: 90%;
 	border:0;
-	background-color:#D6DBDF;
-	border-radius: 4px;
 	color: #2C3E50;
-	padding:2px 4px;
+	/*background-color:#D6DBDF;
+	border-radius: 4px;
+	padding:2px 4px;*/
 }
 
 
