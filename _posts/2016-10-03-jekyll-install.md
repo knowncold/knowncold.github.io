@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Jekyll本地安装
+category: wiki
 ---
 ### 安装
 	sudo apt install ruby-full  

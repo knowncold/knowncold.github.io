@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 网络服务与管理器不兼容
+category: wiki
 ---
 
 成功连上网以后，手贱更新了所有的软件。

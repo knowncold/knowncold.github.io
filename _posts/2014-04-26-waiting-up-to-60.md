@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 开机出现等待60秒
+category: wiki
 ---
 上次解决网络图标消失后，发现每次开机都要出现
 	Waiting up to 60 seconds for network configuration

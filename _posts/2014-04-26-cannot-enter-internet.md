@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Ubuntu安装后无法联网
+category: wiki
 ---
 其实安装的时候也无法联网，导致许多软件包是后面装的。
 

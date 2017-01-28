@@ -1,5 +1,6 @@
 ---
 layout: page
 title: Ubuntu截图
+category: wiki
 ---
 在GNOME集成桌面环境下，可以使用键盘功能键Print Screen或Alt+Print Screen组合键来抓图，前者可以抓取整个屏幕的图像，而后者可以抓取当前活动窗口的图像。

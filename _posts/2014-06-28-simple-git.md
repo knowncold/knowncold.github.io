@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Git 常用
+category: wiki
 ---
 		$ git status
 		$ git rm <file>

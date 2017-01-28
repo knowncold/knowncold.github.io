@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Windows安装Vundle
+category: wiki
 ---
 
 ### 安装Git

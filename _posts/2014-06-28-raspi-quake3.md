@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 树莓派编译运行雷神之锤3
+category: project
 ---
 
 好不容易找到一个树莓派上可以玩的大型游戏。  

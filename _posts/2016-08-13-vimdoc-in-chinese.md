@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Vim中文文档
+category: wiki
 ---
 
 ### Vundle

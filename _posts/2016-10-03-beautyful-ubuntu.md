@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Ubuntu美化
+category: wiki
 ---
 
 ### 使用Flatabulous主题

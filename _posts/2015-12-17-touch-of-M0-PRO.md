@@ -1,6 +1,7 @@
 ---
 title: Arduino M0 Pro 上手
 layout: page
+category: project
 ---
 首先为了连接Arduino M0 Pro，需要一根Micro USB线，同时提供供电和编程功能。  
 连接USB线到板上的Programming端口，这个端口靠近DC电源接口，为了烧写代码，在IDE中从 工具>主板 的菜单选择Arduino M0 Pro(Programming port)，在串口选择里面选择正确的串口。

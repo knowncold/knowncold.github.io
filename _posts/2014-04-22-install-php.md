@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 安装PHP
+category: wiki
 ---
 	使用PHP5
 Windows下使用[AppServ](http://www.appservnetwork.com/)

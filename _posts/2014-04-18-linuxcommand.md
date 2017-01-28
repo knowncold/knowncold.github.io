@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Linux命令行
+category: wiki
 ---
 
 	$ ls
@@ -31,7 +32,7 @@ title: Linux命令行
 	$ cat 
 	$ head file
 	$ tail file
-	$ touch
+	$ touch file
 
 	$ man command
 
@@ -50,3 +51,9 @@ title: Linux命令行
 	$ sudo dd bs=1M if=~/下载/2014-01-07-wheezy-raspbian.img of=/dev/sdb
 
 	$ sudo umount /dev/sdb1
+
+	$ ls -l | grep "^-" | wc -l
+
+	$ sed -i "s/default/page/g" `grep default -rl _posts`
+
+

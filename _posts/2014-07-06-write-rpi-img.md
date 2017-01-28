@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 烧写树莓派镜像
+category: wiki
 ---
 ### Linux下：
 

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 宁波市第二届青少年科学嘉年华
+category: life
 ---
 
 承蒙厚爱老黄厚爱，和几个高一同学一起去看了嘉年华。

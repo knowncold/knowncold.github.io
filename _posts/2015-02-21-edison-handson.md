@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Edison上手
+category: project
 ---
 >寒假之前就向[Arduino中文社区](http://www.arduino.cn)申请了，由于快递之类的原因，拿到手时就很晚了，又受害于拖延症和作业，现在才写:(  
 >  

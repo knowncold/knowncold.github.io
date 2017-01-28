@@ -1,6 +1,7 @@
 ---
 layout: page
 title: 我的中国梦
+category: life
 ---
 
 

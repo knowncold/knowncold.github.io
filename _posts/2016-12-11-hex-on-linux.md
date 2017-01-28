@@ -1,6 +1,7 @@
 ---
 title: Linux查看十六进制
 layout: page
+category: wiki
 ---
 
 Vim中输入

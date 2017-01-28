@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Ubuntu使用ShadowSocks
+category: wiki
 ---
 
 ### GUI版安装
