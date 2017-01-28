@@ -6,7 +6,7 @@ title: 关于咸鱼
   
 >我喜欢  
 
-[Steam]() &nbsp;&nbsp; [Arduino]() &nbsp;&nbsp; [Raspberry Pi]() &nbsp;&nbsp; [Harry Potter]() &nbsp;&nbsp; [东方]() &nbsp;&nbsp; [BattleBlock Theater]() &nbsp;&nbsp; [Racket]() &nbsp;&nbsp; [Braid]() &nbsp;&nbsp; [四轴飞行器]()
+[Steam]() &nbsp;&nbsp; [Arduino]() &nbsp;&nbsp; [Raspberry Pi]() &nbsp;&nbsp; [Harry Potter]() &nbsp;&nbsp; [东方Project]() &nbsp;&nbsp; [BattleBlock Theater]() &nbsp;&nbsp; [Racket]() &nbsp;&nbsp; [Braid]() &nbsp;&nbsp; [四轴飞行器]() &nbsp;&nbsp; [新垣结衣]() &nbsp;&nbsp; [裴秀智]()
 
 >我讨厌
 
