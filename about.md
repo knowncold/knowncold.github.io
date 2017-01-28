@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 关于咸鱼
 ---
 挣扎在东北末流985，我差不多已经是一条咸鱼了。

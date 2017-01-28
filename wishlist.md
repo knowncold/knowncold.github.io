@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: index
 title: 心愿单
 ---
 - Boards

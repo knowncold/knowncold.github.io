@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Raspbian初始设置
 ---
 ### 安装Vim

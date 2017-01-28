@@ -1,6 +1,6 @@
 ---
-layout: default
 title: 树莓派WiFi设置
+layout: page
 ---
 安装WiFi管理工具
 	sudo apt-get update

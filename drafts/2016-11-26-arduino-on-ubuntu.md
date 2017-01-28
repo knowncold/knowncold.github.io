@@ -1,6 +1,6 @@
 ---
 title :	Ubuntu上使用ArduinoIDE
-layout : default
+layout : page
 ---
 
 其他操作类似

@@ -1,6 +1,6 @@
 ---
 title : 部署LAMP
-layout : default
+layout : page
 ---
 
 安装 PHP

@@ -1,6 +1,6 @@
 ---
-layout: default
 title: 入门手册
+layout: page
 ---
 #慈中创客空间入门手册
 文/吹口琴的钢铁侠

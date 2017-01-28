@@ -1,6 +1,6 @@
 ---
 title : 常用的Linux命令
-layout : default
+layout : page
 ---
 
 解压缩 压缩

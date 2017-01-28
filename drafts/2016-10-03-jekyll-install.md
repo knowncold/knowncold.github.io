@@ -1,6 +1,6 @@
 ---
-layout: default
 title: Jekyll本地安装
+layout: page
 ---
 
 	sudo apt install ruby-full
