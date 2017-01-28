@@ -1,6 +1,6 @@
 ---
 title: deb包命令行安装
-layout: default
+layout: page
 ---
 
 	sudo dpkg -i package.deb

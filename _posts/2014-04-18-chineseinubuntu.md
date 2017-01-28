@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Ubuntu安装输入法
 ---
 

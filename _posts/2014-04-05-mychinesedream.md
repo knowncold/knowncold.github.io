@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 我的中国梦
 ---
 

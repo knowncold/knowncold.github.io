@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 树莓派编译运行雷神之锤3
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 烧写树莓派镜像
 ---
 ### Linux下：

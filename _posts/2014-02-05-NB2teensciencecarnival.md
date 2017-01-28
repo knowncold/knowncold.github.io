@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 宁波市第二届青少年科学嘉年华
 ---
 

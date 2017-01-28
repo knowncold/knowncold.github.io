@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 网络服务与管理器不兼容
 ---
 

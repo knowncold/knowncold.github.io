@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Jekyll本地安装
 ---
 ### 安装

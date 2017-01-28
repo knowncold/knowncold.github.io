@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Kramdown 蛋疼的语法
 ---
 多级标题无法解析，#形同虚设

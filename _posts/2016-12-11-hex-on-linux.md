@@ -1,6 +1,6 @@
 ---
 title: Linux查看十六进制
-layout: default
+layout: page
 ---
 
 Vim中输入

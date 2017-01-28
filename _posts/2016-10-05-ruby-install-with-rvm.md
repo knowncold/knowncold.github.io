@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: RVM管理多个版本的ruby
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 树莓派设置静态地址
 ---
 
@@ -8,7 +8,7 @@ title: 树莓派设置静态地址
 一次性设置方式：
 
 	$ sudo ifconfig eth0 192.168.1.222 netmask 255.255.255.0
-	$ sudo route add default gw 192.168.1.1
+	$ sudo route add page gw 192.168.1.1
 	$ sudo ifconfig eth0 up
 
 可以马上测试一下

@@ -1,6 +1,7 @@
 ---
 title : Python笔记
-layout : default
+layout : page
+category : wiki
 ---
 
 获取命令行参数

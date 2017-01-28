@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: 随便写点开头
 ---
 时隔一年，重新搭建了一个基于GitPages的博客，回首那个wordpress上的旧博客，一年文章实在太少，质量太渣，只留下了[这一篇](http://lllord.github.io/blog-cn/2014/04/05/mychinesedream/)。
