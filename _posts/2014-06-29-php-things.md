@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: wiki_page
 title: PHP笔记
 category: wiki
 ---
