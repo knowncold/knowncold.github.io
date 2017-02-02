@@ -8,6 +8,16 @@ body {
     border: 1px solid LightGrey;
 }
 
+#leftblock {
+	font-family: 'Microsoft Yahei';
+	float: left;
+	border: 1px solid LightGrey;
+	width: 10%;
+	font-size: 15px;
+	margin: 2%;
+	padding: 1%;
+}
+
 H1 {
     font-family: Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
 }
@@ -18,7 +28,7 @@ H2 {
     margin-bottom: 40px;
     padding: 5px;
     border-bottom: 2px LightGrey solid;
-    width: 90%;
+    width: 100%;
     line-height: 150%;
     color: DarkGreen;
 }
@@ -71,15 +81,25 @@ pre {
 	overflow-x:auto;
 }
 
+pre > code {
+	font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+    font-size: 90%;
+    background-color: Ivory;
+    padding: 0px;
+    width: 100%;
+	padding-left:0px;
+	border-radius:0px;
+}
+
 
 code {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
     font-size: 90%;
 	border:0;
 	color: #2C3E50;
-	/*background-color:#D6DBDF;
+	background-color:#D6DBDF;
 	border-radius: 4px;
-	padding:2px 4px;*/
+	padding:2px 4px;
 }
 
 

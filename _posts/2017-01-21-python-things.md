@@ -1,6 +1,6 @@
 ---
 title : Python笔记
-layout : page
+layout : wiki_page
 category : wiki
 ---
 
