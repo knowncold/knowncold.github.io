@@ -3,33 +3,36 @@ layout: wiki_page
 title: PHP笔记
 category: wiki
 ---
-- 开头要有`<?php`,结尾要有`?>`
-- 常量定义
+开头要有`<?php`,结尾要有`?>`
+
+常量定义
 ```
 	define ("TOKEN",random);
 ```
-+ 变量直接使用，不用定义类型。
+变量直接使用，不用定义类型。
 ```
     $a = 1;
     $b = "我是变量";
 ```
-- 语句结束有引号
-- 函数声明
+语句结束有引号
+
+函数声明
 ```php
 function name(){
 	//code
 	return 0;
 }
 ```
-- 退出
+退出
 ```
 	exit(0);
 ```
-- 等于`==`  
+等于`==`  
 `0`和`false`等价
-- 全等于`===`  
+全等于`===`  
 可区分`0`、`false`、`空字符串`和`空数组`。
-- 内建函数
+
+内建函数
 ```php
 	simplexml_load_string(data)；//处理XML
 	$a = array($a,$b,$c);		//组装数组
@@ -46,7 +49,7 @@ echo $a;
 echo "$a,$b";
 echo $a.",".$b;
 ```
-- 数组
+数组
 ```
 $ary = array("s","w",2);
 $ary[0]= "s";
