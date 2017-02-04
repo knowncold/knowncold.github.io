@@ -18,10 +18,10 @@ category: wiki
 
 函数声明
 
-function name(){
-	//code
-	return 0;
-}
+	function name(){
+		//code
+		return 0;
+	}
 
 退出
 
