@@ -4,6 +4,62 @@ layout : wiki_page
 category : wiki
 ---
 
+	print "Hello World"	# 单双引号没有大区别
+	print a,b	# 会自动加一个空格
+	print 4/3, 4.0/3
+	print round(1.45),round(1.51)
+
+格式化输出
+
+	print "%d", a
+	print "%s %d", (a,b)
+	print a,
+	print b	# 会接在上一句后面不换行
+	c = "中文"
+	print "%r", c	# 输出原始格式
+					# %r is for debugging, %s is for displaying.
+	
+	format = "format%s"
+	print format % a
+	
+	print """line1
+	line2
+	line3"""
+
+\
+
+	\\	Backslash (\)
+	\'	Single-quote (')
+	\"	Double-quote (")
+	\a	ASCII bell (BEL)
+	\b	ASCII backspace (BS)
+	\f	ASCII formfeed (FF)
+	\n	ASCII linefeed (LF)
+	\N{name}	Character named name in the Unicode database (Unicode only)
+	\r	Carriage Return (CR)
+	\t	Horizontal Tab (TAB)
+	\uxxxx	Character with 16-bit hex value xxxx (u'' string only eg:u'\U0001F47E')
+	\Uxxxxxxxx	Character with 32-bit hex value xxxxxxxx (u'' string only)
+	\v	ASCII vertical tab (VT)
+	\ooo	Character with octal value ooo
+	\xhh	Character with hex value hh
+
+	while True:
+		for i in ["/","-","|","\\","|"]:
+			print "%s\r" % i,
+
+文件开头的编码
+
+	# -*- coding: utf-8 -*-
+	
+	不加的话就会中文乱码
+
+注意缩进，四格空格和TAB
+
+字符串
+
+	c = a + b
+
 控制流
 
 	for i in range(a,b):
@@ -14,10 +70,6 @@ category : wiki
 	import sys
 	argv = sys.argv[0]	# argv=='python'
 	argv = sys.argv[1]
-
-文件开头的编码
-
-	# -*- coding: utf-8 -*-
 
 字符串
 
