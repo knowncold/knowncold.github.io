@@ -12,13 +12,13 @@ layout: index
 
 #### 一些我喜欢的个人站点
 - [王垠](http://www.yinwang.org)
-- [精子](http://.jysperm.me)
+- [精子](http://jysperm.me)
 - [MarisaKirisame](http://marisa.moe/)
 - [Xinyi Li](https://www.yangzhou301.com/)
 - [vczh](http://www.cnblogs.com/geniusvczh/)
 
 #### 一些很好的网站
-- [CodeWars](www.codewars.com)
+- [CodeWars](http://www.codewars.com)
 
 
 #### 一些不错的书
