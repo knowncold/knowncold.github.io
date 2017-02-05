@@ -18,12 +18,14 @@ layout: index
 - [vczh](http://www.cnblogs.com/geniusvczh/)
 
 #### 一些很好的网站
+- [Learn Python the Hard Way](https://learnpythonthehardway.org)
 - [CodeWars](http://www.codewars.com)
 
 
 #### 一些不错的书
 - [HTDP]()
 - [SICP]()
+- [Head First系列]()
 
 #### 一些好看的动漫
 - [命运石之门]()
