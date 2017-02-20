@@ -9,6 +9,11 @@ category : wiki
 	print 4/3, 4.0/3
 	print round(1.45),round(1.51)
 
+文档
+	
+	pydoc os
+	pydoc file.seek
+
 格式化输出
 
 	print "%d", a
@@ -48,6 +53,13 @@ category : wiki
 		for i in ["/","-","|","\\","|"]:
 			print "%s\r" % i,
 
+输入
+
+	input_t = raw_input("> ")	# string
+	print "%s %r" % (input_t,input_t)
+	print "%d" % int(input_t)
+	
+
 文件开头的编码
 
 	# -*- coding: utf-8 -*-
@@ -64,11 +76,18 @@ category : wiki
 
 	for i in range(a,b):
 		pass
+	
+	if (exp):
+		pass
+	elif (exp):
+		pass
+	else:
+		pass
 
 获取命令行参数
 
 	import sys
-	argv = sys.argv[0]	# argv=='python'
+	argv = sys.argv[0]	# argv[0]=='python'
 	argv = sys.argv[1]
 
 字符串
@@ -76,22 +95,52 @@ category : wiki
 	str_list = str_data.split('.')	# 通过.划分字符串到一个list
 	pos = str_data.find(' ')	# 查找首位置
 
-进制转换
+类型转换
 	
 	str(int_data)	# 整型转字符串
 	int(str_data)	# 字符串转整型
+	float(str_data)
+
+列表
 	
+	words = sorted(words)
+	word = words.pop(0)
+	word = words.pop(-1)
+
+函数
+	def func(*args):	#  args as list
+		"""			"""
+		pass
+	def func(arg1, arg2):
+		pass
+
+	import module_name
+	a = module_name.b()
+	from module_name import *
+	a = b()
+
+	help(module_name.func)	# 返回"""	"""
+
+
 打开文件
 
 	f = open(name,'w')
+	all_text = f.read()
 	line = f.readline()
+	f.truncate()	# 重写
 	二进制的区别？？
+	f.close()	# 为什么
+	f.seek(0)	# 回到原位
+
+	indata = open(file).read()	# 不需要close了
 
 获取文件的名字和扩展名
 
 	import os
 	(name, extension) = os.path.splitext(path_in)
 	print name,extension
+
+	os.path.exists(file_name)	# 文件是否存在
 
 图片灰度化
 
@@ -124,4 +173,11 @@ category : wiki
 	cmd = 'ls ' + dir
 	out = cmmands.getoutput(cmd)
 	outlist = out.split('\n')
+
+布尔
+	
+	"test" and "test"	# return "test"
+	1 and 1				# return 1
+	True and 1			# return 1
+
 
