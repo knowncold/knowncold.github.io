@@ -5,7 +5,7 @@ title: 只是一条咸鱼
 
 <ul>
 	{% for post in site.posts %}
-		{% if post.categories contains 'life' or post.categories contains 'project'%}
+		{% if post.categories contains 'life' or post.categories contains 'project' or post.categories contains 'tutorial'%}
 			<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
 			<br>
 		{% endif %}
