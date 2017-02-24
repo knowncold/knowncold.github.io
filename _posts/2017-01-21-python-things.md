@@ -68,6 +68,8 @@ category : wiki
 
 注意缩进，四格空格和TAB
 
+	x in range(1,10)	# 0<x<10
+
 字符串
 
 	c = a + b
