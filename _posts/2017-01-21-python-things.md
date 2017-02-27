@@ -108,6 +108,11 @@ category : wiki
 	words = sorted(words)
 	word = words.pop(0)
 	word = words.pop(-1)
+	words.append(word)	# 其实是append(words,word)
+
+切片
+	
+	words[3:5]
 
 函数
 	def func(*args):	#  args as list
