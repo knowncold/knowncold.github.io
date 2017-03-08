@@ -22,6 +22,8 @@ layout: index
 - [CodeWars](http://www.codewars.com)
 - [WeChall](http://www.wechall.net)
 - [SolveMe](http://www.solveme.kr)
+- [Espruino](http://www.espruino.com)
+- [Libretro](http://www.libretro.com)
 
 #### 一些不错的书
 - [HTDP]()
