@@ -20,7 +20,8 @@ layout: index
 #### 一些很好的网站
 - [Learn Python the Hard Way](https://learnpythonthehardway.org)
 - [CodeWars](http://www.codewars.com)
-
+- [WeChall](http://www.wechall.net)
+- [SolveMe](http://www.solveme.kr)
 
 #### 一些不错的书
 - [HTDP]()
