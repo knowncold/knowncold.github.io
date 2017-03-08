@@ -8,6 +8,7 @@ category : wiki
 	print a,b	# 会自动加一个空格
 	print 4/3, 4.0/3
 	print round(1.45),round(1.51)
+	sys.exit(0)
 
 文档
 	
@@ -68,15 +69,18 @@ category : wiki
 
 注意缩进，四格空格和TAB
 
-	x in range(1,10)	# 0<x<10
-
 字符串
 
+	"0" in str
 	c = a + b
 
 控制流
 
 	for i in range(a,b):
+		pass
+	x in range(1,10)	# 0<x<10
+
+	while (exp):
 		pass
 	
 	if (exp):
@@ -105,6 +109,10 @@ category : wiki
 
 列表
 	
+	for ele in elements_list:
+		for i in ele:
+			pass
+	elements_list.apend(ele)
 	words = sorted(words)
 	word = words.pop(0)
 	word = words.pop(-1)
