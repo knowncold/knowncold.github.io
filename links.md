@@ -30,6 +30,15 @@ layout: index
 - [SICP]()
 - [Head First系列]()
 
+#### 一些无聊时候玩的游戏
+- [Leagle of Legends]()
+- [TIS-100]()
+- [Taiko no Tatsujin]()
+- [BattleBlock Theater]()
+- [The Binding of Isaac]()
+- [Borderlands]()
+- [Braid]()
+
 #### 一些好看的动漫
 - [命运石之门]()
 - [四月是你的谎言]()
@@ -43,4 +52,9 @@ layout: index
 - [歌声洞庭湖]()
 - [骚男]()
 - [逆推王道]()
+
+#### 你可以在下面这些地方找到我
+- [知乎]()
+- [Steam]()
+- [网易云音乐]()
 
