@@ -20,12 +20,24 @@ layout: index
 #### 一些很好的网站
 - [Learn Python the Hard Way](https://learnpythonthehardway.org)
 - [CodeWars](http://www.codewars.com)
-
+- [WeChall](http://www.wechall.net)
+- [SolveMe](http://www.solveme.kr)
+- [Espruino](http://www.espruino.com)
+- [Libretro](http://www.libretro.com)
 
 #### 一些不错的书
 - [HTDP]()
 - [SICP]()
 - [Head First系列]()
+
+#### 一些无聊时候玩的游戏
+- [Leagle of Legends]()
+- [TIS-100]()
+- [Taiko no Tatsujin]()
+- [BattleBlock Theater]()
+- [The Binding of Isaac]()
+- [Borderlands]()
+- [Braid]()
 
 #### 一些好看的动漫
 - [命运石之门]()
@@ -40,4 +52,9 @@ layout: index
 - [歌声洞庭湖]()
 - [骚男]()
 - [逆推王道]()
+
+#### 你可以在下面这些地方找到我
+- [知乎]()
+- [Steam]()
+- [网易云音乐]()
 
