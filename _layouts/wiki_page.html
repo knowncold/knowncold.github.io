@@ -19,18 +19,29 @@
 {{ content }}
 </div>
 
+<div id="rightblock">
+	<p><a href=""> 测试</a></p>
+</div>
+
 </body>
 <script type="text/javascript">
+var tmp = $(window).height()*0.07;
 var offset = $("#leftblock").offset();
 $(document).ready(function(){
 	$(window).scroll(function(){
 		if($(window).scrollTop()>offset.top){
 			$("#leftblock").stop().animate({
-				marginTop:$(window).scrollTop()-offset.top+100
+				marginTop:$(window).scrollTop()-offset.top+tmp
+			});
+			$("#rightblock").stop().animate({
+				marginTop:$(window).scrollTop()-offset.top+tmp
 			});
 		}else{
 			$("#leftblock").stop().animate({
-				marginTop:100
+				marginTop: tmp
+			});
+			$("#rightblock").stop().animate({
+				marginTop: tmp
 			});
 		}
 	});
