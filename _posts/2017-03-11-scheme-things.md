@@ -4,6 +4,14 @@ layout : wiki_page
 category : wiki
 ---
 
+### 安装ChezScheme
+
+	git clone
+	sudo apt-get install libncurses5-dev
+	./configure
+	make
+	sudo make install
+
 ##### 定义atom?
 	;
 	(define atom?
