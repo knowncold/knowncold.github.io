@@ -103,7 +103,8 @@ Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle�
 保存`_vimrc`文件后，打开`gvim`，运行`:PluginInstall`
 
 ### Linux下安装
-$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+	$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 ### 参考资料
 [Vundle_README](https://github.com/VundleVim/Vundle.vim/blob/master/README_ZH_CN.md)  
