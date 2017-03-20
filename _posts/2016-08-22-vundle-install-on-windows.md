@@ -108,4 +108,4 @@ $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ### 参考资料
 [Vundle_README](https://github.com/VundleVim/Vundle.vim/blob/master/README_ZH_CN.md)  
 [Windows下安装Vim插件管理Vundle](http://blog.csdn.net/zhuxiaoyang2000/article/details/8636472)  
-[我的_vimrc](https://github.com/knowncold/IDE_Settings/blob/master/Vim/_vimrc)  
+[我的_vimrc](https://github.com/knowncold/IDE_Settings/blob/master/Vim/.vimrc)  
