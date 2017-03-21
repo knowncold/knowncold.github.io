@@ -42,3 +42,6 @@ category : wiki
 
 ### 日常使用
 以上都正常以后就可以通过ssh来直接使用`git clone`、`git push`、`git pull`了。
+
+### 参考链接
+[Github Help](https://help.github.com/articles/connecting-to-github-with-ssh/)
