@@ -74,6 +74,11 @@ category : wiki
 	"0" in str
 	c = a + b
 
+string <-> list
+
+	list = list(str)
+	str = ''.join(list)
+
 控制流
 
 	for i in range(a,b):
