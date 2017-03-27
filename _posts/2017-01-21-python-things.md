@@ -114,25 +114,30 @@ string <-> list
 
 列表
 	
-	for ele in elements_list:
-		for i in ele:
-			pass
-	elements_list.apend(ele)
-	words = sorted(words)
-	word = words.pop(0)
-	word = words.pop(-1)
-	words.append(word)	# 其实是append(words,word)
+```python
+for ele in elements_list:
+	for i in ele:
+		pass
+elements_list.apend(ele)
+words = sorted(words)
+word = words.pop(0)
+word = words.pop(-1)
+words.append(word)	# 其实是append(words,word)
+```
 
 切片
 	
 	words[3:5]
 
 函数
-	def func(*args):	#  args as list
-		"""			"""
-		pass
-	def func(arg1, arg2):
-		pass
+
+```python
+def func(*args):	#  args as list
+	"""			"""
+	pass
+def func(arg1, arg2):
+	pass
+```
 
 	import module_name
 	a = module_name.b()
