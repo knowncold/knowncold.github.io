@@ -63,6 +63,12 @@ category: wiki
 	
 	$a = intval($b);
 
+字符串位置
+
+	<?php
+	echo strpos("You love php, I love php too!","php");	//返回第一次出现的位置,对大小写敏感
+	?>
+
 连接数据库
 > 注意PHP版本
 
