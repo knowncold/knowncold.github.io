@@ -5,7 +5,7 @@ category: tutorial
 ---
 ### 签到题 50
 
-最基础的view-source
+最基础的`view-source`
 
 > nctf{flag_admiaanaaaaaaaaaaa}
 
@@ -24,7 +24,7 @@ Inspect一下，把输入框的`maxlength="10"`删掉就好了
 
 ### COOKIE 200
 
-改一下cookie就行了
+改一下`cookie`就行了
 
 > flag:nctf{cookie_is_different_from_session}
 
@@ -42,20 +42,22 @@ Inspect一下，把输入框的`maxlength="10"`删掉就好了
 
 	TIP:sql.php
 
-	<?php
-	if($_GET[id]) {
-	   $_geT[mysql_connect(SAE_MYSQL_HOST_M . ':' . SAE_MYSQL_PORT,SAE_MYSQL_USER,SAE_MYSQL_PASS);
-	  
-	  $id = intval($_GET[id]);
-	  $query = @mysql_fetch_array(mysql_query("select content from ctf2 where id='$id'"));
-	  if ($_GET[id]==1024) {
-		  echo "<p>no! try again</p>";
-	  }
-	  else{
-		echo($query[content]);
-	  }
-	}
-	?>	
+```php
+<?php
+if($_GET[id]) {
+   $_geT[mysql_connect(SAE_MYSQL_HOST_M . ':' . SAE_MYSQL_PORT,SAE_MYSQL_USER,SAE_MYSQL_PASS);
+  
+  $id = intval($_GET[id]);
+  $query = @mysql_fetch_array(mysql_query("select content from ctf2 where id='$id'"));
+  if ($_GET[id]==1024) {
+	  echo "<p>no! try again</p>";
+  }
+  else{
+	echo($query[content]);
+  }
+}
+?>	
+```
 
 可以看到首先最后的`$id`必须是`1024`，但是`$_GET[id]`不能是`1024`，那么就给一个小数比如`http://chinalover.sinaapp.com/web11/sql.php?id=1024.2`就行了
 
