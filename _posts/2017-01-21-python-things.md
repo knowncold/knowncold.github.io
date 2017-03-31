@@ -9,6 +9,9 @@ category : wiki
 	print 4/3, 4.0/3
 	print round(1.45),round(1.51)	# 四舍五入
 	sys.exit(0)
+	abs(a)
+	range(a,b,c)	# 从到b，间隔c
+	str_val.replace('!','')
 
 文档
 	
@@ -31,6 +34,9 @@ category : wiki
 	print """line1
 	line2
 	line3"""
+	format(val, '.2f')	# return a string
+	return '$%0.2f' % amount
+	return '${:.2f}'.format(amount)
 
 \
 
@@ -299,3 +305,9 @@ Operators
 	//=	Floor divide and assign	x = 1; x //= 2
 	%=	Modulus assign	x = 1; x %= 2
 	**=	Power assign	x = 1; x **= 2
+
+Reduce
+
+```python
+sum=reduce(lambda x,y:x+y,(1,2,3,4,5,6,7))
+```
