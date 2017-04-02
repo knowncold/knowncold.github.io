@@ -56,4 +56,6 @@ category: wiki
 
 	$ sed -i "s/default/page/g" `grep default -rl _posts`
 
+	$ chmod 777 /html
+
 
