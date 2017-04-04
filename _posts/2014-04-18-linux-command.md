@@ -58,3 +58,8 @@ category: wiki
 
 	$ chmod -R 777 /html
 
+往一个程序输入`stdin`
+
+	echo 'This string will be piped to stdin.' | /my/bash/script
+
+
