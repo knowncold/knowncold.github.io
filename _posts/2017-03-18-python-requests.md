@@ -17,6 +17,11 @@ r = requests.get(url, params=payload)
 r.url	# 请求的完整url包括了GET参数
 ```
 
+#### POST请求
+```python
+>>> r = requests.post('http://httpbin.org/post', data = {'key':'value'})
+```
+
 #### Session
 
 #### Cookies
