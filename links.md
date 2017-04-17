@@ -57,4 +57,5 @@ layout: index
 - [知乎]()
 - [Steam]()
 - [网易云音乐]()
+- [Email](mailto:knowncold@yahoo.com)
 
