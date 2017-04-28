@@ -125,7 +125,7 @@ for ele in elements_list:
 	for i in ele:
 		pass
 elements_list.apend(ele)
-words = sorted(words)
+words = sorted(words)	# 排序
 word = words.pop(0)
 word = words.pop(-1)
 words.append(word)	# 其实是append(words,word)
@@ -229,7 +229,7 @@ def func(arg1, arg2):
 	global X
 	1 is 1	# ==True
 
-	s = lambda y: y ** y; s(3)
+	s = lambda y: y ** y if y<0 else y
 	raise ValueError("No")
 	try:
 		pass
