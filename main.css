@@ -1,6 +1,6 @@
 #mainblock {
     font-family: 'Microsoft YaHei',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB',sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     margin: 5% 3% 5% 3%;
     padding: 2% 5% 5% 5%;
     width: 50%;
@@ -39,10 +39,6 @@
 }
 
 H1 {
-    font-family: 'Source Sans Pro',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
-}
-
-H2 {
     font-family: 'Open Sans',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
     margin-bottom: 60px;
     margin-bottom: 40px;
@@ -54,25 +50,25 @@ H2 {
 }
 
 
-H3 {
+H2 {
     font-family: Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
     margin-top: 40px;
     margin-bottom: 30px;
     border-bottom: 1px LightGrey solid;
     width: 80%;
-    line-height: 150%;
+    line-height: 120%;
+	font-size: 20px;
     color: DarkBlue;
 }
 
 
-H4 {
+H3 {
     font-family: Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
     margin-top: 40px;
     margin-bottom: 30px;
-    border-bottom: 1px LightGrey solid;
     width: 80%;
     line-height: 150%;
-    color: DarkBlue;
+	font-size: 18px;
 }
 
 
@@ -111,7 +107,6 @@ pre > code {
 	border-radius:0px;
 }
 
-
 code {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
     font-size: 90%;
@@ -130,11 +125,9 @@ a {
     color: black;
 }
 
-
 a:hover {
 	background-color: LightGrey;
 }
-
 
 img {
 	max-width: 500px;
@@ -146,7 +139,6 @@ img {
     margin-bottom: 10px;
     -webkit-box-shadow: 0 0 10px #555;
 }
-
 
 hr {
     color: LightGrey;
