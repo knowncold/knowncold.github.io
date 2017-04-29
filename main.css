@@ -29,6 +29,7 @@
 	margin: 2%;
 	padding: 1%;
 }
+
 #blankblock {
 	font-family: 'Microsoft Yahei';
 	float: left;
@@ -49,9 +50,8 @@ H1 {
     color: DarkGreen;
 }
 
-
 H2 {
-    font-family: Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+    font-family: 'Open Sans',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
     margin-top: 40px;
     margin-bottom: 30px;
     border-bottom: 1px LightGrey solid;
@@ -61,9 +61,8 @@ H2 {
     color: DarkBlue;
 }
 
-
 H3 {
-    font-family: Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+    font-family: 'Open Sans',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
     margin-top: 40px;
     margin-bottom: 30px;
     width: 80%;
@@ -71,18 +70,15 @@ H3 {
 	font-size: 18px;
 }
 
-
 li {
     margin-left: 10px;
 }
-
 
 blockquote {
     border-left: 4px LightGrey solid;
     padding-left: 5px;
     margin-left: 5px;
 }
-
 
 pre {
     font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
@@ -116,7 +112,6 @@ code {
 	border-radius: 4px;
 	padding:2px 4px;
 }
-
 
 a {
     text-decoration: none;
