@@ -1,10 +1,10 @@
 ---
 layout: page
 title: 树莓派设置静态地址
-category: project
+category: wiki
 ---
 
-由于学校机房的特殊环境，一根网线好像对应一个静态地址，所以树莓派不能使用原装的dhcp方式，需要手动设置。
+由于学校机房的特殊环境，一根网线好像对应一个静态地址，所以树莓派不能使用原装的`DHCP`方式，需要手动设置。
 
 一次性设置方式：
 
@@ -56,8 +56,10 @@ category: project
 	$ sudo apt-get update
 
 
-### 修改WiFi的静态地址
+## 修改WiFi的静态地址
+
 原来可能是这样的
+
 	# interfaces(5) file used by ifup(8) and ifdown(8)
 
 	# Please note that this file is written to be used with dhcpcd
@@ -78,11 +80,5 @@ category: project
 	allow-hotplug wlan1
 	iface wlan1 inet manual
 	    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-
-
-
-
-
-
 
 PS:  似乎设置静态地址对于WiFi连接也有影响。
