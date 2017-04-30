@@ -9,7 +9,7 @@
 }
 
 #mainblock {
-    font-family: 'Microsoft YaHei',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB',sans-serif;
+    font-family: 'Microsoft YaHei',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Noto Sans CJK SC',sans-serif;
     font-size: 16px;
     margin: 5% 3% 5% 3%;
     padding: 2% 5% 5% 5%;
@@ -50,7 +50,7 @@
 }
 
 H1 {
-    font-family: 'Open Sans Light',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+    font-family: 'Open Sans Light',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif;
 	font-weight: normal;
     margin-bottom: 40px;
     padding: 5px;
@@ -61,7 +61,7 @@ H1 {
 }
 
 H2 {
-    font-family: 'Open Sans Light',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+    font-family: 'Open Sans Light',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif;
     margin-top: 40px;
     margin-bottom: 30px;
     border-bottom: 1px LightGrey solid;
@@ -73,7 +73,7 @@ H2 {
 }
 
 H3 {
-    font-family: 'Open Sans Light',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+    font-family: 'Open Sans Light',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif;
     margin-top: 40px;
     margin-bottom: 30px;
     width: 80%;
