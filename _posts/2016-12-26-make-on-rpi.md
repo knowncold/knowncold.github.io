@@ -1,5 +1,5 @@
 ---
-title: 用Make来入门简单的并行计算
+title: 树莓派上的Make并行计算
 layout: page
 category: tutorial
 ---
