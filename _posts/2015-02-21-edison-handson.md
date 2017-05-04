@@ -22,12 +22,7 @@ category: project
 
 ![](https://farm8.staticflickr.com/7283/16597444615_aa10ebc358.jpg)
 
-下面就介绍一下Windows下上手Edison的过程。
-
- - 第一步当然要组装好Edison，接到Arduino扩展板上，跳帽什么的就先不要动了。
- - 上电和连接  
-
-Edison供电有两种方式  
+### Edison供电有两种方式  
 
   - 第一种是直接连接右上角的接口，官网说7-15V DC，我暂时没有这种电源适配器，就选择了第二种方式。  
 
