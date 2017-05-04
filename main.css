@@ -83,8 +83,8 @@ H2 {
 
 H3 {
     font-family: 'Open Sans Light',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif;
-    margin-top: 40px;
-    margin-bottom: 30px;
+    margin-top: 25px;
+    margin-bottom: 15px;
     width: 80%;
     line-height: 150%;
 	font-size: 18px;
@@ -146,13 +146,9 @@ a:hover {
 }
 
 img {
+	text-align: center;
 	max-width: 500px;
 	x-shadow: 0 0 10px #555;
-    border-radius: 6px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
     -webkit-box-shadow: 0 0 10px #555;
 }
 
