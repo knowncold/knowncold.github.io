@@ -163,11 +163,46 @@ aes.decrypt(cipher)
 
 ## Hex2Raw
 
+	printf "\x1a\x55\x8a\xcd\xda\xbd\x64\xbb\xcc\xdd\x94\x90\x3e\xaf\xdf\x18" | ./hex2raw
+
+	Give me this in raw form (0x41 -> 'A'):
+	1a558acddabd64bbccdd94903eafdf18
+
+	You gave me:
+	1a558acddabd64bbccdd94903eafdf18
+	Yay! That's what I wanted! Here be the flag:
+	ceb80093717fd7e9aae149dacc7ac9b3
+
+### FLAG
+
+> ceb80093717fd7e9aae149dacc7ac9b3
+
 ## Raw2Hex
+
+The flag is:\xc3\xae\xef\xde-\x8f\xa0\xbc\x81\xf9U1DG\xa3H
+
+```python
+import binascii
+print binascii.b2a_hex('\xc3\xae\xef\xde-\x8f\xa0\xbc\x81\xf9U1DG\xa3H')
+```
+
+### FLAG
+
+> c3aeefde2d8fa0bc81f955314447a348
 
 ## What Is Web
 
+查看源代码，在HTML文件最下面有一部分FLAG，第二部分FLAG在CSS文件里面，第三部分在js文件里面
+
+### FLAG
+
+> fab79c49d9e5ba511a0f2436308e33e85
+
 ## Bash Loop
+
+
+## Just No
+
 
 ## Internet Kitties
 
@@ -178,5 +213,25 @@ aes.decrypt(cipher)
 	Take a flag!
 	86c3b6dc83b85a2e67f0c163dd525cb0
 
-> FLAG:
+### FLAG
 > 86c3b6dc83b85a2e67f0c163dd525cb0
+
+## Piazza
+
+## Leaf of the Tree
+
+	$ find -name flag
+	./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/trunk64f5/trunk9721/trunk1e42/flag
+
+	cat ./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/trunk64f5/trunk9721/trunk1e42/flag
+
+### FLAG
+
+> a2916629ba334b79632b6af945131ea2knowncold
+
+## looooong
+
+## Leaf of the Forest
+
+## WorldChat
+
