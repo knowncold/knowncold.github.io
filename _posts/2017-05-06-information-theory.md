@@ -23,6 +23,18 @@ category: tutorial
 
 $$ H(X) = - \sum_{x\in\mathcal{X}} p(x)log \ p(x) $$
 
+### 熵的最大值
+
+相当于求
+
+$$ 
+\begin{align}
+\max	&-\sum_{i=1}^n p_i \ \ln p_i \\
+s.t.	&\sum_{i=1}^n p_i = 1 \quad p_i \gt 0 \\
+\end{align}
+$$
+
+
 #### 引理
 - \[H(X)\ge0\]
 - \[H_b(X) = (log_ba)H_a(X)\]
