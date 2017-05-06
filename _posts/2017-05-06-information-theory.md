@@ -1,7 +1,7 @@
 ---
 title: 信息论笔记
 layout: page
-category: tutorial
+category: wiki
 ---
 
 网络安全专业选修课，田园大师授课  
