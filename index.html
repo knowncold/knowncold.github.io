@@ -2,12 +2,14 @@
 layout: index
 title: 只是一条咸鱼
 ---
+<br/>
+<br/>
 
 <ul>
 	{% for post in site.posts %}
 		{% if post.categories contains 'life' or post.categories contains 'project' or post.categories contains 'tutorial'%}
 			<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-			<br>
+			<br/>
 		{% endif %}
 	{% endfor %}
 </ul>
