@@ -214,9 +214,16 @@ print binascii.b2a_hex('\xc3\xae\xef\xde-\x8f\xa0\xbc\x81\xf9U1DG\xa3H')
 	86c3b6dc83b85a2e67f0c163dd525cb0
 
 ### FLAG
+
 > 86c3b6dc83b85a2e67f0c163dd525cb0
 
 ## Piazza
+
+注册Pizza，相当于一个`IRC`
+
+### FLAG
+
+> ask_and_hop3fully_we_can_help
 
 ## Leaf of the Tree
 
@@ -227,11 +234,63 @@ print binascii.b2a_hex('\xc3\xae\xef\xde-\x8f\xa0\xbc\x81\xf9U1DG\xa3H')
 
 ### FLAG
 
-> a2916629ba334b79632b6af945131ea2knowncold
+> a2916629ba334b79632b6af945131ea2
 
 ## looooong
 
+	To prove your skills, you must pass this test.
+	Please give me the 'H' character '705' times, followed by a single '3'.
+	To make things interesting, you have 30 seconds.
+	Input:
+
+	You got it! You're super quick!
+	Flag: with_some_recognition_and_training_delusions_become_glimpses_fbafb1011720def036b5aa32671f3710
+
+### FLAG
+
+> with_some_recognition_and_training_delusions_become_glimpses_fbafb1011720def036b5aa32671f3710
+
 ## Leaf of the Forest
+
+	$ find . -name "flag"
+	./forest/tree3bd8a8/trunkc5a8/trunkc874/trunkb0d5/trunk989b/trunkd500/trunk68dc/trunkd705/branchc164/flag
+	$ cat ./forest/tree3bd8a8/trunkc5a8/trunkc874/trunkb0d5/trunk989b/trunkd500/trunk68dc/trunkd705/branchc164/flag
+	e553af78ff1f7a6a428456ac53d837e5
+
+### FLAG
+
+> e553af78ff1f7a6a428456ac53d837e5
 
 ## WorldChat
 
+	nc shell2017.picoctf.com 44323 | grep "the flag"
+
+	03:21:01 flagperson: this is part 1/8 of the flag - 7c20
+	03:21:04 flagperson: this is part 2/8 of the flag - 77dc
+	03:21:07 flagperson: this is part 3/8 of the flag - 26c1
+	03:21:14 flagperson: this is part 4/8 of the flag - 6dc8
+	03:21:28 flagperson: this is part 5/8 of the flag - 1acd
+	03:21:30 flagperson: this is part 6/8 of the flag - e49c
+	03:21:31 flagperson: this is part 7/8 of the flag - d563
+	03:21:31 flagperson: this is part 8/8 of the flag - 0146
+
+### FLAG
+
+> 7c2077dc26c16dc81acde49cd5630146
+
+## Lazy Dev
+
+
+<br/>
+
+*LEVEL 2*
+
+<hr/>
+
+## Meta Find Me
+
+## Little School Bus
+
+## Just keyp Trying
+
+## SoRandom
