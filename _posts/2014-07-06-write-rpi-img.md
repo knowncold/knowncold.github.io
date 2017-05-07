@@ -3,24 +3,24 @@ layout: page
 title: 烧写树莓派镜像
 category: wiki
 ---
-### Linux下：
+## Linux下：
 
-##### 在终端中输入
+### 在终端中输入
 
 	$ df -h
 
-##### 插入SD卡，重复步骤1
+### 插入SD卡，重复步骤1
 比较两次输出结果，判断哪一个是SD卡的分区，格式应该类似于
 
 	/dev/sdb1
 
-##### 卸载SD卡
+### 卸载SD卡
 
 	$ sudo umount /dev/sdb1
 
 >不用管是否有/dev/sdb2
 
-##### 确定原始设备名称
+### 确定原始设备名称
 如`/dev/sdb1`的原始设备名称为`/dev/sdb`  
 解压缩镜像文件后，写入
 
@@ -36,8 +36,8 @@ category: wiki
 
 	$ sudo sync 
 	
-##### 确保所有数据都被正确写入了
+### 确保所有数据都被正确写入了
 
 将SD卡插入树莓派,应该可以使用了。
 
-### Windows下
+## Windows下
