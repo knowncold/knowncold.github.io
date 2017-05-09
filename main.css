@@ -169,7 +169,7 @@ a:hover {
 
 img {
 	text-align: center;
-	max-width: 500px;
+	max-width: 100%;
 	x-shadow: 0 0 10px #555;
     -webkit-box-shadow: 0 0 10px #555;
 }
