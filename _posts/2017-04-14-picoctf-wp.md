@@ -201,7 +201,7 @@ print binascii.b2a_hex('\xc3\xae\xef\xde-\x8f\xa0\xbc\x81\xf9U1DG\xa3H')
 ## Bash Loop
 
 	
-	in {0..4096}; do ./bashloop $i; done | grep -n 'flag'
+	$ in {0..4096}; do ./bashloop $i; done | grep -n 'flag'
 
 	3024:Yay! That's the number! Here be the flag: bcf9ac72d8721c303ae95239c2deacb3
 
@@ -215,7 +215,7 @@ print binascii.b2a_hex('\xc3\xae\xef\xde-\x8f\xa0\xbc\x81\xf9U1DG\xa3H')
 
 只要在`home`目录下面构造出`~/problems/02bd7d8f7e9c13a19940fd1116234469/auth`就行了
 
-	~/problems/02bd7d8f7e9c13a19940fd1116234469$ /problems/02bd7d8f7e9c13a19940fd1116234469/justno
+	knowncold@~/problems/02bd7d8f7e9c13a19940fd1116234469$ /problems/02bd7d8f7e9c13a19940fd1116234469/justno
 
 	Oh. Well the auth file doesn't say no anymore so... Here's the flag: cad7c91983f6a8ed691c6d7e2dd2264c
 
