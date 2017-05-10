@@ -9,6 +9,7 @@ layout: index
 - [Means88](https://means88.com/)
 - [nlfox](http://nlfox.com/)
 - [lfkdsk](http://lfkdsk.github.io/)
+- [WebHugo](https://webhugo.github.io/)
 
 ## 一些我喜欢的个人站点
 - [王垠](http://www.yinwang.org)
