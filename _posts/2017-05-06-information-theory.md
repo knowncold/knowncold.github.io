@@ -51,7 +51,12 @@ $$ H(Y|X) = -Elog \ p(Y|X) $$
 
 ### 链式法则
 
-$$ H(X,Y) = H(X) + H(Y|X) $$
+$$
+\begin{align}
+H(X,Y) = H(X) + H(Y|X) \\
+H(X,Y) = H(Y) + H(X|Y)
+\end{align}
+$$
 
 #### 推论
 
@@ -60,3 +65,62 @@ $$ H(X,Y|Z) = H(X|Z) + H(Y|X,Z) $$
 ## 互信息量
 
 $$ I(X;Y) = E_{p(x,y)} log \frac{p(X,Y)}{p(X)p(Y)} $$
+
+$$ 
+\begin{align}
+I(X;Y) &= \sum_{x\in\mathcal{X},y\in\mathcal{Y}} p_{xy}log \frac{p_{y|x}}{p_y} \\
+		&= H(Y) - H(Y|X)	\\
+		&= H(X) - H(X|Y)
+\end{align}		
+$$
+
+当信息量等于零的时候，两者独立
+
+## 马尔克夫链
+
+### 概念
+
+随机过程和随机序列
+
+$$ \cdots X_{-2}, X_{-1}, X_0, X_1, X_2, \cdots $$
+
+随机序列描述的是\[ X_n \]在不同时间片有不同的概率分布
+
+假如服从马尔克夫链，则满足
+
+$$ P(X_n | X_{n-1}, X_{n-2}, \cdots, X_{n-k}) = P(X_n | X_{n-1}, X_{n-2}, \cdots, X_{n-k}, X_{n-k-1}) $$
+
+即通过过去的时间片的概率分布来预测未来的某个时间片的概率分布时，历史更多也没意义
+
+### 定义
+
+$$
+\begin{gather}
+\forall \ n > n_1 > n_2 > \cdots > n_k:    \\
+P(X_n | X_{n1}, X_{n2}, \cdots, X_{nk}) = P(X_n | X_{n1})
+\end{gather}
+$$
+
+即通过过去预测未来时，只与最近的那个时间片有关，与之前的时间片都无关
+
+### 子列
+
+对于子列
+
+若满足\[ x_1 \to x_2 \to x_3 \]，通过基本性质，显然有\[ P_{x3 | x2,x1} = P_{x3 | x2} \]  
+可以推出
+
+### 数据处理不等式
+
+若\[ X_1 \to X_2 \to X_3 \]，则有\[ I(X_1 ; X_2) \ge I(X_1 ; X_3)\]。  
+即对于同一个时间片，相距越近的时间片的互信息量不小于相距越远的信息量。
+
+#### 证明
+
+$$
+\begin{align}
+&\; I(X_1 ; X_2) - I(X_1; X_3) \\
+&= \sum P_{x1,x2,x3} log \frac{P_{x1,x2}}{P_{x1}P_{x2}} \\
+&= \sum
+\end{align}
+$$
