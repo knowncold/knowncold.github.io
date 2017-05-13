@@ -144,4 +144,5 @@ $$
 &= \sum_{X2,X3}P(X2,X3)P(X1 | X3)(\sum_{X1} \frac{P(X1 | X2)}{P(X1 | X3)}log \frac{P(X1 | X2)}{P(X1 | X3)}) \ge 0
 \end{align}
 $$
-最后一步用到了**凸函数**$t log t$的性质。
+
+最后一步用到了**凸函数**$f(x) = t log t$的性质。
