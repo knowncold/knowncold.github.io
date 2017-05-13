@@ -5,7 +5,7 @@ category: wiki
 ---
 
 网络安全专业选修课，田园大师授课  
-每节课的笔记，顺便练一练\[\LaTeX\]
+每节课的笔记，顺便练一练 $\LaTeX$
 
 ## 先修知识补充
 
@@ -19,7 +19,7 @@ category: wiki
 ## 熵
 
 熵是随机变量不确定度的度量，当一个随机变量是确定的时候，熵就等于零了。
-一个随机变量\[X\]的熵\[H(X)\]定义为
+一个随机变量$X$的熵$H(X)$定义为
 
 $$ H(X) = - \sum_{x\in\mathcal{X}} p(x)log \ p(x) $$
 
@@ -27,7 +27,7 @@ $$ H(X) = - \sum_{x\in\mathcal{X}} p(x)log \ p(x) $$
 
 相当于求
 
-$$ 
+$$
 \begin{align}
 \max	&-\sum_{i=1}^n p_i \ \ln p_i \\
 s.t.	&\sum_{i=1}^n p_i = 1 \quad p_i \gt 0 \\
@@ -36,8 +36,8 @@ $$
 
 
 #### 引理
-- \[H(X)\ge0\]
-- \[H_b(X) = (log_ba)H_a(X)\]
+- $H(X)\ge0$
+- $H_b(X) = (log_ba)H_a(X)$
 
 ### 联合熵 (joint entropy)
 
@@ -66,7 +66,7 @@ $$ H(X,Y|Z) = H(X|Z) + H(Y|X,Z) $$
 
 $$ I(X;Y) = E_{p(x,y)} log \frac{p(X,Y)}{p(X)p(Y)} $$
 
-$$ 
+$$
 \begin{align}
 I(X;Y) &= \sum_{x\in\mathcal{X},y\in\mathcal{Y}} p_{xy}log \frac{p_{y|x}}{p_y} \\
 		&= H(Y) - H(Y|X)	\\
@@ -84,7 +84,7 @@ $$
 
 $$ \cdots X_{-2}, X_{-1}, X_0, X_1, X_2, \cdots $$
 
-随机序列描述的是\[ X_n \]在不同时间片有不同的概率分布
+随机序列描述的是$X_n$在不同时间片有不同的概率分布
 
 假如服从马尔克夫链，则满足
 
@@ -103,16 +103,31 @@ $$
 
 即通过过去预测未来时，只与最近的那个时间片有关，与之前的时间片都无关
 
+#### 联合概率密度
+
+$$
+\begin{align}
+P(X_3, X_2, X_1) &= P(X_3 | X_2) P(X_2 | X_1) P(X_1)	\\
+P(X_n, \cdots , X_1) &= P(X_n | X_{n-1}) P(X_{n-1} | X_{n-2}) \cdots P(X_2 | X_1) P(X_1) \\
+\end{align}
+$$
+
 ### 子列
 
-对于子列
+对于马尔克夫链的子列
 
-若满足\[ x_1 \to x_2 \to x_3 \]，通过基本性质，显然有\[ P_{x3 | x2,x1} = P_{x3 | x2} \]  
-可以推出
+若满足$X_1 \to X_2 \to X_3$，通过基本性质，显然有$P_{X3 | X2,X1} = P_{X3 | X2}$  
+可以推出$X_3 \to X_2 \to X_1$，即时间片在时间相反的情况下也满足马尔克夫链
+
+#### 证明
+
+$$
+P(X_1 | X_2, X_3) = \frac{P(X_1, X_2, X_3)}{P(X_2, X_3)} = \frac{P(X_3 | X_2, X_1) P(X_2, X_1)}{P(X_2)P(X3 | X_2))} = P(X_1 | X_2)
+$$
 
 ### 数据处理不等式
 
-若\[ X_1 \to X_2 \to X_3 \]，则有\[ I(X_1 ; X_2) \ge I(X_1 ; X_3)\]。  
+若$X_1 \to X_2 \to X_3$，则有$I(X_1 ; X_2) \ge I(X_1 ; X_3)$。  
 即对于同一个时间片，相距越近的时间片的互信息量不小于相距越远的信息量。
 
 #### 证明
@@ -120,7 +135,11 @@ $$
 $$
 \begin{align}
 &\; I(X_1 ; X_2) - I(X_1; X_3) \\
-&= \sum P_{x1,x2,x3} log \frac{P_{x1,x2}}{P_{x1}P_{x2}} \\
-&= \sum
+&= \sum_{X1,X2} P(X1,X2) log \frac{P(X1,X2)}{P(X1)P(X2)} -\sum_{X1,X3} P(X1,X3) log \frac{P(X1,X3)}{P(X1)P(X3)} \\
+&= \sum_{X1,X2,X3} P(X1,X2,X3) log \frac{P(X1,X2)}{P(X1)P(X2)} -\sum_{X1,X3,X2} P(X1,X3,X2) log \frac{P(X1,X3)}{P(X1)P(X3)} \\
+&= \sum_{X1,X2,X3} P(X1,X2,X3) log \frac{P(X1,X2) P(X3)}{P(X1,X3)P(X2)} \\
+&= \sum_{X1,X2,X3} P(X1,X2,X3) log \frac{P(X2)P(X1 | X2) P(X3)}{P(X3)P(X1 | X3)P(X2)} \\
+&= \sum_{X1,X2,X3} P(X1 | X2,X3) P(X2,X3) log \frac{P(X1 | X2)}{P(X1 | X3)} \\
+&= \sum_{X2,X3}P(X2,X3)(\sum_{X1} P(X1|X2)log \frac{P(X1 | X2)}{P(X1 | X3)})
 \end{align}
 $$
