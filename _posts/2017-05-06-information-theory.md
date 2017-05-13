@@ -76,7 +76,7 @@ $$
 
 当信息量等于零的时候，两者独立
 
-## 马尔克夫链
+## 马尔克夫链 (Markov)
 
 ### 概念
 
@@ -106,10 +106,10 @@ $$
 #### 联合概率密度
 
 $$
-\begin{align}
-P(X_3, X_2, X_1) &= P(X_3 | X_2) P(X_2 | X_1) P(X_1)	\\
-P(X_n, \cdots , X_1) &= P(X_n | X_{n-1}) P(X_{n-1} | X_{n-2}) \cdots P(X_2 | X_1) P(X_1) \\
-\end{align}
+\begin{gather}
+P(X_3, X_2, X_1) = P(X_3 | X_2) P(X_2 | X_1) P(X_1)	\\
+P(X_n, \cdots , X_1) = P(X_n | X_{n-1}) P(X_{n-1} | X_{n-2}) \cdots P(X_2 | X_1) P(X_1) \\
+\end{gather}
 $$
 
 ### 子列
@@ -140,6 +140,8 @@ $$
 &= \sum_{X1,X2,X3} P(X1,X2,X3) log \frac{P(X1,X2) P(X3)}{P(X1,X3)P(X2)} \\
 &= \sum_{X1,X2,X3} P(X1,X2,X3) log \frac{P(X2)P(X1 | X2) P(X3)}{P(X3)P(X1 | X3)P(X2)} \\
 &= \sum_{X1,X2,X3} P(X1 | X2,X3) P(X2,X3) log \frac{P(X1 | X2)}{P(X1 | X3)} \\
-&= \sum_{X2,X3}P(X2,X3)(\sum_{X1} P(X1|X2)log \frac{P(X1 | X2)}{P(X1 | X3)})
+&= \sum_{X2,X3}P(X2,X3)(\sum_{X1} P(X1|X2)log \frac{P(X1 | X2)}{P(X1 | X3)}) \\
+&= \sum_{X2,X3}P(X2,X3)P(X1 | X3)(\sum_{X1} \frac{P(X1 | X2)}{P(X1 | X3)}log \frac{P(X1 | X2)}{P(X1 | X3)}) \ge 0
 \end{align}
 $$
+最后一步用到了**凸函数**$t log t$的性质。
