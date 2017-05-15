@@ -4,7 +4,7 @@ layout: page
 category: wiki
 ---
 
-分组密码的工作模式(Block Cipher Modes)总共有五种:
+分组密码的工作模式(Block Cipher Modes)总共有五种:  
  ECB CBC CFB OFB CTR
 
 ![](http://o73wiy9vn.bkt.clouddn.com/block-cipher-modes-1.png)
@@ -28,7 +28,7 @@ category: wiki
 因此即使两个明文分组相同，一般情况下它们的密文分组也会不同
 
 其中  
-$ C_1 = E(K, [IV \oplus P_1]) $
+$ C_1 = E(K, [IV \oplus P_1]) $  
 $ P_1 = IV \oplus D(K, C_1) $
 
 ![CBC](http://o73wiy9vn.bkt.clouddn.com/block-cipher-modes-3.png)
@@ -36,7 +36,7 @@ $ P_1 = IV \oplus D(K, C_1) $
 ### 优点和局限性
 
 明文消息中有一个变化都会影响（后面）所有的密文分组，有很好的扩散性  
-但是发送方和接收方需要共享一个初始向量IV(Initial Value)  
+但是发送方和接收方需要共享一个初始向量IV (Initial Value)  
 
 长度不够的分组，可以填充已知非数据值，或者在最后一块补上填充位的长度
 
