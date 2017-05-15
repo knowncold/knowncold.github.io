@@ -3,8 +3,8 @@ title: picoCTF WriteUp
 layout: page
 category: tutorial
 ---
-> 最终 
-> 293RD PLACE	2,710/6,575 PTS  
+> 最终  
+> *293RD PLACE	2,710/6,575 PTS*  
 > 三个人中我打了大部分的题，大概是开始打CTF以来做出最多的一次吧  
 > 毕竟简单，但也没有打过很多的高中生..
 
