@@ -52,13 +52,12 @@ layout: index
 - [逃避可耻但很有用]()
 
 ## 一些日常看的主播
-- [歌声洞庭湖]()
-- [骚男]()
-- [逆推王道]()
+- [歌声洞庭湖](https://www.douyu.com/dongzhu)
+- [逆推王道](https://www.douyu.com/chushoujun)
 
 ## 你可以在下面这些地方找到我
-- [知乎]()
-- [Steam]()
-- [网易云音乐]()
+- [知乎](https://www.zhihu.com/people/knowncold)
+- [Steam](http://steamcommunity.com/id/knowncold)
+- [网易云音乐](http://music.163.com/#/user/home?id=49829942)
 - [Email](mailto:knowncold@yahoo.com)
 
