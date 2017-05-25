@@ -4,41 +4,47 @@ layout : wiki_page
 category : wiki
 ---
 
-	print "Hello World"	# 单双引号没有大区别
-	print a,b	# 会自动加一个空格
-	print 4/3, 4.0/3
-	print round(1.45),round(1.51)	# 四舍五入
-	sys.exit(0)
-	abs(a)
-	range(a,b,c)	# 从到b，间隔c
-	str_val.replace('!','')
+```python
+print "Hello World"	# 单双引号没有大区别
+print a,b	# 会自动加一个空格
+print 4/3, 4.0/3
+print round(1.45),round(1.51)	# 四舍五入
+sys.exit(0)
+abs(a)
+range(a,b,c)	# 从到b，间隔c
+str_val.replace('!','')
+```
 
-文档
-	
-	pydoc os
-	pydoc file.seek
+## 文档
 
-格式化输出
+```python
+pydoc os
+pydoc file.seek
+```
 
-	print "%d", a
-	print "%s %d", (a,b)
-	print a,
-	print b	# 会接在上一句后面不换行
-	c = "中文"
-	print "%r", c	# 输出原始格式
-					# %r is for debugging, %s is for displaying.
-	
-	format = "format%s"
-	print format % a
-	
-	print """line1
-	line2
-	line3"""
-	format(val, '.2f')	# return a string
-	return '$%0.2f' % amount
-	return '${:.2f}'.format(amount)
+## 格式化输出
 
-\
+```python
+print "%d", a
+print "%s %d", (a,b)
+print a,
+print b	# 会接在上一句后面不换行
+c = "中文"
+print "%r", c	# 输出原始格式
+				# %r is for debugging, %s is for displaying.
+
+format = "format%s"
+print format % a
+
+print """line1
+line2
+line3"""
+format(val, '.2f')	# return a string
+return '$%0.2f' % amount
+return '${:.2f}'.format(amount)
+```
+
+## \转义
 
 	\\	Backslash (\)
 	\'	Single-quote (')
@@ -56,70 +62,78 @@ category : wiki
 	\ooo	Character with octal value ooo
 	\xhh	Character with hex value hh
 
-	while True:
-		for i in ["/","-","|","\\","|"]:
-			print "%s\r" % i,
+```python
+while True:
+	for i in ["/","-","|","\\","|"]:
+		print "%s\r" % i,
+```
 
-输入
+## 输入
 
-	input_t = raw_input("> ")	# string
-	print "%s %r" % (input_t,input_t)
-	print "%d" % int(input_t)
-	
+```python
+input_t = raw_input("> ")	# string
+print "%s %r" % (input_t,input_t)
+print "%d" % int(input_t)
+```
 
-文件开头的编码
+## 文件开头的编码
 
 	# -*- coding: utf-8 -*-
-	
 	不加的话就会中文乱码
+	注意缩进，四格空格和TAB
 
-注意缩进，四格空格和TAB
+## string <-> list
 
-字符串
+```python
+list = list(str)
+str = ''.join(list)
+```
 
-	"0" in str
-	c = a + b
+## 控制流
 
-string <-> list
+```python
+for i in range(a,b):
+	pass
+x in range(1,10)	# 0<x<10
 
-	list = list(str)
-	str = ''.join(list)
+while (exp):
+	pass
 
-控制流
+if (exp):
+	pass
+elif (exp):
+	pass
+else:
+	pass
+```
 
-	for i in range(a,b):
-		pass
-	x in range(1,10)	# 0<x<10
+## 获取命令行参数
 
-	while (exp):
-		pass
-	
-	if (exp):
-		pass
-	elif (exp):
-		pass
-	else:
-		pass
+```python
+import sys
+argv = sys.argv[0]	# argv[0]=='python'
+argv = sys.argv[1]
+```
 
-获取命令行参数
+## 字符串
 
-	import sys
-	argv = sys.argv[0]	# argv[0]=='python'
-	argv = sys.argv[1]
+```python
+str_list = str_data.split('.')	# 通过.划分字符串到一个list
+pos = str_data.find(' ')	# 查找首位置
+"0" in str
+c = a + b
+```
 
-字符串
+## 类型转换
 
-	str_list = str_data.split('.')	# 通过.划分字符串到一个list
-	pos = str_data.find(' ')	# 查找首位置
+```python
+str(int_data)	# 整型转字符串
+int(str_data)	# 字符串转整型
+float(str_data)
+```
 
-类型转换
-	
-	str(int_data)	# 整型转字符串
-	int(str_data)	# 字符串转整型
-	float(str_data)
+## 列表
 
-列表
-	
 ```python
 for ele in elements_list:
 	for i in ele:
@@ -131,11 +145,15 @@ word = words.pop(-1)
 words.append(word)	# 其实是append(words,word)
 ```
 
-切片
-	
-	words[3:5]
+## 切片
 
-函数
+```python
+words[3:5]
+```
+
+### 字符串逆向
+
+## 函数
 
 ```python
 def func(*args):	#  args as list
@@ -145,103 +163,115 @@ def func(arg1, arg2):
 	pass
 ```
 
-	import module_name
-	a = module_name.b()
-	from module_name import *
-	a = b()
+```python
+import module_name
+a = module_name.b()
+from module_name import *
+a = b()
 
-	help(module_name.func)	# 返回"""	"""
+help(module_name.func)	# 返回"""	"""
+```
 
+## 打开文件
 
-打开文件
+```python
+f = open(name,'w')
+all_text = f.read()
+line = f.readline()
+f.truncate()	# 重写
+二进制的区别？？
+f.close()	# 为什么
+f.seek(0)	# 回到原位
 
-	f = open(name,'w')
-	all_text = f.read()
-	line = f.readline()
-	f.truncate()	# 重写
-	二进制的区别？？
-	f.close()	# 为什么
-	f.seek(0)	# 回到原位
+indata = open(file).read()	# 不需要close了
+```
 
-	indata = open(file).read()	# 不需要close了
+## 获取文件的名字和扩展名
 
-获取文件的名字和扩展名
+```python
+import os
+(name, extension) = os.path.splitext(path_in)
+print name,extension
 
-	import os
-	(name, extension) = os.path.splitext(path_in)
-	print name,extension
+os.path.exists(file_name)	# 文件是否存在
+file_size = os.path.getsize(path)
+```
 
-	os.path.exists(file_name)	# 文件是否存在
+## 图片灰度化
 
-图片灰度化
+```python
+from PIL import Image
+im = Image.open(path).convert('L')
+im.save(name+'_grey'+'.bmp')
+```
 
-	from PIL import Image
-	im = Image.open(path).convert('L')
-	im.save(name+'_grey'+'.bmp')
+## 图片和数组转换
 
-图片和数组转换
-	
-	im = array(Image.new('L', (width, height)))	# 新建图片
-	im = array(Image.open(path))
-	pic= Image.fromarray(im, 'L')
-	im.shape[0]	# 高度
-	im.shape[1]	# 宽度
+```python
+im = array(Image.new('L', (width, height)))	# 新建图片
+im = array(Image.open(path))
+pic= Image.fromarray(im, 'L')
+im.shape[0]	# 高度
+im.shape[1]	# 宽度
+```
 
-二进制文件读写
+## 二进制文件读写
 
-	import struct
-	byte_struct = struct.pack('B', data)	# char的二进制表示
-	file.write(byte_struck)
-	a, = struct.upack("B", file.read(1))
+```python
+import struct
+byte_struct = struct.pack('B', data)	# char的二进制表示
+file.write(byte_struck)
+a, = struct.upack("B", file.read(1))
+```
 
-获得系统中文件的大小
+## 运行系统命令行命令
 
-	file_size = os.path.getsize(path)
-	
-运行系统命令行命令
+```python
+import commands
+cmd = 'ls ' + dir
+out = cmmands.getoutput(cmd)
+outlist = out.split('\n')
+```
 
-	import commands
-	cmd = 'ls ' + dir
-	out = cmmands.getoutput(cmd)
-	outlist = out.split('\n')
+## 布尔
 
-布尔
-	
-	"test" and "test"	# return "test"
-	1 and 1				# return 1
-	True and 1			# return 1
+```python
+"test" and "test"	# return "test"
+1 and 1				# return 1
+True and 1			# return 1
 
-	with X as Y:
-		pass
-	
-	assert False,"error"
+with X as Y:
+	pass
 
-	class
+assert False,"error"
 
-	del X[Y]
+class
 
-	exec 'print "hello"'
+del X[Y]
 
-	except ValueError, e:
-		print e
-	finally:
-		pass
-	global X
-	1 is 1	# ==True
+exec 'print "hello"'
 
-	s = lambda y: y ** y if y<0 else y
-	raise ValueError("No")
-	try:
-		pass
-	def X():
-		yield Y
-		X().next()
+except ValueError, e:
+	print e
+finally:
+	pass
+global X
+1 is 1	# ==True
 
-	X = None
+s = lambda y: y ** y if y<0 else y
+raise ValueError("No")
+try:
+	pass
+def X():
+	yield Y
+	X().next()
 
-	dic = {'x':1,'y':2}
+X = None
 
-字符串格式化
+dic = {'x':1,'y':2}
+```
+
+## 字符串格式化
 
 	%d	Decimal integers (not floating point).	"%d" % 45 == '45'
 	%i	Same as %d.	"%i" % 45 == '45'
@@ -260,7 +290,7 @@ def func(arg1, arg2):
 	%s	String format.	"%s there" % 'hi' == 'hi there'
 	%%	A percent sign.	"%g%%" % 10.34 == '10.34%'
 
-Data Types
+## Data Types
 
 	Type	Description	Example
 	True	True boolean value.	True or False == True
@@ -272,7 +302,16 @@ Data Types
 	lists	Stores a list of things.	j = [1,2,3,4]
 	dicts	Stores a key=value mapping of things.	e = {'x': 1, 'y': 2}
 
-Operators
+## json
+
+```python
+import json
+test = {"username":"测试","age":16}
+to_json = json.dumps(test)	# str
+from_json = json.loads(to_json)	# dict
+```
+
+## Operators
 
 	Operator	Description	Example
 	+	Addition	2 + 4 == 6
@@ -306,7 +345,7 @@ Operators
 	%=	Modulus assign	x = 1; x %= 2
 	**=	Power assign	x = 1; x **= 2
 
-Reduce
+## Reduce
 
 ```python
 sum=reduce(lambda x,y:x+y,(1,2,3,4,5,6,7))
