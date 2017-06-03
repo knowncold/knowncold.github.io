@@ -15,6 +15,7 @@ sudo apt-get install ruby2.3 ruby2.3-dev build-essential
 sudo gem update
 
 sudo gem install jekyll bundler
+gem install jekyll-paginate
 
 cd blog
 jekyll serve
