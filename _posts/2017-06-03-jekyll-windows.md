@@ -20,3 +20,7 @@ gem install jekyll-paginate
 cd blog
 jekyll serve
 ```
+
+## 参考
+
+[https://jekyllrb.com/docs/windows/](https://jekyllrb.com/docs/windows/)
