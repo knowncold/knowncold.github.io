@@ -7,11 +7,14 @@ category: wiki
 ## 输出的预处理
 
 ### a)
-$\because \widetilde Y = g(Y)$  
-$\therefore p(g(Y)|X,Y)=p(g(Y)|Y)$  
-$\therefore X \rightarrow Y \rightarrow \widetilde Y$  
-$\therefore I(X;Y) \ge I(X;\widetilde Y)$
-
+$$
+\begin{align*}
+&\because \widetilde Y = g(Y)  \\
+&\therefore p(g(Y)|X,Y)=p(g(Y)|Y)  \\
+&\therefore X \rightarrow Y \rightarrow \widetilde Y  \\
+&\therefore I(X;Y) \ge I(X;\widetilde Y)\\
+\end{align*}
+$$
 
 ### b)
 取等号时，$I(X;Y) = I(X;\widetilde Y)$，即$g(Y)$与$Y$一一对应。
@@ -20,7 +23,9 @@ $\therefore I(X;Y) \ge I(X;\widetilde Y)$
 
 ### 数学归纳法
 
-$\frac{1}{2}(1-(1-2p)^n)(1-p)+(1-\frac{1}{2}(1-(1-2p)^n))p=\frac{1}{2}(1-(1-2p)^{n+1})$
+$$
+\frac{1}{2}(1-(1-2p)^n)(1-p)+(1-\frac{1}{2}(1-(1-2p)^n))p=\frac{1}{2}(1-(1-2p)^{n+1})
+$$
 
 ### 推导计算
 
