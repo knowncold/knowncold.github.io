@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Windows下通过USB线Edison刷Yocto指南
-category: project
+category: tutorial
 ---
 > 看到论坛已经有很多上手开机教程了，但没有人写怎么刷机，而且学会刷机之后就不怕玩坏板子了:）  
 > 测试系统：Windows8.1
@@ -81,6 +81,6 @@ Edison就开始刷入新的系统了，你可以在PuTTY上看到全过程
 
 ![Yocto](https://farm8.staticflickr.com/7334/15945992803_a7aff15c25_b.jpg )
 
-几分钟之后，就是一个全新的Edison了:D 
+几分钟之后，就是一个全新的Edison了:D
 
 ![Yocto](https://farm8.staticflickr.com/7333/15943615694_5ba7a21614_b.jpg)
