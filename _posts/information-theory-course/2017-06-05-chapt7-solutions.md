@@ -4,7 +4,7 @@ layout: page
 category: wiki
 ---
 
-## 输出的预处理
+## 1 输出的预处理
 
 ### a)
 $$
@@ -19,7 +19,7 @@ $$
 ### b)
 取等号时，$I(X;Y) = I(X;\widetilde Y)$，即$g(Y)$与$Y$一一对应。
 
-## 二元对称信道的串联
+## 7 二元对称信道的串联
 
 ### 数学归纳法
 
@@ -45,12 +45,93 @@ $$
 p^{'}=\frac{1}{2}(x+y)^n-\frac{1}{2}(y-x)^n=\frac{1}{2}(1-(1-2p)^n)
 $$
 
-## 时变信道
+## 11 时变信道
 
 ## 在输出Y上带两个独立观察的信道
 
-## 瓶颈信道
+## 25 瓶颈信道
 
-## 信道的选取
+$X \rightarrow V \rightarrow Y$
+
+$$
+I(X;Y) \le I(V;Y) = H(V) - H(V|Y) \le H(V) \le -\sum_{i=1}^k \frac{1}{k} log \frac{1}{k} = log k
+$$
+
+## 28 信道的选取
+参看习题2.10
+
+### 证明 $2^C=2^{C_1}+2^{C_2}$
+
+$$
+P_{y|x}=
+\begin{cases}
+P_{y|x}^1	x \in X_1, y \in Y_1	\\
+P_{y|x}^2	x \in X_2, y \in Y_2	\\
+\end{cases}	\\
+P_x=
+\begin{cases}
+\begin{align*}
+\alpha P_x^1 \quad &x\in X_1	\\
+(1-\alpha) P_x^2 \quad &x\in X_2\\
+\end{align*}
+\end{cases}	\\
+$$
+
+$$
+\begin{align*}
+P_y &= \sum_{x \in X} P_{y|x}P_x \\
+&= \sum_{x \in X_1} P_{y|x}^1 \alpha P_x^1 + \sum_{x \in X_2} P_{y|x}^2 (1-\alpha) P_x^2	\\
+&= \alpha P_y^1 + (1-\alpha) P_y^2
+\end{align*}
+$$
+
+$$
+\begin{align*}
+H(Y) &= - \sum_{y \in Y_1} \alpha (P_y^1 log P_y^1 + log \alpha) - \sum_{y \in Y_2} (1-\alpha) (P_y^2 log P_y^2 + log (1-\alpha))	\\
+&= \alpha H(Y_1) +(1-\alpha) H(Y_2) - H(\alpha)
+\end{align*}
+$$
+
+$$
+\begin{align*}
+H(Y|X) &= -\sum_{x \in X_1} \alpha P_x^1 P_{y|x}^1 log P_{y|x}^1 -\sum_{x \in X_2} (1-\alpha) P_x^2 P_{y|x}^2 log P_{y|x}^2	\\
+&= \alpha H(Y_1|X_1) + (1-\alpha) H(Y_2|X_2)
+\end{align*}
+$$
+
+$$
+\begin{align*}
+I(X;Y)
+&= H(Y) - H(Y|X)	\\
+&= \alpha I(X_1;Y_1) + (1 - \alpha) I(X_2;Y_2) - H(\alpha)
+\end{align*}	\\
+$$
+
+$$
+I(X;Y) \le \alpha I(X_1;Y_1) + (1 - \alpha) I(X_2;Y_2) - H(\alpha) = C_{\alpha}
+$$
+
+$$
+\frac{d(C_{\alpha})}{d(\alpha)}=0	\\
+\alpha = \frac{e^{C_1}}{e^{C_1}+e^{C_2}}	\\
+C = log_2(2^{C_1}+2^{C_2})	\\
+P_x^* = \alpha P_x^{1*} + (1-\alpha)P_x^{2*}	\\
+2^C=2^{C_1}+2^{C_2}
+$$
+
+其中  
+$H(\alpha)=(\alpha log \alpha + (1-\alpha)log(1-\alpha))$  
+
+$P_x^{1*}$满足$C_1$的信道容量情况  
+
+$P_x^{2*}$满足$C_2$的信道容量情况
+
+当其中一个信道容量远大于另一个时，比如$C_1 \gg C_2$，从$\alpha$的表示可以看出此时趋向于1，即会倾向于选择这个大容量的信道，导致最终$C_{max} \approx C_1$
+
+#### 猜测n个信道可以选择时的情况
+
+$$
+C = log_e(\sum_{i=1}^n e^{C_i})
+$$
 
 ## 联合典型性
