@@ -39,3 +39,54 @@ category: cryptology-course
 1. 明确所需要的所有假定；
 2. 要明确所提供的确切的安全服务；机密性；认证；不可否认；知识证明
 3. 要明确数学方面的一些特殊情况。
+
+## 安全攻击
+
+### 被动攻击
+
+对传输进行窃听和监测，通信和信息不受影响，**用户感觉不到攻击存在**，攻击通常是窃听或流量分析，判断通信性质
+
+#### 消息内容的泄露
+
+![](http://o73wiy9vn.bkt.clouddn.com/crypto-introduction-0.png)
+
+#### 流量分析
+
+![](http://o73wiy9vn.bkt.clouddn.com/crypto-introduction-1.png)
+
+#### 伪装
+
+![](http://o73wiy9vn.bkt.clouddn.com/crypto-introduction-2.png)
+
+#### 重放
+
+![](http://o73wiy9vn.bkt.clouddn.com/crypto-introduction-3.png)
+
+### 主动攻击
+
+攻击者破坏通信过程，拦截、修改、伪造、丢弃信息、拒绝服务或假冒合法用户
+
+#### 消息修改
+
+![](http://o73wiy9vn.bkt.clouddn.com/crypto-introduction-4.png)
+
+#### 拒绝服务
+
+![](http://o73wiy9vn.bkt.clouddn.com/crypto-introduction-5.png)
+
+## 安全服务
+
+X.800将安全服务分成认证、访问控制、数据保密性、数据完整性、不可否认性
+
+### Authentication认证
+确保通信实体是合法和真实的，包括同等实体认证和数据源认证
+### Access Control访问控制
+防止资源非授权使用
+### Data Confidentiality数据保密性
+保护数据免于非授权泄漏，并防止流量分析
+### Data Integrity数据完整性
+确保接收到的数据是由授权用户发出的或者是未被修改过的
+### Non-Repudiation不可否认性
+防止通信方对通信行为的否认，包括源不可否认性和宿不可否认性
+### Availability Service
+系统或系统资源能够按照要求根据系统性能规范被授权系统的实体访问和使用
