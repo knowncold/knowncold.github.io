@@ -1,7 +1,7 @@
 ---
 title: 数论入门
 layout: page
-category: wiki
+category: cryptology-course
 ---
 ## 单向函数和单向陷阱门函数
 

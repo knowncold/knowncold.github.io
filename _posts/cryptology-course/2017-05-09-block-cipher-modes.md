@@ -1,7 +1,7 @@
 ---
 title: 分组密码的工作模式
 layout: page
-category: wiki
+category: cryptology-course
 ---
 
 分组密码的工作模式(Block Cipher Modes)总共有五种:  
