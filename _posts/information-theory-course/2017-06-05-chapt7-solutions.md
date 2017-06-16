@@ -1,7 +1,7 @@
 ---
 title: 信道容量习题
 layout: page
-category: wiki
+category: information-theory
 ---
 
 ## 1 输出的预处理

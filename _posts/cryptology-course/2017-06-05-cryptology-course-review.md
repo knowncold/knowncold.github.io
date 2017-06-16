@@ -28,7 +28,6 @@ category: cryptology-course
 #### 序列加密
 
 #### 分组加密
-
 凯撒加密为什么可以破解
 
 ## DES

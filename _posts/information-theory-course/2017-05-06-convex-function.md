@@ -1,7 +1,7 @@
 ---
-title: 信息论笔记
+title: 凸函数
 layout: page
-category: wiki
+category: information-theory
 ---
 
 网络安全专业选修课，田园大师授课  
