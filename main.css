@@ -25,6 +25,10 @@ table, td, th {
 	border:1px solid LightGrey;
 }
 
+td {
+	padding:15px;
+}
+
 #mainblock {
     font-family: 'Open Sans','Microsoft YaHei',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Noto Sans CJK SC',sans-serif;
     font-size: 16px;
