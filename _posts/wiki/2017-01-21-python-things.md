@@ -13,6 +13,9 @@ sys.exit(0)
 abs(a)
 range(a,b,c)	# 从到b，间隔c
 str_val.replace('!','')
+
+import random
+float_num = random.uniform(10,20)
 ```
 
 ## 文档
