@@ -3,8 +3,17 @@ title: Raspi-config 命令行
 layout: page
 category: wiki
 ---
+> 稍微多用过树莓派的朋友相信都用过raspi-config这个工具，通过它可以相对可视化的容易地改变树莓派的配置。  
+> 但是里面的有些操作假如我们想要用命令行直接运行而不想进入raspi-config那个界面，那要怎么做呢?
 
-在这个[代码](https://github.com/raspberrypi-ui/rc_gui/blob/master/src/rc_gui.c#L23-L70)里面可以看到细节
+在这个[代码](https://github.com/raspberrypi-ui/rc_gui/blob/master/src/rc_gui.c#L23-L70)里面可以看到一些细节。
+
+很多命令都是成对出现的，比如和`hostname`相关的
+
+- `raspi-config nonint get_hostnameraspi-config nonint get_hostname`就是获得当前设置的`hostname`
+- 而`raspi-config nonint do_hostname %s`对应的就是设置`hostname`
+
+设置启用I2C可以通过`raspi-config nonint get_i2c 0`，`0`表示开启，`1`表示关闭（不同的命令可能是不同的对应）。
 
 ```c
 /* Command strings */
