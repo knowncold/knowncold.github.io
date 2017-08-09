@@ -4,6 +4,7 @@ layout: index
 ---
 
 ## 一些朋友的站点
+- [TaterLi](https://www.lijingquan.net/)
 - [woofhyx](https://woofhyx.github.io)
 - [Dang](http://www.dangbo.net)
 - [Means88](https://means88.com/)
