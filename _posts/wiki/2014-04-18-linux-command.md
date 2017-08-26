@@ -16,7 +16,7 @@ category: wiki
 	$ rm -rf dir
 
 	$ mkdir
-	
+
 	$ ssh usr@192.168.1.201
 
 	$ sudo apt-get install software
@@ -29,7 +29,7 @@ category: wiki
 	$ top
 
 	$ kill PID
-	$ cat 
+	$ cat
 	$ head file
 	$ tail file
 	$ touch file
@@ -37,14 +37,14 @@ category: wiki
 	$ man command
 
 	$ tree
-	
+
 	$ scp /home/file root@192.168.1.105:home/pi
 	$ scp root@192.168.1.105:home/pi /home/knoc
 	$ scp -r home/pi/ root@asd:home/pi
-	$ scp -r root@as.sd.awq.we:home/pi /home/pi 
-	
+	$ scp -r root@as.sd.awq.we:home/pi /home/pi
+
 	$ tar -jxvf xxx.tar.bz2
-	
+
 	$ unzip xxx.zip
 
 	$ df -h
@@ -60,6 +60,8 @@ category: wiki
 
 往一个程序输入`stdin`
 
-	echo 'This string will be piped to stdin.' | /my/bash/script
+	$ echo 'This string will be piped to stdin.' | /my/bash/script
 
+输出开机时的调试信息
 
+	$ demesg
