@@ -18,6 +18,12 @@ import random
 float_num = random.uniform(10,20)
 ```
 
+## 常用内建函数
+
+```python
+sum([1, 3, 2], 4)	# 10
+```
+
 ## 文档
 
 ```python
