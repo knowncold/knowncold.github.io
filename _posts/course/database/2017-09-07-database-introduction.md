@@ -1,7 +1,7 @@
 ---
 title: 数据库系统概念
 layout: page
-category: course
+category: wiki
 ---
 
 数据库系统是数据加上用于访问的一系列程序。
@@ -33,3 +33,66 @@ category: course
 
 - Security problems
 文件驱动的系统是ad hoc方式，无法实现不同的人对于不同的数据库拥有不同的访问权限
+
+## Data Models
+
+- data
+- data relationships
+- data semantics
+- consistency constraints
+
+- Conceptual Data Model
+  * ER
+- Logical Data Model
+  * Relational
+  * network
+  * hierarchical
+  * object-based
+  * semistructured
+- Physical Data Model
+  * B* tree model
+
+## Relational Model
+
+relationships = row = n-tuple -> table -> database
+
+笛卡尔积
+
+属性的值是域，一个属性就是域的笛卡尔积的一个子集
+
+- 有限集合
+- 同一个关系的无序性
+- 不同的元组的无序性
+- 不同的属性可能会有同样的域
+
+- 域必须是原子的（从实用的角度看，而不是数据本身）
+
+#### null
+
+null是unknown，属于所有的域
+
+### 模式和实例
+
+关系  
+数据库
+
+### Key
+
+- superkey
+可以用来标识区分每个关系的属性的集合
+
+- candidate key
+最小的superkey
+
+- primary key
+人为选择的candidate key
+
+- prime attributes
+在candidate key中出现的属性
+
+- non-prime attribute
+没有在任何candidate key中出现的属性
+
+#### foreign key
+
+一个属性对应到一个主键，主键是外码，同一个数据表也行
