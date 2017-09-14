@@ -16,8 +16,12 @@ category : wiki
 	$ eval "$(ssh-agent -s)"
 	$ ssh-add ~/.ssh/id_rsa
 
+#### MAC
+
+	$ ssh-add -K ~/.ssh/id_rsa
+
 ### 添加SSH Key到Github
-	
+
 	$ sudo apt-get install xclip
 	$ xclip -sel clip < ~/.ssh/id_rsa.pub
 
