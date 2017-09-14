@@ -13,6 +13,9 @@ category: wiki
 
 >现在好像能直接安装了= =
 
+#### 安装插件
+
+	sudo gem install jekyll-paginate
 
 
 ### 使用
@@ -20,3 +23,7 @@ category: wiki
 	cd blog
 	jekyll serve
 
+### Mac OS安装
+
+	brew install ruby
+	sudo gem install jekyll
