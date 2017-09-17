@@ -18,7 +18,7 @@ docker start <Container ID> # 启动容器
 docker stop <Container ID> # 停止容器
 ```
 
-## sssql-server
+## mssql-server
 
 ### 在Mac或者Windows上，需要将Docker的内存调到4GB
 
