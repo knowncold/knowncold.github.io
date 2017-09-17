@@ -72,5 +72,6 @@ sqlcmd -S 10.3.2.4,1401 -U SA -P '<YourPassword>'
 
 ## 参考
 
+> [microsoft/mssql-server-linux](https://hub.docker.com/r/microsoft/mssql-server-linux/)
 > [使用 Docker 运行 SQL Server 2017 容器映像](https://docs.microsoft.com/zh-cn/sql/linux/quickstart-install-connect-docker)  
 > [在 Docker 上配置 SQL Server 2017 容器映像](https://docs.microsoft.com/zh-cn/sql/linux/sql-server-linux-configure-docker)
