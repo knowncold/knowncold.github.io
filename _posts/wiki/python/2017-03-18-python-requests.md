@@ -6,7 +6,7 @@ category: wiki
 
 Python `Requests`库的口号就是`HTTP for Humans`，比起其他的一些HTTP工具也确实方便人性化一点..
 
-#### 基本的GET请求
+## 基本的GET请求
 ```python
 r = requests.get(url)
 r.status	# 返回的HTTP状态
@@ -17,15 +17,23 @@ r = requests.get(url, params=payload)
 r.url	# 请求的完整url包括了GET参数
 ```
 
-#### POST请求
+## POST请求
 ```python
 >>> r = requests.post('http://httpbin.org/post', data = {'key':'value'})
+>>> json=
 ```
 
-#### Session
+### json数据
+```python
+url = ""
+post_data = {"key1":value1, "key2":value2}
+r = requests.post(url, json=post_data)
+```
 
-#### Cookies
+## Session
 
-#### JSON
+## Cookies
 
-#### 下载文件
+## JSON
+
+## 下载文件
