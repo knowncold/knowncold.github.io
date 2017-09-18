@@ -359,3 +359,20 @@ from_json = json.loads(to_json)	# dict
 ```python
 sum=reduce(lambda x,y:x+y,(1,2,3,4,5,6,7))
 ```
+
+## Excel
+
+```python
+import xlrd
+
+dataMembers = xlrd.open_workbook('member.xlsx')
+table = dataMembers.sheets()[0]
+rows = table.nrows
+
+cell_A1 = table.cell(0,0).value
+cell_C4 = table.cell(2,3).value
+
+for i in range(1, rows):
+	row = table.row_values(i)
+	Latitude, Longitude = row
+```
