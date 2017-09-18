@@ -8,6 +8,7 @@ category: wiki
 
 通过Docker，不需要在实体机上安装一堆mssql或者虚拟机，相对而言更加优雅
 
+> Docker在windows上是运行在hyper-v上的，所以家庭版没有hyper-v是无法使用的，或者使用跑在virtualbox上的版本
 
 ### Docker基本命令
 
