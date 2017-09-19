@@ -3,7 +3,7 @@ title  : YouCompleteMe的安装
 layout : wiki_page
 category : wiki
 ---
-之前在Windows上尝试安装YCM的时候非常痛苦，各种出错，现在已经忘了具体的出错和解决方案了，但是我是不会再去`Windows上`用`Gvim`了.. 
+之前在Windows上尝试安装YCM的时候非常痛苦，各种出错，现在已经忘了具体的出错和解决方案了，但是我是不会再去`Windows上`用`Gvim`了..
 相比较而言在Ubuntu上安装就简单多了去了，这次我安装了C系语言、JavaScript还有Python的补全。
 
 首先通过Vundle下载YCM的`Github`资源，然后再执行编译
@@ -15,6 +15,16 @@ category : wiki
 	$ ./install.py --clang-completer --tern-completer
 
 其中下载`Clang`的时候巨慢无比，最后放置了一节毛概课才下完。
+
+### Mac
+
+首先要注意升级到最新的vim，默认自带的vim版本太低
+
+```
+brew install vim --with-lua --with-override-system-vi
+cd ~/.vim/bundle/YouCompleteMe/
+./install.py -- clang-completer
+```
 
 ### YCM Generater
 
