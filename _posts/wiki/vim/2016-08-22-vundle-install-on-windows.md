@@ -47,7 +47,7 @@ Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle�
 	+---vimfiles  
 	+------bundle  
 	+---------vundle  
-	+------------autoload 
+	+------------autoload
 
 ### 配置Vundle并安装插件
 编辑`_vimrc`文件
@@ -102,7 +102,7 @@ Vundle基于Git，每一个插件都是一个项目的Repository，通过Vundle�
 
 保存`_vimrc`文件后，打开`gvim`，运行`:PluginInstall`
 
-### Linux下安装
+### Linux和Mac下安装
 
 	$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
