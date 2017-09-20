@@ -1,5 +1,5 @@
 ---
-title: python-pylab
+title: Python-pylab
 layout: page
 category: wiki
 ---

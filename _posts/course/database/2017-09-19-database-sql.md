@@ -65,11 +65,19 @@ where 1=2 AND a is not NULL AND b is NULL
 ```sql
 where ename='JonEs'
 where ENAME like 'j%'   -- %匹配任意长度任意字符
+where ENAME like '%j%' AND ENAME like '%s%'     -- 两个字符
 where ENAME like '%s'
 where ENAME like '_o%'  -- _匹配一个任意字符
 where ENAME like 'M_%' ESCAPE 'M' -- 任意字符都可以作为转义符号
+where ENAME like '[[]'  -- 通过[]也可以查询特殊字符
+where ENAME like '[0-9]t' or ENAME like '[abc]e'    -- 从[]匹配一个字符
+where ENAME like '[^0-4]t'  -- 排除[]中的字符
 ```
 
-### 正则表达式
+## 正则表达式
+
+msSQL不支持完全的直接的正则函数，需要自己实现简单的函数
+
+### MySQL支持的正则表达式
 
 待补充
