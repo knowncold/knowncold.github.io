@@ -142,7 +142,7 @@ pre {
 }
 
 pre > code {
-	font-family: Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
+	font-family: Monaco, Inconsolata, Consolas, "DEJA VU SANS MONO", "DROID SANS MONO", Proggy, monospace;
     font-size: 90%;
     background-color: #EFF2F2;
     padding: 0px;
