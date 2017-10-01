@@ -15,22 +15,22 @@ category: wiki
 * SQL语句由子句构成，有些子句是必需的，有些则是可选的。一个子句通常由一个关键字加上所提供的数据组成。
 * NULL无值（no value） ，它与字段包含 0、空字符串或仅仅包含空格不同。
 
-### 常见的习惯
+## 常见的习惯
 SQL也有ANSI SQL
 
-#### 分解数据
+### 分解数据
 按需求分解到一定程度，而不是极端的不可分。
 
-#### 数据类型的兼容
+### 数据类型的兼容
 虽然大多数基本数据类型得到了一致的支持，但许多高级的数据类型却没有。更糟的是，偶然会有相同的数据类型在不同的DBMS中具有不同的名称。
 
-#### 主键的条件
+### 主键的条件
 * 任意两行都不具有相同的主键值
 * 每一行都必须具有一个主键值（主键列不允许NULL值）
 * 主键列中的值不允许修改或更新
 * 主键值不能重用（如果某行从表中删除，它的主键不能赋给以后的新行）
 
-### 语法
+## 语法
 语句不区分大小写，一般列名和表名小写，SQL大写
 分为`DML`和`DDL`两个
 SQL使用单引号来环绕字符串
@@ -121,7 +121,7 @@ LIMIT 3, 4;
 ```sql
 SELECT prod_name
 FROM Products
-ORDER BY prod_name; 
+ORDER BY prod_name;
 ```
 
 不一定用检索出来的列排序，也可以用非检索列排序。
@@ -149,7 +149,7 @@ ORDER BY 2, 3;
 ```sql
 SELECT prod_id, prod_price, prod_name
 FROM Products
-ORDER BY prod_price DESC, prod_name; 
+ORDER BY prod_price DESC, prod_name;
 ```
 
 #### WHERE
@@ -177,7 +177,7 @@ SELECT RowName
 FROM TableName
 WHERE RowName = 12;
 
-SELECT * 
+SELECT *
 FROM Persons
 WHERE City='Beijing';
 

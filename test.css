@@ -128,6 +128,19 @@ body {
 	padding: 1%;
 }
 
+#foot {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 30px;
+}
+
+#toc ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 10px;
+}
+
+
 H1 {
     font-family: 'Open Sans Light',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif;
 	font-weight: 300;

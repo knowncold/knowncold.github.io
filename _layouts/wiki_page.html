@@ -4,6 +4,11 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8 " />
 <link href="/test.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/atom+xml" href="atom.xml" title="Atom feed">
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/toc.js" type="text/javascript"></script>
+
+
 <title>{{ page.title }}</title>
 </head>
 <body>
@@ -16,6 +21,10 @@
 	</div>
 	<div id="article">
 	<div class="side-widget">
+		<h4>Article List</h4>
+		<div id="toc"></div>
+	</div>
+	<div class="side-widget">
 		<h4>Recently</h4>
 		<p><a href="">最近文章</a></p>
 		<p><a href="">最近文章文章文章</a></p>
@@ -27,10 +36,23 @@
 		<p><a href="">推荐文章</a></p>
 		<p><a href="">推荐文章</a></p>
 	</div>
+	<div class="side-widget">
+		<h4>Tag Cloud</h4>
+		<a href="">tag1</a>
+		<a href="">tag2</a>
+		<a href="">tag3</a>
+		<a href="">tag4</a>
+	</div>
+
 	<div id="about">
 		<h4>About</h4>
 		<p>关于关于关于关于关于关于关于</p>
 		<p><a href="/about">查看更多</a></p>
+	</div>
+
+	<div class="side-widget">
+		<h4>Feeds</h4>
+		<a href="">RSS feed</a>
 	</div>
 
 
@@ -43,6 +65,15 @@
 	</div>
 
 </div>
+<div id="foot">
+	&copy; 2014-2017 by <a href="http://www.knowncold.me">Zed Xu</a>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#toc').toc({ headers: 'h1, h2, h3, h4'});
+	$('#toc').toc({ listType: 'ul' });
+}); </script>
 </body>
 
 
