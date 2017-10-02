@@ -29,64 +29,6 @@ td {
 	padding:15px;
 }
 
-body {
-	background: url('bg.gif') repeat-x;
-}
-
-#container {
-	width: 1024px;
-	margin: auto;
-	font-size: 14px;
-}
-
-#article {
-	width: 960px;
-	margin: auto;
-	padding-bottom: 16px;
-}
-
-#content {
-	width: 720px;
-}
-
-
-#about {
-	float: right;
-	margin-left: 40px;
-	margin-bottom: 0;
-	width: 200px;
-	clear: both;
-}
-
-.side-widget {
-	float: right;
-	margin-left: 40px;
-	margin-bottom: 0;
-	width: 200px;
-	clear: both;
-}
-
-#header {
-    font-size: 55px;
-    font-weight: 300;
-    color: white;
-    margin-left: 30px;
-    margin-top: 10px;
-}
-
-#description {
-    font-size: 20px;
-    font-weight: 100;
-    color: white;
-    font-style: italic;
-    margin-left: 30px;
-}
-
-.article-title {
-	font-size: 30px;
-    margin-top: 30px;
-}
-
 #mainblock {
     font-family: 'Open Sans','Microsoft YaHei',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Noto Sans CJK SC',sans-serif;
     font-size: 16px;
@@ -128,19 +70,6 @@ body {
 	padding: 1%;
 }
 
-#foot {
-    text-align: center;
-    font-size: 12px;
-    margin-bottom: 30px;
-}
-
-#toc ul {
-    list-style-type: none;
-    margin-left: 0;
-    padding-left: 10px;
-}
-
-
 H1 {
     font-family: 'Open Sans Light',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif;
 	font-weight: 300;
@@ -154,7 +83,7 @@ H1 {
 
 H2 {
     font-family: 'Open Sans Light',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Microsoft YaHei','Noto Sans CJK SC',sans-serif;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 30px;
     border-bottom: 1px LightGrey solid;
     width: 80%;
@@ -234,11 +163,13 @@ code {
 
 a {
     text-decoration: none;
-    color: #009bbc;
+    border-bottom: 1px dashed Red;
+    padding: 1px;
+    color: black;
 }
 
 a:hover {
-	text-decoration: underline;
+	background-color: LightGrey;
 }
 
 img {
