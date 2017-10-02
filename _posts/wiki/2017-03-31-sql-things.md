@@ -1,6 +1,6 @@
 ---
 title: SQL笔记
-layout: wiki_page
+layout: page
 category: wiki
 ---
 
