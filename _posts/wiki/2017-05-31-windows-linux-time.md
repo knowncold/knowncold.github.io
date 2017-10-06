@@ -1,6 +1,6 @@
 ---
 title: Windows和Ubuntu双系统的时间问题
-layout: wiki_page
+layout: page
 category: wiki
 ---
 

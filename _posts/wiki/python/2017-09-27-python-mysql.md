@@ -1,8 +1,5 @@
 ---
-title: PHP连接MySQL
+title: Python-MySQL
 layout: page
 category: wiki
 ---
-
-$num_rows;
-

@@ -1,6 +1,6 @@
 ---
 title : 使用SSH连接Github
-layout : wiki_page
+layout : page
 category : wiki
 ---
 

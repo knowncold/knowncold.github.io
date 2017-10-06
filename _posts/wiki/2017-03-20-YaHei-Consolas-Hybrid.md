@@ -1,6 +1,6 @@
 ---
 title : 推荐雅黑字体
-layout: wiki_page
+layout: page
 category: wiki
 ---
 推荐一款在`Vim`中使用的等宽字体`YaHei-Consolas-Hybrid-1.12`

@@ -1,6 +1,6 @@
 ---
 title: PHP文件上传
-layout: wiki_page
+layout: page
 category: wiki
 ---
 

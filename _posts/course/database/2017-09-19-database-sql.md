@@ -39,16 +39,22 @@ order by
 GROUP BY的输出结果，一行是之前很多行的一组，一般会违反原子性
 
 ```sql
-SELECT count(*), DEPTNO     -- 需要保证只出现一个值，无论是否有人为的控制，必须放到group子句去或者从语句上直接避免原子性
+SELECT count(*), sum(sal), avg(EMP)     -- 需要保证只出现一个值，无论是否有人为的控制，必须放到group子句去或者从语句上直接避免原子性，一个组的统计性质
 FROM EMP
 GROUP BY DEPTNO
 ```
+
+### HAVING
+
+对GROUP BY之后的结果进行过滤
 
 ## 内建函数
 ```sql
 isnull(var, 0)
 d between 1 and 2 --两边闭区间
 ```
+
+### COUNT
 
 ## 逻辑表达式
 SQL没有`==`，没有连续的比较运算符写法`12<c<45`

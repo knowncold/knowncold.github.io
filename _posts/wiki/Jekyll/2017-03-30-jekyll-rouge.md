@@ -1,6 +1,6 @@
 ---
 title: Jekyll使用Rouge
-layout: wiki_page
+layout: page
 category: wiki
 ---
 之前一直配不好`Jekyll`的语法高亮，前段时间又尝试配置了一次`Pygments`，但是马上Github自动发来邮件说`Build Warning`，原来是他们强制要求使用`Rouge`的语法高亮，不支持`Pygments`。

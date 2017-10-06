@@ -1,6 +1,6 @@
 ---
 title : 修改Ubuntu的开机壁纸
-layout : wiki_page
+layout : page
 category : wiki
 ---
 Ubuntu的开机画面有两种情况，一种是当你在桌面选择静态壁纸的时候，开机登录画面就是那一张壁纸。 

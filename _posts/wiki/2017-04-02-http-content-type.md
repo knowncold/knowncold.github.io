@@ -1,6 +1,6 @@
 ---
 title: HTTP content-type对照表
-layout: wiki_page
+layout: page
 category: wiki
 ---
 

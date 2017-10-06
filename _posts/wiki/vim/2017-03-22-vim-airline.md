@@ -1,6 +1,6 @@
 ---
 title : Vim插件Airline字体显示问题
-layout: wiki_page
+layout: page
 category: wiki
 ---
 `Airline`似乎是从过来的，他底下的很多字符都无法正常显示，因为有些字符系统本来就是没有的..  

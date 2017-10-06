@@ -1,6 +1,6 @@
 ---
 title: Ubuntu开启ssh
-layout: wiki_page
+layout: page
 category: wiki
 ---
 

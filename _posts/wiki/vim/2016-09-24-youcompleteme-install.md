@@ -1,6 +1,6 @@
 ---
 title  : YouCompleteMe的安装
-layout : wiki_page
+layout : page
 category : wiki
 ---
 之前在Windows上尝试安装YCM的时候非常痛苦，各种出错，现在已经忘了具体的出错和解决方案了，但是我是不会再去`Windows上`用`Gvim`了..

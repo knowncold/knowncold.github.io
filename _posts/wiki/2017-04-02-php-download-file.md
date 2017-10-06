@@ -1,6 +1,6 @@
 ---
 title: PHP下载文件
-layout: wiki_page
+layout: page
 category: wiki
 ---
 

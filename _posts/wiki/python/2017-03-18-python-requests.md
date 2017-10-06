@@ -1,5 +1,5 @@
 ---
-layout: wiki_page
+layout: page
 title: Python-Requests笔记
 category: wiki
 ---
