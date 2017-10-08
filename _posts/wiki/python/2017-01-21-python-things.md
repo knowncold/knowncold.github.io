@@ -376,3 +376,11 @@ for i in range(1, rows):
 	row = table.row_values(i)
 	Latitude, Longitude = row
 ```
+
+## 深拷贝
+
+```python
+a = [1,2]
+b = a[:]
+b = copy.deepcopy(a)
+```
