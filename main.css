@@ -72,6 +72,7 @@ body {
     color: white;
     margin-left: 30px;
     margin-top: 10px;
+    font-family: 'PingFang SC';
 }
 
 #header a {
@@ -89,6 +90,7 @@ body {
     color: white;
     font-style: italic;
     margin-left: 30px;
+    font-family: 'PingFang SC';
 }
 
 .article-title {
