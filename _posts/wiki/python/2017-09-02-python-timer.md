@@ -2,6 +2,7 @@
 title: Python定时器
 layout: page
 category: wiki
+hidden: true
 ---
 
 ```python

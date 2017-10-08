@@ -2,6 +2,7 @@
 title: 数据库与msSQL
 layout: page
 category: wiki
+hidden: true
 ---
 
 ## 概念
@@ -41,7 +42,7 @@ GROUP BY的输出结果，一行是之前很多行的一组，一般会违反原
 ```sql
 SELECT count(*), sum(sal), avg(EMP)     -- 需要保证只出现一个值，无论是否有人为的控制，必须放到group子句去或者从语句上直接避免原子性，一个组的统计性质
 FROM EMP
-GROUP BY DEPTNO
+GROUP BY DEPTNO,DNAME(没出现过就不能select)
 ```
 
 ### HAVING
@@ -53,6 +54,8 @@ GROUP BY DEPTNO
 isnull(var, 0)
 d between 1 and 2 --两边闭区间
 ```
+### select 1 form r,s
+笛卡尔积
 
 ### COUNT
 

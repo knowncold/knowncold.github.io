@@ -2,6 +2,7 @@
 title: Mac OS安装iPython
 layout: page
 category: wiki
+hidden: true
 ---
 在Mac上直接通过`pip install ipython`会报错，完全无法安装上，不管有没有`sudo`
 

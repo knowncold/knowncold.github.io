@@ -2,6 +2,7 @@
 title: Mac配置iTerm和zsh
 layout: page
 category: wiki
+hidden: true
 ---
 
 iTerm直接去官网下载就行。

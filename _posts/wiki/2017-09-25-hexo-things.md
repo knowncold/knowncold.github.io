@@ -2,6 +2,7 @@
 title: Hexo笔记
 layout: page
 category: wiki
+hidden: true
 ---
 ## 安装Hexo
 ```bash

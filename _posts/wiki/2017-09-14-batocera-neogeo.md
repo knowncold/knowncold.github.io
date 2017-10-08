@@ -2,6 +2,7 @@
 title: Batocera上配置neogeo模拟器
 layout: page
 category: wiki
+hidden: true
 ---
 
 neogeo模拟器和常规的其他模拟器有所区别，首先他的rom是一个zip压缩文件，里面有很多小的文件，不像NES这种是一个nes结尾的小文件。

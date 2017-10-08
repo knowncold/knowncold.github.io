@@ -2,6 +2,7 @@
 title: Python串口库
 layout: page
 category: wiki
+hidden: true
 ---
 
 ```python

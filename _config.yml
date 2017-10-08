@@ -1,11 +1,13 @@
-permalink: :year/:month/:day/:title
+
 highlighter: rouge
 date_format: "ordinal"
 subscribe_rss: /atom.xml
-pugins: [jekyll-paginate]
+plugins: [jekyll-paginate]
 
 markdown: kramdown
 kramdown:
     input:  GFM
     syntax_highlighter: rouge
 
+paginate: 5
+paginate_path: "/page:num/"

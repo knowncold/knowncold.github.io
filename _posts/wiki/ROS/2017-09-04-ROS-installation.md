@@ -1,7 +1,8 @@
 ---
 title: Ubuntu安装ROS和基本概念
 layout: page
-category: category
+category: wiki
+hidden: true
 ---
 
 ```bash

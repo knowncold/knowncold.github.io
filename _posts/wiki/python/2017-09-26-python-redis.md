@@ -2,6 +2,7 @@
 title: Python-Redis
 layout: page
 category: wiki
+hidden: true
 ---
 
 ```python

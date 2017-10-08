@@ -2,6 +2,7 @@
 title: 数据库系统概念
 layout: page
 category: wiki
+hidden: true
 ---
 
 数据库系统是数据加上用于访问的一系列程序。

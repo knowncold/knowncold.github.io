@@ -2,6 +2,7 @@
 title: Python-pylab
 layout: page
 category: wiki
+hidden: true
 ---
 
 ```python
