@@ -74,6 +74,15 @@ body {
     margin-top: 10px;
 }
 
+#header a {
+    color: white;
+    text-decoration: none;
+}
+
+#header a:hover {
+    text-decoration: none;
+}
+
 #description {
     font-size: 20px;
     font-weight: 100;
@@ -86,6 +95,16 @@ body {
 	font-size: 30px;
     margin-top: 30px;
 }
+
+.article-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.article-title a:hover {
+    text-decoration: none;
+}
+
 
 #mainblock {
     font-family: 'Open Sans','Microsoft YaHei',Georgia,'Source Han Sans CN','Xin Gothic','Hiragino Sans GB','Noto Sans CJK SC',sans-serif;
