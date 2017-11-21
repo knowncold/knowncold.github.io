@@ -2,6 +2,7 @@
 title: ESP32+MicroPython教程 零
 layout: page
 category: tutorial
+hidden: true
 ---
 
 ## 硬件清单
