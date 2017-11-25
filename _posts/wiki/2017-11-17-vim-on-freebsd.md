@@ -28,7 +28,7 @@ pkg install git
 git clone https://github.com/knowncold/vim.git
 cd vim
 cp .vimrc ~/.vimrc
-cp colors ~/.vim/colors
+cp -r colors ~/.vim/colors
 ```
 
 ## 安装Vundle
