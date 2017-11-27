@@ -1,5 +1,5 @@
 ---
-title: FreeBSD虚拟机
+title: FreeBSD虚拟机使用VIM
 layout: page
 category: wiki
 ---
