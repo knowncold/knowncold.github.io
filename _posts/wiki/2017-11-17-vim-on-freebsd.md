@@ -1,5 +1,5 @@
 ---
-title: FreeBSD虚拟机使用VIM
+title: FreeBSD虚拟机使用VIM构建unpv环境
 layout: page
 category: wiki
 ---
@@ -11,6 +11,26 @@ pkg install vim
 ```
 
 其中同时安装了不少和桌面系统相关的文件，内容比较大。
+
+## 下载unpv12e代码
+
+### 安装wget
+
+```bash
+pkg install wget
+```
+
+### 下载源码
+
+```bash
+wget http://unpbook.com/unpv13e.tar.gz
+```
+
+### 解压
+
+```bash
+tar -xzvf unpv13e.tar.gz
+```
 
 ## 安装Git
 
@@ -43,22 +63,15 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 打开vim，使用`PluginInstall`命令
 
-## 自动补全
+### 自动补全
 
 自动补全通过`YouCompleteMe`插件来实现，相关的更详细的步骤可以看[这个文章](http://blog.knowncold.me/wiki/2016/09/24/youcompleteme-install.html)或者[官方文档](http://valloric.github.io/YouCompleteMe/#freebsdopenbsd)。
 
 ```bash
 pkg install llvm38 boost-all boost-python-libs clang38
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/llvm38/lib/
-sudo pkg_add llvm boost cmake
+pkg install python
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --system-libclang --system-boost
-```
-
-其中`LD_LIBRARY_PATH`可能没有定义，可以直接
-
-```bash
-export LD_LIBRARY_PATH=/usr/local/llvm38/lib/
 ```
 
 编译完成之后，需要一个配置文件才能完全使用YCM
@@ -74,5 +87,30 @@ export LD_LIBRARY_PATH=/usr/local/llvm38/lib/
 ```bash
 ./config_gen.py PROJECT_DIRECTORY
 ```
+
+## 安装xfce
+
+```bash
+pkg install xorg
+pkg install slim
+pkg install xfce
+```     
+
+向`/etc/rc.conf `写入
+
+```
+moused_enable="YES"
+dbus_enable="YES"
+hald_enable="YES"
+slim_enable="YES"
+```
+
+向`~/.xinitrc`写入
+
+```
+exec xfce4-session
+```
+
+`init 6`重启之后就能进入桌面了
 
 ## 常用VIM命令
