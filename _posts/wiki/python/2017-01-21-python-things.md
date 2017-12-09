@@ -377,6 +377,17 @@ for i in range(1, rows):
 	Latitude, Longitude = row
 ```
 
+## Dict
+```python
+# 字典排序
+d = {"a":1, "b":2, "c":3}
+sorted(d.items())
+
+for i in d:     # 遍历字典的key
+  print d[i]
+
+```
+
 ## 深拷贝
 
 ```python
