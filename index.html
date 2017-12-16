@@ -1,5 +1,5 @@
 ---
-title: Test index
+title: 只是一条咸鱼
 layout: index_text
 ---
 
@@ -7,7 +7,7 @@ layout: index_text
 	<div class="blog_left">
 	<h1><a href= {{ post.url }}> {{ post.title }} </a></h1>
 	<div style="white-space: nowrap;">
-	<h4 style="float: left">{{ post.date }} 发布在 <div style="text-decoration: none;color: #444;">{{ post.category }}</div></h4>
+	<h4 style="float: left">{{ post.date | date: "%B %d, %Y" }} 发布在 <a style="text-decoration: none;color: #444;">{{ post.category }}</a></h4>
 	</div>
 	<div class="article">
 		{{ post.content }}
