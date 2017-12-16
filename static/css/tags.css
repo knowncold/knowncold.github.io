@@ -1,0 +1,31 @@
+.tagsList {
+    position: relative;
+    margin-top: 50px;
+    box-shadow: 0 3px 5px #aaa;
+    background-color: #fff;
+    padding: 36px;
+}
+.tags {
+    margin-top: 24px;
+    font-size: 18px;
+}
+.tagsList a {
+    font-family: Microsoft YaHei;
+    color: #009789;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 3px 6px;
+    height: 30px;
+    line-height: 30px;
+}
+.tagsList {
+    background-color: #fff;
+    margin-top: 50px;
+    padding: 36px;
+    box-shadow: 0 3px 5px #aaa;
+    font-size: 26px;
+    font-weight: bold;
+}
+.tagsList a:hover {
+    color: #FF0000;
+}
