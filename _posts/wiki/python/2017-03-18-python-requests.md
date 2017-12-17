@@ -25,6 +25,9 @@ r.url	# 请求的完整url包括了GET参数
 
 ### json数据
 ```python
+import json
+
+headers = {'Content-Type': 'application/json'}
 url = ""
 post_data = {"key1":value1, "key2":value2}
 r = requests.post(url, json=post_data)

@@ -7,7 +7,7 @@ category: wiki
 ## 安装完整VIM
 
 ```bash
-pkg install vim
+pkg install vim asdasdqweqweqweqweqweqweqweqweqwqweqwjrqwkjlrjqwlrqljlqweuqwioeoqwjrljqwlrjqwujrjquwijoqurwioqwriorqwijoqwrijoqwrijqwrjasajklsajkldsajksdlaejklseqwkjljkl
 ```
 
 其中同时安装了不少和桌面系统相关的文件，内容比较大。
