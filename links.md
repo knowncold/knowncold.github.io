@@ -10,6 +10,7 @@ layout: index
 - [Means88](https://means88.com/)
 - [nlfox](http://nlfox.com/)
 - [lfkdsk](http://lfkdsk.github.io/)
+- [micahx](https://na.hn/)
 - [WebHugo](https://webhugo.github.io/)
 
 ## 一些我喜欢的个人站点
