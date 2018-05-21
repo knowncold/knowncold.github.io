@@ -21,7 +21,7 @@
     margin-bottom: 20px;
     font-family: monaco;
     overflow-x: auto;
-    font-size: 50%;
+    font-size: 80%;
     box-shadow: none;
     border: 1px solid #b0b5a8;
     background-color: #EFF2F2;
@@ -65,4 +65,8 @@
 
 pre span {
 	font-family: Monaco;
+}
+
+ul {
+    padding-left: 20px;
 }
