@@ -21,16 +21,16 @@
     margin-bottom: 20px;
     font-family: monaco;
     overflow-x: auto;
-    font-size: 90%;
+    font-size: 50%;
     box-shadow: none;
     border: 1px solid #b0b5a8;
     background-color: #EFF2F2;
     border-radius: 0;
     color: #2C3E50;
-    width: 100%;
+    width: 95%;
     margin-left: 0;
     padding: 6px 6px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .article a, .arc_content a{
     text-decoration: none;
@@ -66,4 +66,3 @@
 pre span {
 	font-family: Monaco;
 }
-

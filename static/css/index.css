@@ -104,10 +104,10 @@ input::-webkit-input-placeholder {
     background-color: #fff;
     margin-bottom: 50px;
 }
-.blog_left span {
+/* .blog_left span {
     color: #000;
     line-height: 30px;
-}
+} */
 .blog_left h1 {
     font-size: 28px;
     font-weight: 400;
