@@ -320,6 +320,13 @@ to_json = json.dumps(test)	# str
 from_json = json.loads(to_json)	# dict
 ```
 
+## 最小值和最大值
+
+```python
+sys.maxint
+-sys.maxint - 1
+```
+
 ## Operators
 
 	Operator	Description	Example
