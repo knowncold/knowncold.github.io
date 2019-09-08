@@ -3,3 +3,8 @@ _site/*
 .DS_Store
 /**/*.swp
 /**/*~
+node_modules
+.deploy_git
+public/
+db.json
+_drafts

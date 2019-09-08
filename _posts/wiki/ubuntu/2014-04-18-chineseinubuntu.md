@@ -1,9 +1,0 @@
----
-layout: page
-title: Ubuntu安装输入法
-category: wiki
----
-
-	$ sudo apt-get install ibus-googlepinyin
-
-个人感觉谷歌拼音比原装的好一些.

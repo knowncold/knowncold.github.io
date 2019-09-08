@@ -1,0 +1,142 @@
+---
+title: ESP8266这么流行，我们怎么能不支持
+date: 2016-11-04
+last_update: 2019-03-03
+---
+
+ESP8266是一款最近非常流行的廉价WiFi芯片，收到不少人的追捧;  
+同时`Ulink`在三年前开发的时候是基于`W5100`的以太网方案，常常有人来问WiFi方案，尽管有一定的WiFi方案，比如`WiDo`，但都不是非常合适  
+那么就让`Ulink`来支持一下，ESP8266这么流行，我们怎么能不支持？
+
+<!--more-->
+
+## ESP8266的Arduino开发方式
+
+ESP8266的开发方式大致分为
+ - AT指令方式
+ - SDK开发
+ - NodeMCU的Lua开发方式
+ - ArduinoIDE开发方式
+
+其中最简单上手的毫无疑问是ArduinoIDE开发方式。。
+
+官方的Github仓库在这里[https://github.com/esp8266/Arduino](https://github.com/esp8266/Arduino)
+
+配置方法也有很多种，最简单的是使用ArduinoIDE较新版本的`开发板管理器`
+
+首先你要有一个ArduinoIDE，比如版本`1.6.8`，其次打开ArduinoIDE，选择`文件->首选项`
+
+![](http://o73wiy9vn.bkt.clouddn.com/ulink-on-esp8266-1.PNG)
+
+![](http://o73wiy9vn.bkt.clouddn.com/ulink-on-esp8266-3.PNG)
+
+在附加开发板管理器网址这一栏加入
+
+	http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+这里你可以添加好几个网址，之间用**英文逗号**隔开
+
+![](http://o73wiy9vn.bkt.clouddn.com/ulink-on-esp8266-4.PNG)
+
+然后打开`工具->开发板->开发板管理器`，他首先会自动下载索引，滚动到页面最下面就能看到关于ESP8266了
+
+![](http://o73wiy9vn.bkt.clouddn.com/ulink-on-esp8266-5.PNG)
+
+选择安装，就能下载最新的一些ESP8266的配置了，包括一些例程和库，可以运行几个例程测试一下。
+
+## 支持Ulink
+
+> `Ulink`的一些资料可以看这篇[文章](http://blog.knowncold.me/2014/09/21/ulink)  
+> 首先要有个ESP8266，我的是`NodeMCU`版本，其实由于我是用ArduinoIDE的方式来开发的，只要是支持ArduinoIDE的ESP8266硬件版本都行。其余关于服务器端和微信端的设置都和原来的文章类似
+
+需要提一下的是新浪云已经有了很大很大的改动，比如它收费严重，使用微信之前需要实名认证，目前正在等有空的机会来更新一波这个方案，，然后搞个VPS，比如腾讯云就能一键配置的那种。。毕竟大学里呆了一年了，要搞点新学的东西
+
+只是把`Arduino+W5100`更换成了一个`NodeMCU`，值得一提的是，尽管它烧写速度很慢。。不过真的好便宜233333
+
+```cpp
+#include <ESP8266WiFi.h>
+ 
+const char* ssid     = "YourSSID";
+const char* password = "YourPASSWORD";
+ 
+const char* host = "***.applinzi.com";
+ 
+void setup() {
+    Serial.begin(115200);
+    delay(10);
+    pinMode(LED_BUILTIN, OUTPUT); 
+ 
+ 
+    Serial.println();
+    Serial.println();
+    Serial.print("Connecting to ");
+    Serial.println(ssid);
+ 
+    WiFi.begin(ssid, password);
+ 
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+ 
+    Serial.println("");
+    Serial.println("WiFi connected");  
+    Serial.println("IP address: ");
+    Serial.println(WiFi.localIP());
+}
+ 
+int value = 0;
+ 
+void loop() {
+    delay(5000);
+    ++value;
+ 
+    Serial.print("connecting to ");
+    Serial.println(host);
+ 
+    if(state == '0'){
+        digitalWrite(LED_BUILTIN, LOW);
+    }else if(state == '1'){
+        digitalWrite(LED_BUILTIN, HIGH);
+    }
+ 
+    WiFiClient client;
+    const int httpPort = 80;
+    if (!client.connect(host, httpPort)) {
+        Serial.println("connection failed");
+        return;
+    }
+   
+    // We now create a URI for the request
+    String url = "/updown.php";
+    url += "?token=";
+    url += "&data=";
+    url += 123;
+    Serial.print("Requesting URL: ");
+    Serial.println(url);
+   
+    // This will send the request to the server
+    client.print(String("GET ") + url + " HTTP/1.1\r\n" +
+        "Host: " + host + "\r\n" + "User-Agent: arduino-ethernet"+ "\r\n"
+        "Connection: close\r\n\r\n");
+    unsigned long timeout = millis();
+    while (client.available() == 0) {
+        if (millis() - timeout > 5000) {
+            Serial.println(">>> Client Timeout !");
+            client.stop();
+            return;
+        }
+    }
+ 
+    // Read all the lines of the reply from server and print them to Serial
+    while(client.available()){
+        char c = client.read();
+        if (c == '{'){
+          state = client.read();
+        }
+    }
+   
+    Serial.println();
+    Serial.println("closing connection");
+}
+```
