@@ -16,12 +16,11 @@ tags:
 我们的最终目标是在Nokia5110屏幕上用树莓派驱动来完整显示这个视频。
 
 <div style="text-align: center;">
-<embed src='http://player.youku.com/player.php/sid/XMzQxNDY0MDY0/v.swf' allowFullScreen='true' quality='high' width='480' height='400' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed></div>
+<iframe src="//player.bilibili.com/player.html?aid=706&cid=3724723&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width='680px' height='600px'> </iframe></div>
 
 先来看一下效果
 
-<div style="text-align: center;">
-<embed src='http://player.youku.com/player.php/sid/XMTMwMzQ3NjgxMg==/v.swf' allowFullScreen='true' quality='high' width='480' height='400' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed></div>
+<iframe src="//player.bilibili.com/player.html?aid=67065773&cid=116294569&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width='680px' height='600px'> </iframe>
 
 
 首先我们知道，对于Nokia5110而言，直接在树莓派写一个驱动，使它能够像外接hdmi显示屏一样流畅显示这样的难度显然比较大，反正我没什么思路。
