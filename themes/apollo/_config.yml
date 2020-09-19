@@ -1,0 +1,23 @@
+menu:
+    Blog: /
+    Archive: /archives/
+    WIKI: http://wiki.knowncold.me
+    NOTE: http://rush.knowncold.me
+    GitHub: https://github.com/knowncold
+    Rss: /atom.xml
+
+favicon: /logo.png
+logo: /logo.png
+upyun: /logo2.png
+
+# Comment
+# e.g disqus: seansun
+disqus:
+duoshuo:
+
+# Analytics
+google-analytics:
+ga: UA-50632689-1
+
+# Copyright Infomation
+startyear: 2014
