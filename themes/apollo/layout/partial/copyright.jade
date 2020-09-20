@@ -2,13 +2,9 @@
     - var hexoURL = "https://hexo.io/";
     - var apolloURL = "https://github.com/pinggod/hexo-theme-apollo";
     - var currentDate = new Date();
-    - var upyun = "https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"
     - var year = currentDate.getFullYear();
     - var aboutURL = config.url+"/about"
     - year = year == theme.startyear ? year : theme.startyear + ' - ' + year;
     p © #{year} #[a(href=aboutURL)!= config.author] 
         br 
         | Powered by #[a(href=hexoURL, target="_blank") Hexo] and #[a(href=apolloURL, target="_blank") apollo]
-        //- br
-        //- a(href=upyun)
-        //-     img.upyun(src=url_for(theme.upyun) alt="upyun")

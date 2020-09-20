@@ -46,3 +46,5 @@ mixin post(item)
             +postInfo(item)
             .post-content
                 != item.content
+            .post-update
+                != '最后更新于' + full_date(item.updated, 'll')
