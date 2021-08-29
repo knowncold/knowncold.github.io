@@ -6,7 +6,7 @@ date: 2020-05-10 21:14:53
 - 二十出头的北漂小伙 ∈ 阿萍
 - 写后端也画前端，学安全也整硬件
 - [听友](/2019/12/14/never-stop-lijian/)，业余羽毛球爱好者，初级烹饪师
-- 手游八赛季王者，LPL云玩家
+- 手游九赛季王者，LPL云玩家
 
 
 ### 我喜欢
@@ -33,6 +33,7 @@ $(document).ready(function(){
         "大排面",
         "烹饪",
         "折纸",
+        "梁博",
         "李健"];
   $("#like").append(likes.sort(() => Math.random() - 0.5).map(e => {
         var rand = parseInt(Math.random() * 15 + 10);
@@ -48,6 +49,7 @@ $(document).ready(function(){
         // "谢娜",
         // "杜海涛",
         // "王源",
+        "王一博",
         "肖战",
         "张艺兴"];
   $("#dislike").append(dislikes.sort(() => Math.random() - 0.5).map(e => {
