@@ -6,9 +6,9 @@ tags:
 
 复用之前的[思路和代码](/2016/02/15/nokia-bad-apple/)，一边掉分一边把买瓜整完了
 
-<!--more-->
+![buy-watermelon](https://z3.ax1x.com/2021/08/29/h84Qn1.jpg)
 
-![buy-watermelon](https://i.postimg.cc/vH2n9HZr/IMG-3261.jpg)
+<!--more-->
 
 
 <div style="text-align: center;">
