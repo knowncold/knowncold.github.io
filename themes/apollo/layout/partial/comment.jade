@@ -25,3 +25,19 @@ if theme.disqus
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
     script(id='dsq-count-scr' src='//#{theme.disqus}.disqus.com/count.js' async)
+
+#gitalk-container
+
+#gitalk 
+    script.
+        const gitalk = new Gitalk({
+            clientID: 'd982f32672371b474e18',
+            clientSecret: '936007361f470ab00da9a9d64d97f3e518f9cc1f',
+            repo: 'Blog-comments',      // The repository of store comments,
+            owner: 'knowncold',
+            admin: ['knowncold'],
+            id: '#{page.title}',      // Ensure uniqueness and length less than 50
+            distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+        gitalk.render('gitalk-container')
+
