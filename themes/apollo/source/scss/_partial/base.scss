@@ -25,8 +25,19 @@ ul.post-list {
 }
 
 ul {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     padding: 0 2rem;
+    ul, ol {
+        margin: 0;
+    }
+}
+
+ol {
+    margin: 0.5rem 0;
+    padding: 0 2rem;
+    ol, ul {
+        margin: 0;
+    }
 }
 
 a, a:active {

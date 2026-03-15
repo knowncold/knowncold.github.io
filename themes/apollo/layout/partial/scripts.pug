@@ -8,3 +8,65 @@ if ga
         | (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',
         != '"' + ga + '"'
         | ,'auto');ga('send','pageview');
+
+//- Mermaid Support
+script(src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js")
+script.
+  (function() {
+    function renderMermaid() {
+      // Find all highlight blocks
+      const elements = document.querySelectorAll('figure.highlight');
+      if (elements.length === 0) return;
+
+      const mermaidKeywords = [
+        'graph ', 'flowchart ', 'sequenceDiagram', 'gantt', 
+        'classDiagram', 'stateDiagram', 'pie', 'erDiagram', 
+        'journey', 'gitGraph', 'requirementDiagram'
+      ];
+
+      elements.forEach(function(el) {
+        const codeEl = el.querySelector('.code');
+        if (!codeEl) return;
+        
+        // Extract text
+        const lines = codeEl.querySelectorAll('.line');
+        let code = '';
+        if (lines.length > 0) {
+          code = Array.from(lines).map(line => line.innerText).join('\n');
+        } else {
+          code = codeEl.innerText;
+        }
+        code = code.trim();
+
+        // Check if it's actually mermaid (either by class or by content)
+        const isMermaidClass = el.classList.contains('mermaid');
+        const isMermaidContent = mermaidKeywords.some(keyword => code.startsWith(keyword));
+
+        if (isMermaidClass || isMermaidContent) {
+          // Create new mermaid div
+          const mermaidDiv = document.createElement('div');
+          mermaidDiv.className = 'mermaid';
+          mermaidDiv.textContent = code;
+          
+          // Replace original element
+          el.parentNode.replaceChild(mermaidDiv, el);
+        }
+      });
+
+      // Initialize and render all .mermaid elements
+      if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({ 
+          startOnLoad: false, 
+          theme: 'default',
+          securityLevel: 'loose'
+        });
+        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+      }
+    }
+
+    if (document.readyState === 'complete') {
+      renderMermaid();
+    } else {
+      window.addEventListener('load', renderMermaid);
+    }
+  })();
