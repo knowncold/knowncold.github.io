@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> FreeBSD虚拟机使用VIM构建unpv环境 · 惰者集</title><meta name="description" content="FreeBSD虚拟机使用VIM构建unpv环境 - knowncold"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/logo.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><link rel="search" type="application/opensearchdescription+xml" href="https://blog.knowncold.me/atom.xml" title="惰者集"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="惰者集" type="application/atom+xml">
+</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">FreeBSD虚拟机使用VIM构建unpv环境</h1><div class="post-info">2017年11月17日</div><div class="post-content"><p>上高级C语言编程课的时候需要unpv的环境，于是配置了一下FreeBSD虚拟机的vim和桌面环境。</p>
+<span id="more"></span>
+
+<h2 id="安装完整VIM"><a href="#安装完整VIM" class="headerlink" title="安装完整VIM"></a>安装完整VIM</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install vim</span><br></pre></td></tr></table></figure>
+
+<p>其中同时安装了不少和桌面系统相关的文件，内容比较大。</p>
+<h2 id="下载unpv12e代码"><a href="#下载unpv12e代码" class="headerlink" title="下载unpv12e代码"></a>下载unpv12e代码</h2><h4 id="安装wget"><a href="#安装wget" class="headerlink" title="安装wget"></a>安装wget</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install wget</span><br></pre></td></tr></table></figure>
+
+<h4 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://unpbook.com/unpv13e.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf unpv13e.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>需要通过Git获取<code>vimrc</code>和相关的插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install git</span><br></pre></td></tr></table></figure>
+
+<h4 id="下载vimrc"><a href="#下载vimrc" class="headerlink" title="下载vimrc"></a>下载vimrc</h4><p>下载我的<a href="https://github.com/knowncold/vim"><code>vimrc</code></a>，并复制到用户目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/knowncold/vim.git</span><br><span class="line"><span class="built_in">cd</span> vim</span><br><span class="line"><span class="built_in">cp</span> .vimrc ~/.vimrc</span><br><span class="line"><span class="built_in">cp</span> -r colors ~/.vim/colors</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Vundle"><a href="#安装Vundle" class="headerlink" title="安装Vundle"></a>安装Vundle</h2><p>可以参考之前的文章<a href="http://blog.knowncold.me/wiki/2016/08/22/vundle-install-on-windows.html">Windows安装Vundle</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim</span><br></pre></td></tr></table></figure>
+
+<h2 id="vim插件"><a href="#vim插件" class="headerlink" title="vim插件"></a>vim插件</h2><p>打开vim，使用<code>PluginInstall</code>命令</p>
+<h4 id="自动补全"><a href="#自动补全" class="headerlink" title="自动补全"></a>自动补全</h4><p>自动补全通过<code>YouCompleteMe</code>插件来实现，相关的更详细的步骤可以看<a href="http://blog.knowncold.me/wiki/2016/09/24/youcompleteme-install.html">这个文章</a>或者<a href="http://valloric.github.io/YouCompleteMe/#freebsdopenbsd">官方文档</a>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pkg install llvm38 boost-all boost-python-libs clang38</span><br><span class="line">pkg install python</span><br><span class="line"><span class="built_in">cd</span> ~/.vim/bundle/YouCompleteMe</span><br><span class="line">./install.py --clang-completer --system-libclang --system-boost</span><br></pre></td></tr></table></figure>
+
+<p>编译完成之后，需要一个配置文件才能完全使用YCM</p>
+<p>可以使用YCM自己的配置文件<code>ycmd/cpp/ycm/.ycm_extra_conf.py</code>，放在用户根目录，然后打开c或者C++时，按照提示载入配置文件，YCM就会开始提供语义级的自动补全而不是简单的<code>ctags</code>。</p>
+<h4 id="补全配置"><a href="#补全配置" class="headerlink" title="补全配置"></a>补全配置</h4><p>为了更好的使用YCM，<code>.ycm_extra_conf.py</code>对于每个项目每个文件都应该单独配置，这个配置文件主要定义的是当前项目需要的头文件，定义正确的配置文件之后，YCM才能到相应路径的头文件去寻找定义来补全。</p>
+<p>可以手写<code>.ycm_extra_conf.py</code>，也可以使用工具自动配置，需要用到<code>YCM Generater</code>，按上面的步骤，在<code>PluginInstall</code>中，已经安装好了，使用时需要项目文件中有<code>Makefile</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./config_gen.py PROJECT_DIRECTORY</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装xfce桌面"><a href="#安装xfce桌面" class="headerlink" title="安装xfce桌面"></a>安装xfce桌面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pkg install xorg</span><br><span class="line">pkg install slim</span><br><span class="line">pkg install xfce</span><br></pre></td></tr></table></figure>
+
+<p>向<code>/etc/rc.conf </code>写入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">moused_enable=&quot;YES&quot;</span><br><span class="line">dbus_enable=&quot;YES&quot;</span><br><span class="line">hald_enable=&quot;YES&quot;</span><br><span class="line">slim_enable=&quot;YES&quot;</span><br></pre></td></tr></table></figure>
+
+<p>向<code>~/.xinitrc</code>写入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> xfce4-session</span><br></pre></td></tr></table></figure>
+
+<p><code>init 6</code>重启之后就能进入桌面了</p>
+</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2018/01/01/ble-attack/">上一篇</a><a class="next" href="/2017/09/23/codefest-17/">下一篇</a></div><div id="gitalk-container"></div><div id="gitalk"> <script>const gitalk = new Gitalk({
+    clientID: 'd982f32672371b474e18',
+    clientSecret: '936007361f470ab00da9a9d64d97f3e518f9cc1f',
+    repo: 'Blog-comments',      // The repository of store comments,
+    owner: 'knowncold',
+    admin: ['knowncold'],
+    id: 'FreeBSD虚拟机使用VIM构建unpv环境',      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+})
+gitalk.render('gitalk-container')</script></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script></body></html>

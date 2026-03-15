@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Arduino M0 Pro 上手 · 惰者集</title><meta name="description" content="Arduino M0 Pro 上手 - knowncold"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/logo.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><link rel="search" type="application/opensearchdescription+xml" href="https://blog.knowncold.me/atom.xml" title="惰者集"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="惰者集" type="application/atom+xml">
+</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Arduino M0 Pro 上手</h1><div class="post-info">2015年12月17日</div><div class="post-content"><p>食之无味，弃之可惜。<span id="more"></span></p>
+<p>首先为了连接Arduino M0 Pro，需要一根Micro USB线，同时提供供电和编程功能。<br>连接USB线到板上的<code>Programming</code>端口，这个端口靠近DC电源接口，为了烧写代码，在IDE中从<code>工具&gt;主板</code> 的菜单选择<code>Arduino M0 Pro(Programming port)</code>，在串口选择里面选择正确的串口。</p>
+<blockquote>
+<p>必须要使用Arduino.org家的Arduino IDE1.7.5或之后的IDE<br>也可以尝试Arduino Studio。</p>
+</blockquote>
+<h3 id="和其他基于Atmega主板的区别"><a href="#和其他基于Atmega主板的区别" class="headerlink" title="和其他基于Atmega主板的区别"></a>和其他基于Atmega主板的区别</h3><p>Arduino M0 Pro有和UNO的一样的接口布局，总体而言，你可以像使用其他的主板一样使用M0 Pro，显然这里会有很多重要的区别和一些函数的扩展。</p>
+<h2 id="电压"><a href="#电压" class="headerlink" title="电压"></a>电压</h2><p>M0 Pro上的单片机的工作电压是3.3V，这也就意味着你不能够在它的IO口上使用超过3.3V的电压，当你连接传感器和驱动器的时候也一定要注意电压限制，如果使用一般主板支持的5V电压，当然会造成不可逆的伤害。<br>板子也可以通过DC电源接口来获得电源(6-20V)。  </p>
+<p>M0 Pro有一个支持<code>USBhost</code>协议的高效电压转换器，使用<code>Native port</code>作为<code>USB host</code>的时，主板要给这些USB设备供电，比如鼠标或键盘。</p>
+<h2 id="M0-Pro上的串口"><a href="#M0-Pro上的串口" class="headerlink" title="M0 Pro上的串口"></a>M0 Pro上的串口</h2><p>Arduino M0 Pro有两个USB端口，<code>Native port</code>(通过<code>SerialUSB对象</code>来支持CDC虚拟通信)直接连在SAMD21单片机上，另一个<code>Programming port</code>则是连接在ATMEL embedded debugger(<code>EDBG</code>)，作为板上的编程器和调试器同时扮演着USB转串口的角色，Programming port是默认的用来烧写代码和通信的端口。<br>Programming port 连接在SAMD21的第一个UART上，在写代码的时候它就是”Serial”对象。</p>
+<p>而Native port直接连在SAMD21的USBhost引脚上，使用Native port可以让M0 Pro直接作为USB外围设备连接到电脑上，也可以连接其他的外围USB设备包括鼠标、键盘、Android手机，在写代码的时候就可以通过<code>SerialUSB对象</code>来操作。</p>
+<h2 id="Native-Port"><a href="#Native-Port" class="headerlink" title="Native Port"></a>Native Port</h2><p>以<code>1200</code>波特率打开或关闭这个串口的时：flash的内存会被擦除，然后重新启动bootloader。这个过程是被单片机控制着的，所以如果单片机被任何原因打断，很可能这个擦除过程会失败。</p>
+<p>以其他的波特率打开或关闭这个串口的时候则不会重启SAMD21，为了使用串口监视器和查看你的程序是从哪里开始的，你最好在<code>setup()</code>函数里面加几行代码，这会确保<code>SerialUSB</code>串口正确打开之后才开始执行程序：</p>
+<pre><code>while (!SerialUSB);
+</code></pre>
+<p>按下板上的Reset按键，也会导致SAMD21和USB通信重启，这个中断意味着如果串口监视器开着，那就必须要关闭并重新打开监视器来重启通信。</p>
+<h2 id="Programming-Port"><a href="#Programming-Port" class="headerlink" title="Programming Port"></a>Programming Port</h2><p>这个串口连接在Atmel EDBG上，通过它你可以完全掌控SAMD21，比如你可以使用它来烧写bootloader或者得到完整的flash内容，使用它来烧写代码是最安全的方式。</p>
+<p>写代码的时候，在IDE里使用<code>Serial对象</code>，所以此前在UNO上能用的关于串口的程序通过这个串口也能在M0 Pro上运行。<br>与UNO不同的是，在M0 Pro上打开串口监视器（或者其他的串口通信）都不会造成单片机重启，按下Reset键，也不会造成正在连接的USB关闭，因为只有SAMD21被重启了。</p>
+<h2 id="ADC和PWM"><a href="#ADC和PWM" class="headerlink" title="ADC和PWM"></a>ADC和PWM</h2><p>M0 Pro可以改变他的模拟读写的位数（默认读为10位，写是8位），它最高可以支持12位的ADC和PWM。</p>
+<h2 id="烧写代码"><a href="#烧写代码" class="headerlink" title="烧写代码"></a>烧写代码</h2><p>尽管两个串口都可以用来烧写代码，但是推荐使用<code>Programming port</code>。<br>其他的操作和之前的主板一样。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://labs.arduino.org/Getting+Started+with+Arduino+M0+Pro">Getting started with the Arduino M0 Pro</a></p>
+</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2016/02/15/nokia-bad-apple/">上一篇</a><a class="next" href="/2015/11/09/fresh-college/">下一篇</a></div><div id="gitalk-container"></div><div id="gitalk"> <script>const gitalk = new Gitalk({
+    clientID: 'd982f32672371b474e18',
+    clientSecret: '936007361f470ab00da9a9d64d97f3e518f9cc1f',
+    repo: 'Blog-comments',      // The repository of store comments,
+    owner: 'knowncold',
+    admin: ['knowncold'],
+    id: 'Arduino M0 Pro 上手',      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+})
+gitalk.render('gitalk-container')</script></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script></body></html>

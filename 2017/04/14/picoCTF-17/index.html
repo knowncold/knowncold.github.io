@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> picoCTF 2017 · 惰者集</title><meta name="description" content="picoCTF 2017 - knowncold"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/logo.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script><link rel="search" type="application/opensearchdescription+xml" href="https://blog.knowncold.me/atom.xml" title="惰者集"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="惰者集" type="application/atom+xml">
+</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">picoCTF 2017</h1><div class="post-info">2017年4月14日</div><div class="post-content"><p>最终<br><em>293RD PLACE	2,710&#x2F;6,575 PTS</em><br>三个人中我打了大部分的题，大概是开始打CTF以来做出最多的一次吧<br>毕竟简单，但也没有打过很多的高中生..</p>
+<span id="more"></span>
+
+<p><em>LEVEL 1</em></p>
+<hr/>
+
+<h2 id="Digital-Camouflage"><a href="#Digital-Camouflage" class="headerlink" title="Digital Camouflage"></a>Digital Camouflage</h2><p>在WireShark里面直接搜索<code>user</code>或者<code>psword</code>，能找到类似的</p>
+<pre><code>userid=grassers&amp;pswrd=cHJ2cUJaTnFZdw%3D%3D
+</code></pre>
+<p>URL解码加上base64解码之后</p>
+<h3 id="FLAG"><a href="#FLAG" class="headerlink" title="FLAG:"></a>FLAG:</h3><blockquote>
+<p>prvqBZNqYw</p>
+</blockquote>
+<h2 id="Special-Agent-User"><a href="#Special-Agent-User" class="headerlink" title="Special Agent User"></a>Special Agent User</h2><p>在WireShark里面搜索<code>agent</code>就能找到</p>
+<pre><code>User-Agent: Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.2117.157 Safari/537.36
+</code></pre>
+<p>到<code>http://www.useragentstring.com./</code>这个网站查询一下就能知道这个浏览器的版本了</p>
+<h3 id="FLAG-1"><a href="#FLAG-1" class="headerlink" title="FLAG:"></a>FLAG:</h3><blockquote>
+<p>Chrome 35.0.2117.157</p>
+</blockquote>
+<h2 id="keyz"><a href="#keyz" class="headerlink" title="keyz"></a>keyz</h2><p>生成公钥并复制到<code>shell2017.picoctf.com</code>的服务器上</p>
+<p>把本机目录下面的<code>id_rsa.pub</code>复制到服务器用户目录下面<code>/.ssh/authorized_keys</code>里面就能不用密码使用ssh了</p>
+<h3 id="FLAG-2"><a href="#FLAG-2" class="headerlink" title="FLAG:"></a>FLAG:</h3><blockquote>
+<p>who_needs_pwords_anyways</p>
+</blockquote>
+<h2 id="Substitute"><a href="#Substitute" class="headerlink" title="Substitute"></a>Substitute</h2><pre><code>MIT YSAU OL OYGFSBDGRTKFEKBHMGCALSOQTMIOL. UTFTKAMTR ZB DAKQGX EIAOF GY MIT COQOHTROA HAUT GF EASXOF AFR IGZZTL. ZT CTKT SGFU, MIT YSACL GF A 2005 HKTLTFM MODTL MIAF LMADOFA GK A CTTQSB LWFRAB, RTETDZTK 21, 1989 1990, MIT RKTC TROMGKL CAL WHKGGMTR TXTKB CGKSR EAF ZT YGWFR MIT EGFMOFWTR MG CGKQ AM A YAOMIYWS KTHSOTL CITKT IGZZTL, LMBST AOD EASXOF, AMMAEQ ZGMI LORTL MG DAKQL, &quot;CIAM RG EGFMKGSSOFU AF AEMWAS ZGAKR ZGVTL OF MIT HKTHAKTFML FADT, OL ODHWSLOXT KADHAUTL OF CIOEI ASCABL KTYTKTFETL MIT HALLCGKR, CIOEI DGFTB, AFR MITB IAR SOMMST YKGFM BAKR IOL YKWLMKAMTR EGSGK WFOJWT AZOSOMB COMI AFR OFROLHTFLAMT YGK MTAEI GMITK LMWROTL, AKT ACAKRL ZARUTL, HWZSOLITR ZTYGKT CTSS AL A YOKT UKGLL HSAFL CTKT GKOUOFASSB EIAKAEMTKL OF MIT LMKOH MG CIOEI LTTD MG OM CITF MTDHTKTR OF AFR IASSGCOFU MITB&#39;KT LODHSB RKACOFU OF UOXTL GF&quot; HKOFEOHAS LHOMMST ROLMGKM, KTARTKL EGDOEL AKT WLT, CAMMTKLGF MGGQ MCG 16-DGFMIL AYMTK KTLOLMAQTL A DGKT EKTAM RTAS MG EASXOF GYMTF IGZZTL MG ARDOML &quot;LSODB, &quot;ZWM OM&#39;L FADTR A FOUIM GWM LIT OL HGOFM GY FGM LTTF IGZZTL MIT ZGGQL AM MIAM O KTDAOFOFU ZGGQ IADLMTK IWTB AKT AHHTAKAFET: RTETDZTK 6, 1995 DGD&#39;L YKADTL GY EASXOF UOXTF A CAUGF, LGDTMODTL MIAM LG OM&#39;L YAMITKT&#39;L YADOSB FG EAFETSSAMOGFLIOH CAL HKTLTFML YKGD FGXTDZTK 21, 1985 SALM AHHTAK AZLTFET OF AFGMITKCOLT OM IAHHB MG KWF OM YGK MIOL RAR AL &quot;A SOMMST MG MGSTKAMT EASXOF&#39;L YADOSB RKACF ASDGLM EGDDTFRTR WH ZTOFU HTGHST OFLMAFET, UTM DAKKOTR ZB A RAFET EASXOF&#39;L GWMSAFROLOFU MIT FTCLHAHTK GK MAZSGOR FTCLHAHTK ZWLOFTLL LIGC OL GF!&quot; AFR LHKOFML GY EIOSRKTF&#39;L RAR&#39;L YKWLMKAMTR ZB MWKF IWDGK, CAL HWZSOE ROASGU MITKT&#39;L FGM DWEI AL &quot;&#39;94 DGRTKFOLD&quot; CAMMTKLGF IAL RTSOUIML GY YAFMALB SOYT CAMMTKLGF LABL LTKXTL AL AF AKMOLML OL RTLMKWEMOGF ZWLOFTLL, LHAETYAKTK GY MIT GHHGKMWFOMOTL BGW ZGMI A MGHOE YGK IOL IGDT MGFUWT-OF-EITTQ HGHWSAK MIAM OM CAL &quot;IGF&quot; AFR JWAKMTK HAUT DGKT LHAEOGWL EAFETSSAMOGF MIT HAOK AKT ESTAKSB OF HLBEIOE MKAFLDGUKOYOTK&#39;L &quot;NAH&quot; LGWFR TYYTEM BGW MIOFQTK CAMMTKLGF ASLG UKTC OFEKTROZST LHAET ZWBL OF EGDDGFSB CIOST GMITKCOLT OM&#39;L FADT OL FGMAZST LMGKBSOFT UAXT MIT GHHGKMWFOMOTL BGW EAFETSSAMOGF MIT &quot;EASXOF GYYTK MG DAQT IOD OFEGKKTEM AFLCTKL CAMMTK AKMCGKQ GMITK GYMTF CIOEI OL TXORTFM MG GMITK LMKOH OL MG MITOK WLT GY KWSTL MIAM LIGCF GF LAFROYTK, CIG WLTL A EKGCJWOSS ZT LTTF &quot;USWTR&quot; MG MIT GFSB HTKL AFR IOL YAMITK LWHHGKM OL SWFEISOFT UAXT MITLT MIOF A BTAK OF DWSMODAMTKOAS AFR GZMAOF GF LAFMALB, IOL WLT, CAMMTKL ROASGUWT OL AF &quot;AKMOLM&#39;L LMAMWL AL &quot;A ROD XOTC OF MIT TLLTFMOASSB MG DAQT IOD LTTD MG OFESWRTR MIAM EASXOF OL AF GRR ROASGUWT DGLM GY MIT ESWZ IAL TVHKTLLOGF GWMLORT AXAOSAZST MG&quot;
+</code></pre>
+<p>替换加密，解出来大致是</p>
+<pre><code>THE FLAG IS IFONLYMODERNCRYPTOWASLIKETHIS. GENERATED BY MARKO? CHAIN OF THE WIKIPEDIA PAGE ON CAL?IN AND HOBBES. BE WERE LONG, THE FLAWS ON A 2005 PRESENT TIMES THAN STAMINA OR A WEEKLY SUNDAY, DECEMBER 21, 1989 1990, THE DREW EDITORS WAS UPROOTED E?ERY WORLD CAN BE FOUND THE CONTINUED TO WORK AT A FAITHFUL REPLIES WHERE HOBBES, STYLE AIM CAL?IN, ATTACK BOTH SIDES TO MARKS, &quot;WHAT DO CONTROLLING AN ACTUAL BOARD BO?ES IN THE PREPARENTS NAME, IS IMPULSI?E RAMPAGES IN WHICH ALWAYS REFERENCES THE PASSWORD, WHICH MONEY, AND THEY HAD LITTLE FRONT YARD HIS FRUSTRATED COLOR UNI?UE ABILITY WITH AND INDISPENSATE FOR TEACH OTHER STUDIES, ARE AWARDS BADGES, PUBLISHED BEFORE WELL AS A FIRE GROSS PLANS WERE ORIGINALLY CHARACTERS IN THE STRIP TO WHICH SEEM TO IT WHEN TEMPERED IN AND HALLOWING THEY&#39;RE SIMPLY DRAWING IN GI?ES ON&quot; PRINCIPAL SPITTLE DISTORT, READERS COMICS ARE USE, WATTERSON TOOK TWO 16-MONTHS AFTER RESISTAKES A MORE CREAT DEAL TO CAL?IN OFTEN HOBBES TO ADMITS &quot;SLIMY, &quot;BUT IT&#39;S NAMED A NIGHT OUT SHE IS POINT OF NOT SEEN HOBBES THE BOOKS AT THAT I REMAINING BOOK HAMSTER HUEY ARE APPEARANCE: DECEMBER 6, 1995 MOM&#39;S FRAMES OF CAL?IN GI?EN A WAGON, SOMETIMES THAT SO IT&#39;S FATHERE&#39;S FAMILY NO CANCELLATIONSHIP WAS PRESENTS FROM NO?EMBER 21, 1985 LAST APPEAR ABSENCE IN ANOTHERWISE IT HAPPY TO RUN IT FOR THIS DAD AS &quot;A LITTLE TO TOLERATE CAL?IN&#39;S FAMILY DRAWN ALMOST COMMENDED UP BEING PEOPLE INSTANCE, GET MARRIED BY A DANCE CAL?IN&#39;S OUTLANDISING THE NEWSPAPER OR TABLOID NEWSPAPER BUSINESS SHOW IS ON!&quot; AND SPRINTS OF CHILDREN&#39;S DAD&#39;S FRUSTRATED BY TURN HUMOR, WAS PUBLIC DIALOG THERE&#39;S NOT MUCH AS &quot;&#39;94 MODERNISM&quot; WATTERSON HAS DELIGHTS OF FANTASY LIFE WATTERSON SAYS SER?ES AS AN ARTISTS IS DESTRUCTION BUSINESS, SPACEFARER OF THE OPPORTUNITIES YOU BOTH A TOPIC FOR HIS HOME TONGUE-IN-CHEEK POPULAR THAT IT WAS &quot;HON&quot; AND ?UARTER PAGE MORE SPACIOUS CANCELLATION THE PAIR ARE CLEARLY IN PSYCHIC TRANSMOGRIFIER&#39;S &quot;?AP&quot; SOUND EFFECT YOU THINKER WATTERSON ALSO GREW INCREDIBLE SPACE BUYS IN COMMONLY WHILE OTHERWISE IT&#39;S NAME IS NOTABLE STORYLINE GA?E THE OPPORTUNITIES YOU CANCELLATION THE &quot;CAL?IN OFFER TO MAKE HIM INCORRECT ANSWERS WATTER ARTWORK OTHER OFTEN WHICH IS E?IDENT TO OTHER STRIP IS TO THEIR USE OF RULES THAT SHOWN ON SANDIFER, WHO USES A CROW?UILL BE SEEN &quot;GLUED&quot; TO THE ONLY PERS AND HIS FATHER SUPPORT IS LUNCHLINE GA?E THESE THIN A YEAR IN MULTIMATERIAL AND OBTAIN ON SANTASY, HIS USE, WATTERS DIALOGUE IS AN &quot;ARTIST&#39;S STATUS AS &quot;A DIM ?IEW IN THE ESSENTIALLY TO MAKE HIM SEEM TO INCLUDED THAT CAL?IN IS AN ODD DIALOGUE MOST OF THE CLUB HAS E?PRESSION OUTSIDE A?AILABLE TO&quot;
+</code></pre>
+<h3 id="FLAG-3"><a href="#FLAG-3" class="headerlink" title="FLAG:"></a>FLAG:</h3><blockquote>
+<p>IFONLYMODERNCRYPTOWASLIKETHIS</p>
+</blockquote>
+<h2 id="Hash101"><a href="#Hash101" class="headerlink" title="Hash101"></a>Hash101</h2><pre><code>$ nc shell2017.picoctf.com 9661
+
+Welcome to Hashes 101!
+
+There are 4 Levels. Complete all and receive a prize!
+
+
+-------- LEVEL 1: Text = just 1&#39;s and 0&#39;s --------
+All text can be represented by numbers. To see how different letters translate to numbers, go to http://www.asciitable.com/
+
+TO UNLOCK NEXT LEVEL, give me the ASCII representation of 0110100001100101011011000110110001101111
+
+&gt;hello
+Correct! Completed level 1
+
+------ LEVEL 2: Numbers can be base ANYTHING -----
+Numbers can be represented many ways. A popular way to represent computer data is in base 16 or &#39;hex&#39; since it lines up with bytes very well (2 hex characters = 8 binary bits). Other formats include base64, binary, and just regular base10 (decimal)! In a way, that ascii chart represents a system where all text can be seen as &quot;base128&quot; (not including the Extended ASCII codes)
+
+TO UNLOCK NEXT LEVEL, give me the text you just decoded, hello, as its hex equivalent, and then the decimal equivalent of that hex number (&quot;foo&quot; -&gt; 666f6f -&gt; 6713199)
+
+hex&gt;68656c6c6f
+Good job! 68656c6c6f to ASCII -&gt; hello is hello
+Now decimal
+dec&gt;448378203247
+Good job! 448378203247 to Hex -&gt; 68656c6c6f to ASCII -&gt; hello is hello
+Correct! Completed level 2
+
+----------- LEVEL 3: Hashing Function ------------
+A Hashing Function intakes any data of any size and irreversibly transforms it to a fixed length number. For example, a simple Hashing Function could be to add up the sum of all the values of all the bytes in the data and get the remainder after dividing by 16 (modulus 16)
+
+TO UNLOCK NEXT LEVEL, give me a string that will result in a 14 after being transformed with the mentioned example hashing function
+
+&gt;.
+Correct! Completed level 3
+
+--------------- LEVEL 4: Real Hash ---------------
+A real Hashing Function is used for many things. This can include checking to ensure a file has not been changed (its hash value would change if any part of it is changed). An important use of hashes is for storing passwords because a Hashing Function cannot be reversed to find the initial data. Therefore if someone steals the hashes, they must try many different inputs to see if they can &quot;crack&quot; it to find what password yields the same hash. Normally, this is too much work (if the password is long enough). But many times, people&#39;s passwords are easy to guess... Brute forcing this hash yourself is not a good idea, but there is a strong possibility that, if the password is weak, this hash has been cracked by someone before. Try looking for websites that have stored already cracked hashes.
+
+TO CLAIM YOUR PRIZE, give me the string password that will result in this MD5 hash (MD5, like most hashes, are represented as hex digits):
+ee4d5bc25a2771d95fdbd24452e355ad
+
+&gt;r3s4w
+Correct! Completed level 4
+You completed all 4 levels! Here is your prize: c3ee093f26ba147ccc451fd13c91ffce
+</code></pre>
+<p>上面几个level可以用这段代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">s = raw_input()</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span>(i&lt;<span class="built_in">len</span>(s)):</span><br><span class="line">    sys.stdout.write(<span class="built_in">chr</span>(<span class="built_in">int</span>(s[i:i+<span class="number">8</span>],<span class="number">2</span>)))</span><br><span class="line">    i += <span class="number">8</span></span><br><span class="line"></span><br><span class="line">s = raw_input(<span class="string">&quot;\n&gt; &quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> s:</span><br><span class="line">    sys.stdout.write(<span class="built_in">hex</span>(<span class="built_in">ord</span>(i))[<span class="number">2</span>:<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">s = raw_input(<span class="string">&quot;\n&gt; &quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> <span class="built_in">int</span>(s,<span class="number">16</span>)</span><br></pre></td></tr></table></figure>
+
+<p>最后面的<code>md5</code>很短，可以直接在线解</p>
+<h3 id="FLAG-4"><a href="#FLAG-4" class="headerlink" title="FLAG:"></a>FLAG:</h3><blockquote>
+<p>c3ee093f26ba147ccc451fd13c91ffce</p>
+</blockquote>
+<h2 id="computeAES"><a href="#computeAES" class="headerlink" title="computeAES"></a>computeAES</h2><pre><code>Encrypted with AES in ECB mode. All values base64 encoded
+ciphertext = I300ryGVTXJVT803Sdt/KcOGlyPStZkeIHKapRjzwWf9+p7fIWkBnCWu/IWls+5S
+key = iyq1bFDkirtGqiFz7OVi4A==
+</code></pre>
+<p>通过<code>python</code>就能解出来，不过首先要base64解码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES</span><br><span class="line">key = base64.b64decode(<span class="string">&#x27;iyq1bFDkirtGqiFz7OVi4A==&#x27;</span>)</span><br><span class="line">cipher = base64.b64decode(<span class="string">&#x27;I300ryGVTXJVT803Sdt/KcOGlyPStZkeIHKapRjzwWf9+p7fIWkBnCWu/IWls+5S&#x27;</span>)</span><br><span class="line">aes = AES.new(key, AES.MODE_ECB)</span><br><span class="line">aes.decrypt(cipher)</span><br></pre></td></tr></table></figure>
+
+<pre><code>flag{do_not_let_machines_win_2d4975bc}__________
+</code></pre>
+<h3 id="FLAG-5"><a href="#FLAG-5" class="headerlink" title="FLAG:"></a>FLAG:</h3><blockquote>
+<p>do_not_let_machines_win_2d4975bc</p>
+</blockquote>
+<h2 id="ComputeRSA"><a href="#ComputeRSA" class="headerlink" title="ComputeRSA"></a>ComputeRSA</h2><pre><code>RSA encryption/decryption is based on a formula that anyone can find and use, as long as they know the values to plug in. Given the encrypted number 150815, d = 1941, and N = 435979, what is the decrypted number?
+</code></pre>
+<h3 id="HINTS"><a href="#HINTS" class="headerlink" title="HINTS"></a>HINTS</h3><pre><code>decrypted = (encrypted) ^ d mod N
+</code></pre>
+<p>用<code>HINTS</code>的公式直接算就得到FLAG</p>
+<h3 id="FLAG-6"><a href="#FLAG-6" class="headerlink" title="FLAG:"></a>FLAG:</h3><blockquote>
+<p>133337</p>
+</blockquote>
+<h2 id="Hex2Raw"><a href="#Hex2Raw" class="headerlink" title="Hex2Raw"></a>Hex2Raw</h2><pre><code>printf &quot;\x1a\x55\x8a\xcd\xda\xbd\x64\xbb\xcc\xdd\x94\x90\x3e\xaf\xdf\x18&quot; | ./hex2raw
+
+Give me this in raw form (0x41 -&gt; &#39;A&#39;):
+1a558acddabd64bbccdd94903eafdf18
+
+You gave me:
+1a558acddabd64bbccdd94903eafdf18
+Yay! That&#39;s what I wanted! Here be the flag:
+ceb80093717fd7e9aae149dacc7ac9b3
+</code></pre>
+<h3 id="FLAG-7"><a href="#FLAG-7" class="headerlink" title="FLAG"></a>FLAG</h3><blockquote>
+<p>ceb80093717fd7e9aae149dacc7ac9b3</p>
+</blockquote>
+<h2 id="Raw2Hex"><a href="#Raw2Hex" class="headerlink" title="Raw2Hex"></a>Raw2Hex</h2><p>The flag is:\xc3\xae\xef\xde-\x8f\xa0\xbc\x81\xf9U1DG\xa3H</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="built_in">print</span> binascii.b2a_hex(<span class="string">&#x27;\xc3\xae\xef\xde-\x8f\xa0\xbc\x81\xf9U1DG\xa3H&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="FLAG-8"><a href="#FLAG-8" class="headerlink" title="FLAG"></a>FLAG</h3><blockquote>
+<p>c3aeefde2d8fa0bc81f955314447a348</p>
+</blockquote>
+<h2 id="What-Is-Web"><a href="#What-Is-Web" class="headerlink" title="What Is Web"></a>What Is Web</h2><p>查看源代码，在HTML文件最下面有一部分FLAG，第二部分FLAG在CSS文件里面，第三部分在js文件里面</p>
+<h3 id="FLAG-9"><a href="#FLAG-9" class="headerlink" title="FLAG"></a>FLAG</h3><blockquote>
+<p>fab79c49d9e5ba511a0f2436308e33e85</p>
+</blockquote>
+<h2 id="Bash-Loop"><a href="#Bash-Loop" class="headerlink" title="Bash Loop"></a>Bash Loop</h2><pre><code>$ in {0..4096}; do ./bashloop $i; done | grep -n &#39;flag&#39;
+
+3024:Yay! That&#39;s the number! Here be the flag: bcf9ac72d8721c303ae95239c2deacb3
+</code></pre>
+<h3 id="FLAG-10"><a href="#FLAG-10" class="headerlink" title="FLAG"></a>FLAG</h3><blockquote>
+<p>bcf9ac72d8721c303ae95239c2deacb3</p>
+</blockquote>
+<h2 id="Just-No"><a href="#Just-No" class="headerlink" title="Just No"></a>Just No</h2><p>相对路径和绝对路径的问题</p>
+<p>只要在<code>home</code>目录下面构造出<code>~/problems/02bd7d8f7e9c13a19940fd1116234469/auth</code>就行了</p>
+<pre><code>knowncold@shell-web:~/problems/02bd7d8f7e9c13a19940fd1116234469$ /problems/02bd7d8f7e9c13a19940fd1116234469/justno
+
+Oh. Well the auth file doesn&#39;t say no anymore so... Here&#39;s the flag: cad7c91983f6a8ed691c6d7e2dd2264c
+</code></pre>
+<h3 id="FLAG-11"><a href="#FLAG-11" class="headerlink" title="FLAG"></a>FLAG</h3><blockquote>
+<p>cad7c91983f6a8ed691c6d7e2dd2264c</p>
+</blockquote>
+<h2 id="Internet-Kitties"><a href="#Internet-Kitties" class="headerlink" title="Internet Kitties"></a>Internet Kitties</h2><p>简单的<code>nc</code>命令连接就能得到FLAG</p>
+<pre><code>$ nc shell2017.picoctf.com 58626
+Yay! You made it!
+Take a flag!
+86c3b6dc83b85a2e67f0c163dd525cb0
+</code></pre>
+<h3 id="FLAG-12"><a href="#FLAG-12" class="headerlink" title="FLAG"></a>FLAG</h3><blockquote>
+<p>86c3b6dc83b85a2e67f0c163dd525cb0</p>
+</blockquote>
+<h2 id="Piazza"><a href="#Piazza" class="headerlink" title="Piazza"></a>Piazza</h2><p>注册Pizza，相当于一个<code>IRC</code></p>
+<h3 id="FLAG-13"><a href="#FLAG-13" class="headerlink" title="FLAG"></a>FLAG</h3><blockquote>
+<p>ask_and_hop3fully_we_can_help</p>
+</blockquote>
+<h2 id="Leaf-of-the-Tree"><a href="#Leaf-of-the-Tree" class="headerlink" title="Leaf of the Tree"></a>Leaf of the Tree</h2><pre><code>$ find -name flag
+./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/trunk64f5/trunk9721/trunk1e42/flag
+
+cat ./trunk/trunk47a0/trunk599f/trunk4e66/trunke117/trunk64f5/trunk9721/trunk1e42/flag
+</code></pre>
+<h3 id="FLAG-14"><a href="#FLAG-14" class="headerlink" title="FLAG"></a>FLAG</h3><blockquote>
+<p>a2916629ba334b79632b6af945131ea2</p>
+</blockquote>
+<h2 id="looooong"><a href="#looooong" class="headerlink" title="looooong"></a>looooong</h2><pre><code>To prove your skills, you must pass this test.
+Please give me the &#39;H&#39; character &#39;705&#39; times, followed by a single &#39;3&#39;.
+To make things interesting, you have 30 seconds.
+Input:
+
+You got it! You&#39;re super quick!
+Flag: with_some_recognition_and_training_delusions_become_glimpses_fbafb1011720def036b5aa32671f3710
+</code></pre>
+<h3 id="FLAG-15"><a href="#FLAG-15" class="headerlink" title="FLAG"></a>FLAG</h3><blockquote>
+<p>with_some_recognition_and_training_delusions_become_glimpses_fbafb1011720def036b5aa32671f3710</p>
+</blockquote>
+<h2 id="Leaf-of-the-Forest"><a href="#Leaf-of-the-Forest" class="headerlink" title="Leaf of the Forest"></a>Leaf of the Forest</h2><pre><code>$ find . -name &quot;flag&quot;
+./forest/tree3bd8a8/trunkc5a8/trunkc874/trunkb0d5/trunk989b/trunkd500/trunk68dc/trunkd705/branchc164/flag
+$ cat ./forest/tree3bd8a8/trunkc5a8/trunkc874/trunkb0d5/trunk989b/trunkd500/trunk68dc/trunkd705/branchc164/flag
+e553af78ff1f7a6a428456ac53d837e5
+</code></pre>
+<h3 id="FLAG-16"><a href="#FLAG-16" class="headerlink" title="FLAG"></a>FLAG</h3><blockquote>
+<p>e553af78ff1f7a6a428456ac53d837e5</p>
+</blockquote>
+<h2 id="WorldChat"><a href="#WorldChat" class="headerlink" title="WorldChat"></a>WorldChat</h2><pre><code>nc shell2017.picoctf.com 44323 | grep &quot;the flag&quot;
+
+03:21:01 flagperson: this is part 1/8 of the flag - 7c20
+03:21:04 flagperson: this is part 2/8 of the flag - 77dc
+03:21:07 flagperson: this is part 3/8 of the flag - 26c1
+03:21:14 flagperson: this is part 4/8 of the flag - 6dc8
+03:21:28 flagperson: this is part 5/8 of the flag - 1acd
+03:21:30 flagperson: this is part 6/8 of the flag - e49c
+03:21:31 flagperson: this is part 7/8 of the flag - d563
+03:21:31 flagperson: this is part 8/8 of the flag - 0146
+</code></pre>
+<h3 id="FLAG-17"><a href="#FLAG-17" class="headerlink" title="FLAG"></a>FLAG</h3><blockquote>
+<p>7c2077dc26c16dc81acde49cd5630146</p>
+</blockquote>
+<h2 id="Lazy-Dev"><a href="#Lazy-Dev" class="headerlink" title="Lazy Dev"></a>Lazy Dev</h2><br/>
+
+<p><em>LEVEL 2</em></p>
+<hr/>
+
+<h2 id="Meta-Find-Me"><a href="#Meta-Find-Me" class="headerlink" title="Meta Find Me"></a>Meta Find Me</h2><h2 id="Little-School-Bus"><a href="#Little-School-Bus" class="headerlink" title="Little School Bus"></a>Little School Bus</h2><h2 id="Just-keyp-Trying"><a href="#Just-keyp-Trying" class="headerlink" title="Just keyp Trying"></a>Just keyp Trying</h2><h2 id="SoRandom"><a href="#SoRandom" class="headerlink" title="SoRandom"></a>SoRandom</h2></div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2017/05/07/baking-pi/">上一篇</a><a class="next" href="/2016/12/26/make-on-rpi/">下一篇</a></div><div id="gitalk-container"></div><div id="gitalk"> <script>const gitalk = new Gitalk({
+    clientID: 'd982f32672371b474e18',
+    clientSecret: '936007361f470ab00da9a9d64d97f3e518f9cc1f',
+    repo: 'Blog-comments',      // The repository of store comments,
+    owner: 'knowncold',
+    admin: ['knowncold'],
+    id: 'picoCTF 2017',      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+})
+gitalk.render('gitalk-container')</script></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script></body></html>
