@@ -1,64 +1,110 @@
 <!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> CodeFest CTF 2017 · 惰者集</title><meta name="description" content="CodeFest CTF 2017 - knowncold"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/logo.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.knowncold.me/atom.xml" title="惰者集"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="惰者集" type="application/atom+xml">
 </head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">CodeFest CTF 2017</h1><div class="post-info">2017年9月23日</div><div class="post-content"><p>这次开学打的第一个CTF，网站巨卡无比，挂了VPN也没用，甚至傍晚的时候整个学院教育网炸了。</p>
-<span id="more"></span>
-
+<a id="more"></a>
 <h2 id="cr4ck"><a href="#cr4ck" class="headerlink" title="cr4ck"></a>cr4ck</h2><p>拿到一个文件，用binwalk看一下文件的结构</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DECIMAL       HEXADECIMAL     DESCRIPTION</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">0             0x0             ELF, 64-bit LSB executable, AMD x86-64, version 1 (SYSV)</span><br><span class="line">1536          0x600           PNG image, 640 x 400, 8-bit/color RGBA, non-interlaced</span><br><span class="line">1659          0x67B           Zlib compressed data, best compression</span><br><span class="line">122104        0x1DCF8         LZMA compressed data, properties: 0x89, dictionary size: 16777216 bytes, uncompressed size: 100663296 bytes</span><br><span class="line">122296        0x1DDB8         LZMA compressed data, properties: 0xA3, dictionary size: 16777216 bytes, uncompressed size: 100663296 bytes</span><br><span class="line">122488        0x1DE78         LZMA compressed data, properties: 0xBF, dictionary size: 16777216 bytes, uncompressed size: 33554432 bytes</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DECIMAL       HEXADECIMAL     DESCRIPTION</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">0             0x0             ELF, 64-bit LSB executable, AMD x86-64, version 1 (SYSV)</span><br><span class="line">1536          0x600           PNG image, 640 x 400, 8-bit/color RGBA, non-interlaced</span><br><span class="line">1659          0x67B           Zlib compressed data, best compression</span><br><span class="line">122104        0x1DCF8         LZMA compressed data, properties: 0x89, dictionary size: 16777216 bytes, uncompressed size: 100663296 bytes</span><br><span class="line">122296        0x1DDB8         LZMA compressed data, properties: 0xA3, dictionary size: 16777216 bytes, uncompressed size: 100663296 bytes</span><br><span class="line">122488        0x1DE78         LZMA compressed data, properties: 0xBF, dictionary size: 16777216 bytes, uncompressed size: 33554432 bytes</span><br></pre></td></tr></table></figure>
 <p>明显能看到的是里面有个图片，就用<code>dd</code>直接分离出来</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=cr4ck of=test.png bs=1 skip=1536 count=120568</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=cr4ck of=test.png bs=1 skip=1536 count=120568</span><br></pre></td></tr></table></figure>
 <p>打开图片就能看到flag</p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-1.png"></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-1.png" alt></p>
 <blockquote>
 <p>flag{didin’tknowflagscouldbeinimages}</p>
 </blockquote>
 <p>受这个意思印象，提交的时候还忘记加<code>flag{}</code>格式，以至于花了一节数据库的课来查后面的LZMA</p>
 <h2 id="malicious"><a href="#malicious" class="headerlink" title="malicious"></a>malicious</h2><p>zip压缩文件，直接解压的话，只会解压出一个<code>README.txt</code>。<br>内容是</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WE NEED TO GO DEEPER!!</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WE NEED TO GO DEEPER!!</span><br></pre></td></tr></table></figure>
 <p>用binwalk又能看到后面还藏着一个zip文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DECIMAL       HEXADECIMAL     DESCRIPTION</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">0             0x0             Zip archive data, at least v2.0 to extract, compressed size: 25, uncompressed size: 23, name: README.txt</span><br><span class="line">121           0x79            End of Zip archive</span><br><span class="line">143           0x8F            Zip archive data, at least v2.0 to extract, compressed size: 44, uncompressed size: 52, name: flag.txt</span><br><span class="line">279           0x117           End of Zip archive</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DECIMAL       HEXADECIMAL     DESCRIPTION</span><br><span class="line">--------------------------------------------------------------------------------</span><br><span class="line">0             0x0             Zip archive data, at least v2.0 to extract, compressed size: 25, uncompressed size: 23, name: README.txt</span><br><span class="line">121           0x79            End of Zip archive</span><br><span class="line">143           0x8F            Zip archive data, at least v2.0 to extract, compressed size: 44, uncompressed size: 52, name: flag.txt</span><br><span class="line">279           0x117           End of Zip archive</span><br></pre></td></tr></table></figure>
 <p>还是用<code>dd</code>分离出来</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=malicious_0a5aca19667459c2b75c384d7a6af48f.zip of=flag.zip bs=1 skip=143</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=malicious_0a5aca19667459c2b75c384d7a6af48f.zip of=flag.zip bs=1 skip=143</span><br></pre></td></tr></table></figure>
 <p>得到这个zip文件，然后解压出来是<code>flag.txt</code><br>内容是</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">666c61677b6b3333705f75705f793075725f7a6970703372357d</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">666c61677b6b3333705f75705f793075725f7a6970703372357d</span><br></pre></td></tr></table></figure>
 <p>十六进制的ascii转成字母就得到了flag  </p>
 <blockquote>
 <p>flag{k33p_up_y0ur_zipp3r5}</p>
 </blockquote>
 <h2 id="SimplyBlack"><a href="#SimplyBlack" class="headerlink" title="SimplyBlack"></a>SimplyBlack</h2><p>对于一张全黑的图片</p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-2.png"></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-2.png" alt></p>
 <p>直接用Stegsolve看就能看出flag</p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-3.png"></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-3.png" alt></p>
 <blockquote>
 <p>flag{LETHAL}</p>
 </blockquote>
-<h2 id="JS-Security"><a href="#JS-Security" class="headerlink" title="JS Security"></a>JS Security</h2><p>在这个网站 <a href="https://grab-the-fwag.herokuapp.com/">https://grab-the-fwag.herokuapp.com</a><br>看一下网页源代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;CodeFest &#x27;17 CTF&lt;/title&gt;</span><br><span class="line">        &lt;script type=&quot;text/javascript&quot; src=&quot;md5.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">        &lt;script type=&quot;text/javascript&quot; src=&quot;kernel.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;h3&gt;Provide the granted username&lt;/h3&gt;</span><br><span class="line">        &lt;form method=&quot;POST&quot; onSubmit=&quot;return validateLogin(this)&quot; action=&quot;secure_login.php&quot;&gt;</span><br><span class="line">            &lt;table border=0 align=&quot;center&quot;&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;&lt;label for=&quot;user&quot;&gt;&lt;b&gt;User:&lt;/b&gt;&lt;/label&gt;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;user&quot; id=&quot;user&quot;&gt;&lt;/td&gt;</span><br><span class="line">                &lt;/tr&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Get Access&quot;&gt;&lt;/p&gt;&lt;/td&gt;</span><br><span class="line">                &lt;/tr&gt;</span><br><span class="line">            &lt;/table&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
+<h2 id="JS-Security"><a href="#JS-Security" class="headerlink" title="JS Security"></a>JS Security</h2><p>在这个网站 <a href="https://grab-the-fwag.herokuapp.com" target="_blank" rel="noopener">https://grab-the-fwag.herokuapp.com</a><br>看一下网页源代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;CodeFest &apos;17 CTF&lt;/title&gt;</span><br><span class="line">        &lt;script type=&quot;text/javascript&quot; src=&quot;md5.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">        &lt;script type=&quot;text/javascript&quot; src=&quot;kernel.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;h3&gt;Provide the granted username&lt;/h3&gt;</span><br><span class="line">        &lt;form method=&quot;POST&quot; onSubmit=&quot;return validateLogin(this)&quot; action=&quot;secure_login.php&quot;&gt;</span><br><span class="line">            &lt;table border=0 align=&quot;center&quot;&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td&gt;&lt;label for=&quot;user&quot;&gt;&lt;b&gt;User:&lt;/b&gt;&lt;/label&gt;&lt;/td&gt;</span><br><span class="line">                    &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;user&quot; id=&quot;user&quot;&gt;&lt;/td&gt;</span><br><span class="line">                &lt;/tr&gt;</span><br><span class="line">                &lt;tr&gt;</span><br><span class="line">                    &lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;Get Access&quot;&gt;&lt;/p&gt;&lt;/td&gt;</span><br><span class="line">                &lt;/tr&gt;</span><br><span class="line">            &lt;/table&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
 <p>可以看到主要是两个js，<code>md5.js</code>和<code>kernel.js</code>，前者只是一个md5的加密的库，后者一开始没仔细看以为是没内容，结果学长提醒才发现前面全是空行，最下面是</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JS too insecure, re-implementing in PHP</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">validateLogin</span>(<span class="params">formToBeValidated</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (formToBeValidated.<span class="property">user</span>.<span class="property">value</span> == <span class="literal">null</span> || formToBeValidated.<span class="property">user</span>.<span class="property">value</span> == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">        <span class="title function_">alert</span>(<span class="string">&quot;Username must be filled out!&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_">md5</span>(formToBeValidated.<span class="property">user</span>.<span class="property">value</span>) == <span class="string">&quot;da61a45edbd65ef661a6108b39fc04b6&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="title function_">alert</span>(<span class="string">&quot;User not granted!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//function keyRetrieved() &#123;</span></span><br><span class="line"><span class="comment">//    window.location = &quot;secure_login.php&quot;;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// JS too insecure, re-implementing in PHP</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">validateLogin</span>(<span class="params">formToBeValidated</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (formToBeValidated.user.value == <span class="literal">null</span> || formToBeValidated.user.value == <span class="string">""</span>) &#123;</span><br><span class="line">        alert(<span class="string">"Username must be filled out!"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (md5(formToBeValidated.user.value) == <span class="string">"da61a45edbd65ef661a6108b39fc04b6"</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            alert(<span class="string">"User not granted!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//function keyRetrieved() &#123;</span></span><br><span class="line"><span class="comment">//    window.location = "secure_login.php";</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
 <p>很显然就是一个md5的加密，这一串拿去解密就能得到表单应该填的<code>14075064</code>，提交表单之后就会得到</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Congratulations! The key is flag&#123;17_w45_hidd3n_in_p14in_5igh7&#125;.</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Congratulations! The key is flag&#123;17_w45_hidd3n_in_p14in_5igh7&#125;.</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>flag{17_w45_hidd3n_in_p14in_5igh7}</p>
 </blockquote>
-<h2 id="anonymous"><a href="#anonymous" class="headerlink" title="anonymous"></a>anonymous</h2><p>对于一个网站<a href="http://anonymouscodefest17.pythonanywhere.com/askauth/">&#x2F;askauth</a><br>只有一个按钮，直接单击按钮没什么用会一直被重定向</p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-4.png"></p>
-<p>看网站的源代码和其他的HTTP头都没什么信息，然后发现有个cookie是<code>flag:True</code>，尝试改成<code>False</code>，重定向到了一个新的页面<a href="http://anonymouscodefest17.pythonanywhere.com/ask_username/">&#x2F;ask_username</a></p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-5.png"></p>
-<p>需要一个新的<code>Username</code>，又想到题目描述是需要用<code>root</code>登录，又重定向到了一个新的页面<a href="http://anonymouscodefest17.pythonanywhere.com/ask_password/">&#x2F;ask_password</a></p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-6.png"></p>
+<h2 id="anonymous"><a href="#anonymous" class="headerlink" title="anonymous"></a>anonymous</h2><p>对于一个网站<a href="http://anonymouscodefest17.pythonanywhere.com/askauth/" target="_blank" rel="noopener">/askauth</a><br>只有一个按钮，直接单击按钮没什么用会一直被重定向</p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-4.png" alt></p>
+<p>看网站的源代码和其他的HTTP头都没什么信息，然后发现有个cookie是<code>flag:True</code>，尝试改成<code>False</code>，重定向到了一个新的页面<a href="http://anonymouscodefest17.pythonanywhere.com/ask_username/" target="_blank" rel="noopener">/ask_username</a></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-5.png" alt></p>
+<p>需要一个新的<code>Username</code>，又想到题目描述是需要用<code>root</code>登录，又重定向到了一个新的页面<a href="http://anonymouscodefest17.pythonanywhere.com/ask_password/" target="_blank" rel="noopener">/ask_password</a></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/codefest2017-6.png" alt></p>
 <p>发现又多了一个cookie，<code>pass:7af32ff30622da6d6dafc8f5bd202ae6</code>，用md5解码，得到<code>aunty</code>，尝试登录，就得到了flag</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Congtraulations, You have entered the restricted section.</span><br><span class="line"></span><br><span class="line">The flag is the password.</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Congtraulations, You have entered the restricted section.</span><br><span class="line"></span><br><span class="line">The flag is the password.</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>flag{aunty}</p>
 </blockquote>
-</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2017/11/17/unpv-on-freebsd/">上一篇</a><a class="next" href="/2017/09/20/bakingPi-ok01/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script></body></html>
+</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2017/11/17/unpv-on-freebsd/">上一篇</a><a class="next" href="/2017/09/20/bakingPi-ok01/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script><script>(function() {
+  function renderMermaid() {
+    // Find all highlight blocks
+    const elements = document.querySelectorAll('figure.highlight');
+    if (elements.length === 0) return;
+
+    const mermaidKeywords = [
+      'graph ', 'flowchart ', 'sequenceDiagram', 'gantt', 
+      'classDiagram', 'stateDiagram', 'pie', 'erDiagram', 
+      'journey', 'gitGraph', 'requirementDiagram'
+    ];
+
+    elements.forEach(function(el) {
+      const codeEl = el.querySelector('.code');
+      if (!codeEl) return;
+      
+      // Extract text
+      const lines = codeEl.querySelectorAll('.line');
+      let code = '';
+      if (lines.length > 0) {
+        code = Array.from(lines).map(line => line.innerText).join('\n');
+      } else {
+        code = codeEl.innerText;
+      }
+      code = code.trim();
+
+      // Check if it's actually mermaid (either by class or by content)
+      const isMermaidClass = el.classList.contains('mermaid');
+      const isMermaidContent = mermaidKeywords.some(keyword => code.startsWith(keyword));
+
+      if (isMermaidClass || isMermaidContent) {
+        // Create new mermaid div
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = code;
+        
+        // Replace original element
+        el.parentNode.replaceChild(mermaidDiv, el);
+      }
+    });
+
+    // Initialize and render all .mermaid elements
+    if (typeof mermaid !== 'undefined') {
+      mermaid.initialize({ 
+        startOnLoad: false, 
+        theme: 'default',
+        securityLevel: 'loose'
+      });
+      mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    renderMermaid();
+  } else {
+    window.addEventListener('load', renderMermaid);
+  }
+})();</script></body></html>

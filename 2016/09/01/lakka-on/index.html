@@ -1,29 +1,85 @@
 <!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 树莓派打造怀旧游戏机 · 惰者集</title><meta name="description" content="树莓派打造怀旧游戏机 - knowncold"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/logo.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.knowncold.me/atom.xml" title="惰者集"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="惰者集" type="application/atom+xml">
 </head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">树莓派打造怀旧游戏机</h1><div class="post-info">2016年9月1日</div><div class="post-content"><p>之前就关注过很多怀旧游戏机的项目，但是苦于很多项目的复杂难度和硬件要求，一直没有动手，前几天逛到一个网站，发现这个项目，支持不少硬件平台，而且搭建也很简单。</p>
-<span id="more"></span>
-
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_2.png"></p>
+<a id="more"></a>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_2.png" alt></p>
 <h4 id="下载镜像和烧写"><a href="#下载镜像和烧写" class="headerlink" title="下载镜像和烧写"></a>下载镜像和烧写</h4><p>进入官网，就可以<code>Get Lakka</code>，选择树莓派2或3，这两个其实是同一个系统镜像（同时可以看到这个项目真的支持很多硬件平台）。</p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_2.png"></p>
-<p>下载完解压是一个普通的树莓派镜像文件<img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_3.png"></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_2.png" alt></p>
+<p>下载完解压是一个普通的树莓派镜像文件<img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_3.png" alt></p>
 <p>如果是Windows系统，可以用Win32DiskImager来烧写sd卡，然后和往常一样，sd卡插入树莓派，hdmi连接到显示器，然后有音响的话，还能插上音响，插好手柄（大多数，最后通电，就能成功地打开Lakka系统了。</p>
-<h4 id="初次启动"><a href="#初次启动" class="headerlink" title="初次启动"></a>初次启动</h4><p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_4.png"></p>
+<h4 id="初次启动"><a href="#初次启动" class="headerlink" title="初次启动"></a>初次启动</h4><p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_4.png" alt></p>
 <p>第一次启动会出现上面的界面，然后会有大概30秒的时间来覆盖文件系统到整个sd卡并重启，重启成功就会有下面的画面。</p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_5.png"></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_5.png" alt></p>
 <h4 id="开始游戏"><a href="#开始游戏" class="headerlink" title="开始游戏"></a>开始游戏</h4><p>Lakka支持很多很多模拟器，包括NES（红白机），GBA，雅塔礼等等，事先把游戏rom放到文件系统的roms文件中（Windows系统可能需要Linux虚拟机）。</p>
 <ul>
 <li>启动系统后，选择Load Core，确定游戏相应的模拟器型号；</li>
 <li>选择Load Content，浏览文件系统，确定想玩的游戏，就会开始相应的游戏；</li>
 <li>一时间就会想起小时候玩小霸王的感觉了</li>
 </ul>
-<h5 id="坦克大战"><a href="#坦克大战" class="headerlink" title="坦克大战"></a>坦克大战</h5><p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_6.jpg"></p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_7.jpg"></p>
-<h5 id="超级玛丽奥"><a href="#超级玛丽奥" class="headerlink" title="超级玛丽奥"></a>超级玛丽奥</h5><p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_8.jpg"></p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_9.jpg"></p>
-<h5 id="一个不知道叫什么的很老的游戏"><a href="#一个不知道叫什么的很老的游戏" class="headerlink" title="一个不知道叫什么的很老的游戏"></a>一个不知道叫什么的很老的游戏</h5><p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_10.jpg"></p>
-<h5 id="雪人兄弟"><a href="#雪人兄弟" class="headerlink" title="雪人兄弟"></a>雪人兄弟</h5><p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_11.jpg"></p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_12.jpg"></p>
+<h5 id="坦克大战"><a href="#坦克大战" class="headerlink" title="坦克大战"></a>坦克大战</h5><p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_6.jpg" alt></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_7.jpg" alt></p>
+<h5 id="超级玛丽奥"><a href="#超级玛丽奥" class="headerlink" title="超级玛丽奥"></a>超级玛丽奥</h5><p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_8.jpg" alt></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_9.jpg" alt></p>
+<h5 id="一个不知道叫什么的很老的游戏"><a href="#一个不知道叫什么的很老的游戏" class="headerlink" title="一个不知道叫什么的很老的游戏"></a>一个不知道叫什么的很老的游戏</h5><p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_10.jpg" alt></p>
+<h5 id="雪人兄弟"><a href="#雪人兄弟" class="headerlink" title="雪人兄弟"></a>雪人兄弟</h5><p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_11.jpg" alt></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/lakka-on_12.jpg" alt></p>
 <blockquote>
 <p>成功在实验室搭起一个游戏机之后，为了有点怀旧的感觉<br>刻意用了废弃的显示器<br>【不然就用4K电视机了</p>
 </blockquote>
-</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2016/11/04/ulink-on-esp8266/">上一篇</a><a class="next" href="/2016/07/01/leapmotion-arm/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script></body></html>
+</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2016/11/04/ulink-on-esp8266/">上一篇</a><a class="next" href="/2016/07/01/leapmotion-arm/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script><script>(function() {
+  function renderMermaid() {
+    // Find all highlight blocks
+    const elements = document.querySelectorAll('figure.highlight');
+    if (elements.length === 0) return;
+
+    const mermaidKeywords = [
+      'graph ', 'flowchart ', 'sequenceDiagram', 'gantt', 
+      'classDiagram', 'stateDiagram', 'pie', 'erDiagram', 
+      'journey', 'gitGraph', 'requirementDiagram'
+    ];
+
+    elements.forEach(function(el) {
+      const codeEl = el.querySelector('.code');
+      if (!codeEl) return;
+      
+      // Extract text
+      const lines = codeEl.querySelectorAll('.line');
+      let code = '';
+      if (lines.length > 0) {
+        code = Array.from(lines).map(line => line.innerText).join('\n');
+      } else {
+        code = codeEl.innerText;
+      }
+      code = code.trim();
+
+      // Check if it's actually mermaid (either by class or by content)
+      const isMermaidClass = el.classList.contains('mermaid');
+      const isMermaidContent = mermaidKeywords.some(keyword => code.startsWith(keyword));
+
+      if (isMermaidClass || isMermaidContent) {
+        // Create new mermaid div
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = code;
+        
+        // Replace original element
+        el.parentNode.replaceChild(mermaidDiv, el);
+      }
+    });
+
+    // Initialize and render all .mermaid elements
+    if (typeof mermaid !== 'undefined') {
+      mermaid.initialize({ 
+        startOnLoad: false, 
+        theme: 'default',
+        securityLevel: 'loose'
+      });
+      mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    renderMermaid();
+  } else {
+    window.addEventListener('load', renderMermaid);
+  }
+})();</script></body></html>

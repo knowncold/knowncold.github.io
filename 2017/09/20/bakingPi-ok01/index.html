@@ -1,40 +1,87 @@
 <!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 树莓派裸板开发操作系统 OK01 · 惰者集</title><meta name="description" content="树莓派裸板开发操作系统 OK01 - knowncold"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/logo.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.knowncold.me/atom.xml" title="惰者集"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="惰者集" type="application/atom+xml">
-</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">树莓派裸板开发操作系统 OK01</h1><div class="post-info">2017年9月20日</div><div class="post-content"><p>OK01这个教程会从零开始尝试把树莓派的RCA和USB口附近的那个<code>ACT</code>LED点亮，并搭建好环境为接下来的教程做好铺垫。</p>
-<span id="more"></span>
-
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>在实际动手之前，需要你先看完前一篇教程，并下载安装了必要的GUN工具链以及代码的模版文件<a href="https://github.com/knowncold/Baking-Pi/tree/master/template"><code>OS Template</code></a>。</p>
+</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">树莓派裸板开发操作系统 OK01</h1><div class="post-info">2017年9月20日</div><div class="post-content"><p>OK01这个教程会从零开始尝试把树莓派的RCA和USB口附近的那个<code>ACT</code>LED点亮，并搭建好环境为接下来的教程做好铺垫。<br><a id="more"></a></p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>在实际动手之前，需要你先看完前一篇教程，并下载安装了必要的GUN工具链以及代码的模版文件<a href="https://github.com/knowncold/Baking-Pi/tree/master/template" target="_blank" rel="noopener"><code>OS Template</code></a>。</p>
 <h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><p>在模版文件夹里面你会看到这样的文件目录：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">build/</span><br><span class="line">    (empty)</span><br><span class="line">source/</span><br><span class="line">    main.s</span><br><span class="line">kernel.ld</span><br><span class="line">LICENSE</span><br><span class="line">Makefile</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">build/</span><br><span class="line">    (empty)</span><br><span class="line">source/</span><br><span class="line">    main.s</span><br><span class="line">kernel.ld</span><br><span class="line">LICENSE</span><br><span class="line">Makefile</span><br></pre></td></tr></table></figure>
 <p>找个编辑器打开<code>main.s</code>文件，我们就可以开始写汇编代码了，树莓派使用的汇编是ARMv6，我们要写的汇编也就是ARMv6。</p>
 <p>把下面这些代码复制粘贴进去：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.section .init</span><br><span class="line">.globl _start</span><br><span class="line">_start:</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.section .init</span><br><span class="line">.globl _start</span><br><span class="line">_start:</span><br></pre></td></tr></table></figure>
 <p>这些代码对树莓派没有直接的作用，它们是写给汇编器看的，汇编器是一个把我们将要写的汇编代码转换成树莓派能直接运行的机器码的程序。在汇编代码中，每一行都是一条新的命令，这里的第一行告诉汇编器和链接器把我们的代码放到哪里去，<code>.init</code>这里的代码会和模版文件组合，最终被放到输出代码的最前面。这一点很重要，因为我们要保证哪部分代码首先运行，如果我们不这么做的话，代码会按照字母表的顺序运行。<br><code>.section</code>命令只是告诉了汇编器从这一点到下一个<code>.seciton</code>是代码的链接后的位置，而后面的两行告诉了工具链程序的入口。</p>
 <h2 id="第一行代码"><a href="#第一行代码" class="headerlink" title="第一行代码"></a>第一行代码</h2><p>把下面的代码拷贝粘贴进去</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldr r0,=0x20200000</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldr r0,=0x20200000</span><br></pre></td></tr></table></figure>
 <p>在汇编代码中，计算机会简单的从上往下运行代码，每一行都是一个指令，除非遇到某些指令发生跳转。<br>这第一行代码告诉处理器，把<code>0x20200000</code>这个数字存储到<code>r0</code>这个寄存器里面，<code>0x20200000</code>显然是个十六进制的数字，那么什么是寄存器？</p>
 <p>寄存器是处理器内部的一些用来存数据的小部件，可以理解成一个个的抽屉，有些寄存器会有一些特定的功能，在树莓派上有13个通用寄存器，每一个可以存储一个32比特的数字（从0到4,294,967,295 ），从<code>r0</code>一直到<code>r12</code>，对于这13个寄存器，做任何操作和运算都没关系，在这一行代码中，换成其他寄存器也没关系。</p>
 <p>这行代码把<code>0x20200000</code>存到<code>r0</code>，是为了接下来的控制GPIO，而GPIO控制器的位置恰好就是<code>0x20200000</code>，这一点可以通过参考中的数据手册来查到。</p>
-<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ldr reg,=val  </span><br><span class="line">把val存到对应的寄存器中</span><br></pre></td></tr></table></figure>
-
-<h2 id="设置GPIO的输出模式"><a href="#设置GPIO的输出模式" class="headerlink" title="设置GPIO的输出模式"></a>设置GPIO的输出模式</h2><p><img src="http://o73wiy9vn.bkt.clouddn.com/baking-pi-ok01-1.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov r1,#1</span><br><span class="line">lsl r1,#18</span><br><span class="line">str r1,[r0,#4]</span><br></pre></td></tr></table></figure>
-
+<h3 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ldr reg,=val  </span><br><span class="line">把val存到对应的寄存器中</span><br></pre></td></tr></table></figure>
+<h2 id="设置GPIO的输出模式"><a href="#设置GPIO的输出模式" class="headerlink" title="设置GPIO的输出模式"></a>设置GPIO的输出模式</h2><p><img src="http://o73wiy9vn.bkt.clouddn.com/baking-pi-ok01-1.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov r1,#1</span><br><span class="line">lsl r1,#18</span><br><span class="line">str r1,[r0,#4]</span><br></pre></td></tr></table></figure>
 <p>要让这个<code>ACT</code> LED亮起来，首先和Arduino类似的要先设置这个引脚端口为输出模式，然后再让它输出高电平。<br>上面的代码就能让<code>ACT</code>LED这个GPIO16设置为输出模式，首先我们把<code>1</code>存到<code>r1</code>，然后通过<code>lsl</code>指令，得到二进制的<code>1000000000000000000</code>，其实也可以直接把这个数存到<code>r1</code>，但是为了后面的操作和代码，这样写更有意义。</p>
 <p>在GPIO控制器中，有24个字节用来设置GPIO，前4个对应前10个GPIO，第二个4个对应第二个10个，总共有54个GPIO，所以我们需要6x4总共24个字节。<br>在4个一组里面，每三个比特对应一个GPIO，我们操作的是16号GPIO，所以我们需要操作第二个4字节中第六个3比特，也就是上面代码中18的由来。<br>其中的<code>str</code>指令，会把<code>r1</code>中的值，写到地址为<code>r0</code>的值加上<code>4</code>偏移的位置</p>
-<h3 id="指令-1"><a href="#指令-1" class="headerlink" title="指令"></a>指令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mov reg, #val  </span><br><span class="line">把val存到对应的reg寄存器  </span><br><span class="line">mov指令比ldr快，因为mov不牵涉到内存，而ldr是从内存把数存到寄存器，但是mov只能对某些数字做操作  </span><br><span class="line"></span><br><span class="line">lsl reg, #val  </span><br><span class="line">reg寄存器的值逻辑左移val位</span><br><span class="line"></span><br><span class="line">str reg, [dest, #val]  </span><br><span class="line">把reg寄存器重的值写到地址为dest寄存器的值+val</span><br></pre></td></tr></table></figure>
-
-<h2 id="输出高电平"><a href="#输出高电平" class="headerlink" title="输出高电平"></a>输出高电平</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov r1,#1</span><br><span class="line">lsl r1,#16</span><br><span class="line">str r1,[r0,#40]</span><br></pre></td></tr></table></figure>
-
+<h3 id="指令-1"><a href="#指令-1" class="headerlink" title="指令"></a>指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mov reg, #val  </span><br><span class="line">把val存到对应的reg寄存器  </span><br><span class="line">mov指令比ldr快，因为mov不牵涉到内存，而ldr是从内存把数存到寄存器，但是mov只能对某些数字做操作  </span><br><span class="line"></span><br><span class="line">lsl reg, #val  </span><br><span class="line">reg寄存器的值逻辑左移val位</span><br><span class="line"></span><br><span class="line">str reg, [dest, #val]  </span><br><span class="line">把reg寄存器重的值写到地址为dest寄存器的值+val</span><br></pre></td></tr></table></figure>
+<h2 id="输出高电平"><a href="#输出高电平" class="headerlink" title="输出高电平"></a>输出高电平</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov r1,#1</span><br><span class="line">lsl r1,#16</span><br><span class="line">str r1,[r0,#40]</span><br></pre></td></tr></table></figure>
 <p>现在GPIO已经准备好被点亮了，这意味着我们要让GPIO16输出低电平，没错是低电平，板子本身设计就是这样。<br>上面的指令都已经见过了，为了让GPIO16输出低电平，我们得让一个第十六位是1的数写到偏移GPIO控制器40的地址位置，这样就能输出低电平了。</p>
 <h2 id="死循环"><a href="#死循环" class="headerlink" title="死循环"></a>死循环</h2><p>需要的代码都写完了，应该结束了，但是假如就那样的话，只要有供电，处理器就会持续工作，如果不给他其他的任务，树莓派就会崩溃。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loop$:</span><br><span class="line">b loop$</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">loop$:</span><br><span class="line">b loop$</span><br></pre></td></tr></table></figure>
 <p>这里的第一行不是一个命令，是一个标签，或者说名字，这意味着我们可以通过<code>loop$</code>这个名字来找到这一行代码，代码编译完成之后标签都没有意义了会变成地址，对于写代码的我们则是又很重大的意义，<code>b</code>指令的作用是下一条执行的指令跳转到后面的标签所指代的代码块，在这里就会导致树莓派一直循环直到断电。</p>
 <p>另外GNU工具链要求代码的最后有一个空行。</p>
 <h2 id="编译和运行"><a href="#编译和运行" class="headerlink" title="编译和运行"></a>编译和运行</h2><p>编译非常简单，用终端进入到代码的根目录，也就是<code>Makefile</code>的同级目录中，运行<code>make</code>，没什么问题的话，就会生成一个<code>kernel.img</code>的文件。</p>
 <p>安装这个系统代码之前，首先需要一个已经装好了常规的Raspbian系统的树莓派SD卡，在SD卡的目录中很容易就能找到一个<code>kernel.img</code>的文件，把它替换成刚刚生成的新文件，然后插上电源，就能看到这个<code>ACT</code>LED亮起来了。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/os/downloads/SoC-Peripherals.pdf">数据手册</a>  </p>
-</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2017/09/23/codefest-17/">上一篇</a><a class="next" href="/2017/09/16/doker-sql-server/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script></body></html>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/os/downloads/SoC-Peripherals.pdf" target="_blank" rel="noopener">数据手册</a>  </p>
+</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2017/09/23/codefest-17/">上一篇</a><a class="next" href="/2017/09/16/doker-sql-server/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script><script>(function() {
+  function renderMermaid() {
+    // Find all highlight blocks
+    const elements = document.querySelectorAll('figure.highlight');
+    if (elements.length === 0) return;
+
+    const mermaidKeywords = [
+      'graph ', 'flowchart ', 'sequenceDiagram', 'gantt', 
+      'classDiagram', 'stateDiagram', 'pie', 'erDiagram', 
+      'journey', 'gitGraph', 'requirementDiagram'
+    ];
+
+    elements.forEach(function(el) {
+      const codeEl = el.querySelector('.code');
+      if (!codeEl) return;
+      
+      // Extract text
+      const lines = codeEl.querySelectorAll('.line');
+      let code = '';
+      if (lines.length > 0) {
+        code = Array.from(lines).map(line => line.innerText).join('\n');
+      } else {
+        code = codeEl.innerText;
+      }
+      code = code.trim();
+
+      // Check if it's actually mermaid (either by class or by content)
+      const isMermaidClass = el.classList.contains('mermaid');
+      const isMermaidContent = mermaidKeywords.some(keyword => code.startsWith(keyword));
+
+      if (isMermaidClass || isMermaidContent) {
+        // Create new mermaid div
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = code;
+        
+        // Replace original element
+        el.parentNode.replaceChild(mermaidDiv, el);
+      }
+    });
+
+    // Initialize and render all .mermaid elements
+    if (typeof mermaid !== 'undefined') {
+      mermaid.initialize({ 
+        startOnLoad: false, 
+        theme: 'default',
+        securityLevel: 'loose'
+      });
+      mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    renderMermaid();
+  } else {
+    window.addEventListener('load', renderMermaid);
+  }
+})();</script></body></html>

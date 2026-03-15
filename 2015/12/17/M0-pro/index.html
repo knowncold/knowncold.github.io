@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Arduino M0 Pro 上手 · 惰者集</title><meta name="description" content="Arduino M0 Pro 上手 - knowncold"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/logo.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.knowncold.me/atom.xml" title="惰者集"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="惰者集" type="application/atom+xml">
-</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Arduino M0 Pro 上手</h1><div class="post-info">2015年12月17日</div><div class="post-content"><p>食之无味，弃之可惜。<span id="more"></span></p>
+</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Arduino M0 Pro 上手</h1><div class="post-info">2015年12月17日</div><div class="post-content"><p>食之无味，弃之可惜。<a id="more"></a></p>
 <p>首先为了连接Arduino M0 Pro，需要一根Micro USB线，同时提供供电和编程功能。<br>连接USB线到板上的<code>Programming</code>端口，这个端口靠近DC电源接口，为了烧写代码，在IDE中从<code>工具&gt;主板</code> 的菜单选择<code>Arduino M0 Pro(Programming port)</code>，在串口选择里面选择正确的串口。</p>
 <blockquote>
 <p>必须要使用Arduino.org家的Arduino IDE1.7.5或之后的IDE<br>也可以尝试Arduino Studio。</p>
@@ -12,11 +12,67 @@
 <h2 id="Native-Port"><a href="#Native-Port" class="headerlink" title="Native Port"></a>Native Port</h2><p>以<code>1200</code>波特率打开或关闭这个串口的时：flash的内存会被擦除，然后重新启动bootloader。这个过程是被单片机控制着的，所以如果单片机被任何原因打断，很可能这个擦除过程会失败。</p>
 <p>以其他的波特率打开或关闭这个串口的时候则不会重启SAMD21，为了使用串口监视器和查看你的程序是从哪里开始的，你最好在<code>setup()</code>函数里面加几行代码，这会确保<code>SerialUSB</code>串口正确打开之后才开始执行程序：</p>
 <pre><code>while (!SerialUSB);
-</code></pre>
-<p>按下板上的Reset按键，也会导致SAMD21和USB通信重启，这个中断意味着如果串口监视器开着，那就必须要关闭并重新打开监视器来重启通信。</p>
+</code></pre><p>按下板上的Reset按键，也会导致SAMD21和USB通信重启，这个中断意味着如果串口监视器开着，那就必须要关闭并重新打开监视器来重启通信。</p>
 <h2 id="Programming-Port"><a href="#Programming-Port" class="headerlink" title="Programming Port"></a>Programming Port</h2><p>这个串口连接在Atmel EDBG上，通过它你可以完全掌控SAMD21，比如你可以使用它来烧写bootloader或者得到完整的flash内容，使用它来烧写代码是最安全的方式。</p>
 <p>写代码的时候，在IDE里使用<code>Serial对象</code>，所以此前在UNO上能用的关于串口的程序通过这个串口也能在M0 Pro上运行。<br>与UNO不同的是，在M0 Pro上打开串口监视器（或者其他的串口通信）都不会造成单片机重启，按下Reset键，也不会造成正在连接的USB关闭，因为只有SAMD21被重启了。</p>
 <h2 id="ADC和PWM"><a href="#ADC和PWM" class="headerlink" title="ADC和PWM"></a>ADC和PWM</h2><p>M0 Pro可以改变他的模拟读写的位数（默认读为10位，写是8位），它最高可以支持12位的ADC和PWM。</p>
 <h2 id="烧写代码"><a href="#烧写代码" class="headerlink" title="烧写代码"></a>烧写代码</h2><p>尽管两个串口都可以用来烧写代码，但是推荐使用<code>Programming port</code>。<br>其他的操作和之前的主板一样。</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://labs.arduino.org/Getting+Started+with+Arduino+M0+Pro">Getting started with the Arduino M0 Pro</a></p>
-</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2016/02/15/nokia-bad-apple/">上一篇</a><a class="next" href="/2015/11/09/fresh-college/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script></body></html>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://labs.arduino.org/Getting+Started+with+Arduino+M0+Pro" target="_blank" rel="noopener">Getting started with the Arduino M0 Pro</a></p>
+</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2016/02/15/nokia-bad-apple/">上一篇</a><a class="next" href="/2015/11/09/fresh-college/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script><script>(function() {
+  function renderMermaid() {
+    // Find all highlight blocks
+    const elements = document.querySelectorAll('figure.highlight');
+    if (elements.length === 0) return;
+
+    const mermaidKeywords = [
+      'graph ', 'flowchart ', 'sequenceDiagram', 'gantt', 
+      'classDiagram', 'stateDiagram', 'pie', 'erDiagram', 
+      'journey', 'gitGraph', 'requirementDiagram'
+    ];
+
+    elements.forEach(function(el) {
+      const codeEl = el.querySelector('.code');
+      if (!codeEl) return;
+      
+      // Extract text
+      const lines = codeEl.querySelectorAll('.line');
+      let code = '';
+      if (lines.length > 0) {
+        code = Array.from(lines).map(line => line.innerText).join('\n');
+      } else {
+        code = codeEl.innerText;
+      }
+      code = code.trim();
+
+      // Check if it's actually mermaid (either by class or by content)
+      const isMermaidClass = el.classList.contains('mermaid');
+      const isMermaidContent = mermaidKeywords.some(keyword => code.startsWith(keyword));
+
+      if (isMermaidClass || isMermaidContent) {
+        // Create new mermaid div
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = code;
+        
+        // Replace original element
+        el.parentNode.replaceChild(mermaidDiv, el);
+      }
+    });
+
+    // Initialize and render all .mermaid elements
+    if (typeof mermaid !== 'undefined') {
+      mermaid.initialize({ 
+        startOnLoad: false, 
+        theme: 'default',
+        securityLevel: 'loose'
+      });
+      mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    renderMermaid();
+  } else {
+    window.addEventListener('load', renderMermaid);
+  }
+})();</script></body></html>

@@ -1,15 +1,12 @@
 <!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Nokia5110上的Bad Apple · 惰者集</title><meta name="description" content="Nokia5110上的Bad Apple - knowncold"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/logo.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.knowncold.me/atom.xml" title="惰者集"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="惰者集" type="application/atom+xml">
-</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Nokia5110上的Bad Apple</h1><div class="post-info">2016年2月15日</div><div class="post-content"><p>「有屏幕的地方就有BadApple」</p>
-<span id="more"></span>
-
+</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Nokia5110上的Bad Apple</h1><div class="post-info">2016年2月15日</div><div class="post-content"><p>「有屏幕的地方就有BadApple」<br><a id="more"></a></p>
 <p>熟悉二次元的朋友对于Badapple一定不会陌生，基于它本身的黑白手绘风格，被大量技术宅广泛演绎在各种屏幕上。</p>
 <p>本篇教程的重点并不在于代码，而在于解决这个问题的思路，假如只是纠结于这个项目本身的话，就不能理解到通用的其它屏幕显示的方法了。</p>
 <p>我们的最终目标是在Nokia5110屏幕上用树莓派驱动来完整显示这个视频。</p>
-<div style="text-align: center;">
-<iframe src="//player.bilibili.com/player.html?aid=706&cid=3724723&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width='680px' height='600px'> </iframe></div>
+<div style="text-align: center;"><br><iframe src="//player.bilibili.com/player.html?aid=706&cid=3724723&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="680px" height="600px"> </iframe></div>
 
 <p>先来看一下效果</p>
-<iframe src="//player.bilibili.com/player.html?aid=67065773&cid=116294569&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width='680px' height='600px'> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=67065773&cid=116294569&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="680px" height="600px"> </iframe>
 
 
 <p>首先我们知道，对于Nokia5110而言，直接在树莓派写一个驱动，使它能够像外接hdmi显示屏一样流畅显示这样的难度显然比较大，反正我没什么思路。</p>
@@ -23,18 +20,16 @@
 <li>编写代码，使得显示图片的速率和原程序的帧率相近，肉眼看起来才能有相似的效果</li>
 </ul>
 <h2 id="获得原视频"><a href="#获得原视频" class="headerlink" title="获得原视频"></a>获得原视频</h2><p>通过网络搜索，很容易就能找到相关的视频，不过想要找到超清的，还是需要花一番功夫</p>
-<p>想要下载看的话，可以直接看这个百度云的文件<br>链接：<a href="http://pan.baidu.com/s/1ntR2MDj">http://pan.baidu.com/s/1ntR2MDj</a><br>密码：ybsw</p>
+<p>想要下载看的话，可以直接看这个百度云的文件<br>链接：<a href="http://pan.baidu.com/s/1ntR2MDj" target="_blank" rel="noopener">http://pan.baidu.com/s/1ntR2MDj</a><br>密码：ybsw</p>
 <h2 id="分割视频"><a href="#分割视频" class="headerlink" title="分割视频"></a>分割视频</h2><p>方法有很多种，我想找个最简单的，发现linux下有命令行工具就直接用了，不过在Ubuntu下没找到。。由于项目要用到树莓派，索性就在树莓派上使用ffmpeg这个命令行工具来从上面的视频中来获得我们需要的每一张帧。<br>第一步是要把上面的视频上传到树莓派上，可以用SFTP的方式或者简单的U盘复制过去，命令行下运行：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ffmpeg -i badapple.mkv example.%d.jpg</span><br></pre></td></tr></table></figure>
-
-<p>具体的ffmpeg工具使用方法可以参考这个<a href="http://blog.chinaunix.net/uid-72186-id-2657751.html">http://blog.chinaunix.net/uid-72186-id-2657751.html</a><br>然后就会有六千多张图片生成，也就是视频播放时的那些帧了，仔细一算六千多除以30帧每秒的帧率，恰巧就是视频的时间长度。</p>
-<p><img src="https://i.postimg.cc/nzgPg948/nokia-bad-apple-1.png"></p>
+<p>具体的ffmpeg工具使用方法可以参考这个<a href="http://blog.chinaunix.net/uid-72186-id-2657751.html" target="_blank" rel="noopener">http://blog.chinaunix.net/uid-72186-id-2657751.html</a><br>然后就会有六千多张图片生成，也就是视频播放时的那些帧了，仔细一算六千多除以30帧每秒的帧率，恰巧就是视频的时间长度。</p>
+<p><img src="https://i.postimg.cc/nzgPg948/nokia-bad-apple-1.png" alt></p>
 <h2 id="转换图片大小"><a href="#转换图片大小" class="headerlink" title="转换图片大小"></a>转换图片大小</h2><p>然而这些图片不能直接使用，我们选择的是超清级别的视频，查看图片的属性就会知道分辨率是1440x1080，但是我们打算使用的Nokia屏幕确是84x84的<br>假如你要使用其他的屏幕，也很难一下子找到恰好符合屏幕的视频，还好我们有一些图片处理软件，比如PS、美图秀秀，找其中一种就可以批量转换分辨率了，图片稍微会有一些变形，毕竟不是等比例的缩放。</p>
-<h2 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h2><p><img src="https://i.postimg.cc/hjfY217b/nokia-bad-apple-2.jpg"></p>
-<p>用树莓派在nokia屏幕上显示图片，可以参考这个adafruit的教程和他们的python库，使用的是SPI方法。<br><a href="https://learn.adafruit.com/nokia-5110-3310-lcd-python-library">https://learn.adafruit.com/nokia-5110-3310-lcd-python-library</a><br>这个教程比较详细，这里就不重复了。</p>
+<h2 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h2><p><img src="https://i.postimg.cc/hjfY217b/nokia-bad-apple-2.jpg" alt></p>
+<p>用树莓派在nokia屏幕上显示图片，可以参考这个adafruit的教程和他们的python库，使用的是SPI方法。<br><a href="https://learn.adafruit.com/nokia-5110-3310-lcd-python-library" target="_blank" rel="noopener">https://learn.adafruit.com/nokia-5110-3310-lcd-python-library</a><br>这个教程比较详细，这里就不重复了。</p>
 <h2 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h2><p>音乐也要考虑几个方面，比如时间长度是否和我们需要的一样，毕竟网上版本很多，有长有短很正常；音乐的音效是否足够好。。。<br>用最简单的方法就是从上面的那个视频里直接提取出音乐了<br>提取的方法有不少，百度一下一般就能解决，这里也不详述了。<br>用python语言播放音乐有很多种方法，这里我用了以前用过的一种，通过pygame库来播放。<br>使用时只需要这样就能播放badapple.flac的音乐了</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line">pygame.init()</span><br><span class="line">pygame.mixer.init()</span><br><span class="line">pygame.mixer.music.load(<span class="string">&quot;badapple.flac&quot;</span>)</span><br><span class="line">pygame.mixer.music.play()</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line">pygame.init()</span><br><span class="line">pygame.mixer.init()</span><br><span class="line">pygame.mixer.music.load(<span class="string">"badapple.flac"</span>)</span><br><span class="line">pygame.mixer.music.play()</span><br></pre></td></tr></table></figure>
 <h2 id="像视频一样播放图片"><a href="#像视频一样播放图片" class="headerlink" title="像视频一样播放图片"></a>像视频一样播放图片</h2><p>这是这份教程的难度所在啊。。建议你先不看下面，自己想一想，反正我试了好几次才想到这个办法</p>
 <p>一开始我想偷懒，同时以为树莓派性能不会太强，就索性让音乐开始之后，直接开始显示图片，用一个while循环不停歇地显示下一张图片，一次性显示完6571张。</p>
 <p>结果发现树莓派还是比较给力的。。在音乐结束前就播放完图片了。。</p>
@@ -43,14 +38,68 @@
 <p>仔细考虑一下，显示图片的速度本身是不可控的，和树莓派当时的环境温度啊自己的CPU使用情况啊都会有关。。每次凑当然结果会不一样</p>
 <p>终于我想到了，只有时间是几乎完全确定的，假如我们从音乐开始播放就计时</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t = time.time()</span><br></pre></td></tr></table></figure>
-
 <p>那么，while循环显示图片的时候就可以通过帧率30和时间来算出下一次要显示哪一张图片！</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count = (<span class="built_in">int</span>((time.time()-t)*<span class="number">30</span>))+<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">count = (int((time.time()-t)*<span class="number">30</span>))+<span class="number">1</span></span><br></pre></td></tr></table></figure>
 <p>也就是说假如这次显示图片的过程长了，那么我们就跳过下一帧，假如这次显示图片超级快，那么我们就再显示一次这张图，当作拖一下时间，那么无论怎么变化，最后肯定会和音乐一起结束播放！</p>
 <p>代码如下，注释没加，如果需要可以评论出来：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Adafruit_Nokia_LCD <span class="keyword">as</span> LCD</span><br><span class="line"><span class="keyword">import</span> Adafruit_GPIO.SPI <span class="keyword">as</span> SPI</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line"></span><br><span class="line"><span class="comment"># Raspberry Pi hardware SPI config:</span></span><br><span class="line">DC = <span class="number">20</span></span><br><span class="line">RST = <span class="number">21</span></span><br><span class="line">SPI_PORT = <span class="number">0</span></span><br><span class="line">SPI_DEVICE = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Hardware SPI usage:</span></span><br><span class="line">disp = LCD.PCD8544(DC, RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=<span class="number">4000000</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Initialize library.</span></span><br><span class="line">disp.begin(contrast=<span class="number">60</span>)</span><br><span class="line">t = time.time()</span><br><span class="line">count = <span class="number">1</span></span><br><span class="line">disp.clear()</span><br><span class="line">disp.display()</span><br><span class="line">pygame.init()</span><br><span class="line">pygame.mixer.init()</span><br><span class="line">pygame.mixer.music.load(<span class="string">&quot;badapple.flac&quot;</span>)</span><br><span class="line">pygame.mixer.music.play()</span><br><span class="line"><span class="keyword">while</span> count&lt;<span class="number">6571</span>:</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Clear display.</span></span><br><span class="line">        tt = time.time()</span><br><span class="line"></span><br><span class="line">        picnum = <span class="string">&#x27;example.&#x27;</span>+ <span class="built_in">str</span>(count)+<span class="string">&#x27;.jpg&#x27;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># Load image and convert to 1 bit color.</span></span><br><span class="line">        image = Image.<span class="built_in">open</span>(picnum).convert(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">        <span class="comment"># Display image.</span></span><br><span class="line">        disp.image(image)</span><br><span class="line">        disp.display()</span><br><span class="line">        count = (<span class="built_in">int</span>((time.time()-t)*<span class="number">30</span>))+<span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span> (time.time()-tt)</span><br><span class="line"><span class="built_in">print</span> <span class="string">&#x27;Press Ctrl-C to quit.&#x27;</span></span><br><span class="line">t = t-time.time()</span><br><span class="line"><span class="built_in">print</span> t</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        time.sleep(<span class="number">1.0</span>)</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Adafruit_Nokia_LCD <span class="keyword">as</span> LCD</span><br><span class="line"><span class="keyword">import</span> Adafruit_GPIO.SPI <span class="keyword">as</span> SPI</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line"></span><br><span class="line"><span class="comment"># Raspberry Pi hardware SPI config:</span></span><br><span class="line">DC = <span class="number">20</span></span><br><span class="line">RST = <span class="number">21</span></span><br><span class="line">SPI_PORT = <span class="number">0</span></span><br><span class="line">SPI_DEVICE = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Hardware SPI usage:</span></span><br><span class="line">disp = LCD.PCD8544(DC, RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=<span class="number">4000000</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Initialize library.</span></span><br><span class="line">disp.begin(contrast=<span class="number">60</span>)</span><br><span class="line">t = time.time()</span><br><span class="line">count = <span class="number">1</span></span><br><span class="line">disp.clear()</span><br><span class="line">disp.display()</span><br><span class="line">pygame.init()</span><br><span class="line">pygame.mixer.init()</span><br><span class="line">pygame.mixer.music.load(<span class="string">"badapple.flac"</span>)</span><br><span class="line">pygame.mixer.music.play()</span><br><span class="line"><span class="keyword">while</span> count&lt;<span class="number">6571</span>:</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Clear display.</span></span><br><span class="line">        tt = time.time()</span><br><span class="line"></span><br><span class="line">        picnum = <span class="string">'example.'</span>+ str(count)+<span class="string">'.jpg'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># Load image and convert to 1 bit color.</span></span><br><span class="line">        image = Image.open(picnum).convert(<span class="string">'1'</span>)</span><br><span class="line">        <span class="comment"># Display image.</span></span><br><span class="line">        disp.image(image)</span><br><span class="line">        disp.display()</span><br><span class="line">        count = (int((time.time()-t)*<span class="number">30</span>))+<span class="number">1</span></span><br><span class="line">        <span class="keyword">print</span> (time.time()-tt)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Press Ctrl-C to quit.'</span></span><br><span class="line">t = t-time.time()</span><br><span class="line"><span class="keyword">print</span> t</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        time.sleep(<span class="number">1.0</span>)</span><br></pre></td></tr></table></figure>
 <p>然后参照上文提到的adafruit的教程连好线，插上音响，运行python代码就可以成功地播放了</p>
 <p>用类似的方法就可以在其他的平台和显示屏上愉快地享受BadApple了。</p>
-</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2016/07/01/leapmotion-arm/">上一篇</a><a class="next" href="/2015/12/17/M0-pro/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script></body></html>
+</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2016/07/01/leapmotion-arm/">上一篇</a><a class="next" href="/2015/12/17/M0-pro/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script><script>(function() {
+  function renderMermaid() {
+    // Find all highlight blocks
+    const elements = document.querySelectorAll('figure.highlight');
+    if (elements.length === 0) return;
+
+    const mermaidKeywords = [
+      'graph ', 'flowchart ', 'sequenceDiagram', 'gantt', 
+      'classDiagram', 'stateDiagram', 'pie', 'erDiagram', 
+      'journey', 'gitGraph', 'requirementDiagram'
+    ];
+
+    elements.forEach(function(el) {
+      const codeEl = el.querySelector('.code');
+      if (!codeEl) return;
+      
+      // Extract text
+      const lines = codeEl.querySelectorAll('.line');
+      let code = '';
+      if (lines.length > 0) {
+        code = Array.from(lines).map(line => line.innerText).join('\n');
+      } else {
+        code = codeEl.innerText;
+      }
+      code = code.trim();
+
+      // Check if it's actually mermaid (either by class or by content)
+      const isMermaidClass = el.classList.contains('mermaid');
+      const isMermaidContent = mermaidKeywords.some(keyword => code.startsWith(keyword));
+
+      if (isMermaidClass || isMermaidContent) {
+        // Create new mermaid div
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = code;
+        
+        // Replace original element
+        el.parentNode.replaceChild(mermaidDiv, el);
+      }
+    });
+
+    // Initialize and render all .mermaid elements
+    if (typeof mermaid !== 'undefined') {
+      mermaid.initialize({ 
+        startOnLoad: false, 
+        theme: 'default',
+        securityLevel: 'loose'
+      });
+      mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    renderMermaid();
+  } else {
+    window.addEventListener('load', renderMermaid);
+  }
+})();</script></body></html>

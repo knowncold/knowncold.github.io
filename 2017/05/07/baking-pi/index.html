@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 树莓派裸板开发操作系统 Baking-Pi · 惰者集</title><meta name="description" content="树莓派裸板开发操作系统 Baking-Pi - knowncold"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/logo.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.knowncold.me/atom.xml" title="惰者集"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="惰者集" type="application/atom+xml">
-</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">树莓派裸板开发操作系统 Baking-Pi</h1><div class="post-info">2017年5月7日</div><div class="post-content"><p>这个系列的文章翻译改编自剑桥大学的关于树莓派操作系统开发的<a href="http://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/os/index.html">系列文章</a>，课程制作人是<a href="mailto:&#97;&#119;&#99;&#51;&#50;&#64;&#x63;&#97;&#x6d;&#46;&#97;&#99;&#x2e;&#x75;&#107;">Alex Chadwick</a>，不是直译，和原文会有些比较大的区别<br>而且系列没有针对B+、A+和v2，v3进行更新，一些地方可能会无法工作，尤其是最开始的一些关于LED的课程  <span id="more"></span><br>不过你可以在<a href="https://github.com/chadderz121/bakingpi-www">GitHub</a>对它进行贡献和更新</p>
+</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">树莓派裸板开发操作系统 Baking-Pi</h1><div class="post-info">2017年5月7日</div><div class="post-content"><p>这个系列的文章翻译改编自剑桥大学的关于树莓派操作系统开发的<a href="http://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/os/index.html" target="_blank" rel="noopener">系列文章</a>，课程制作人是<a href="mailto:awc32@cam.ac.uk" target="_blank" rel="noopener">Alex Chadwick</a>，不是直译，和原文会有些比较大的区别<br>而且系列没有针对B+、A+和v2，v3进行更新，一些地方可能会无法工作，尤其是最开始的一些关于LED的课程  <a id="more"></a><br>不过你可以在<a href="https://github.com/chadderz121/bakingpi-www" target="_blank" rel="noopener">GitHub</a>对它进行贡献和更新</p>
 <p>这个课程是带你了解开发一个在树莓派上能运行的几乎最基本的操作系统（裸板开发），使用的是汇编语言，准确的说是<code>ARM</code>上的汇编，原作者尽可能的减少汇编带来的难度（其实本质的难度就在那里..），整个课程由11个小课和一个小的入门构成，每个小课都有一些理论知识和一个实际的操作（上机），不过作者都给出了参考答案。<br>作者在设计课程的时候更加注重于实现一些操作系统常有的功能任务，而不是把操作系统的方方面面都实现一遍，到最后，读者应该是有能力把学到的所有知识都整合到一起，做出一个自己的操作系统的。</p>
 <h2 id="课程列表"><a href="#课程列表" class="headerlink" title="课程列表"></a>课程列表</h2><h4 id="0-Introduction"><a href="#0-Introduction" class="headerlink" title="0 Introduction"></a>0 Introduction</h4><p>这里面不包含任何的动手操作，就是讲了一些简单的基础先修知识而已，即使不看直接上手后面的教程也是没有关系的。</p>
 <h3 id="OK-LED-入门"><a href="#OK-LED-入门" class="headerlink" title="OK LED (入门)"></a>OK LED (入门)</h3><h4 id="1-OK01"><a href="#1-OK01" class="headerlink" title="1 OK01"></a>1 OK01</h4><p>这个教程包含了一个上手的解释，以及具体的如何控制树莓派板子上面的<code>OK</code>和<code>ACT</code>的LED。</p>
@@ -21,17 +21,73 @@
 </ul>
 <h3 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h3><p>只需要一个ARMv6的GNU的编译器，准确的说是一堆工具或者说是交叉编译环境，这个交叉编译器可以把你的源代码转换成树莓派SD卡上可以运行的文件</p>
 <h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>有好几种安装方式，对于Ubuntu这种，直接用<code>apt-get</code>就行了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">sudo</span> apt-get install gcc-arm-none-eabi</span><br></pre></td></tr></table></figure>
-
-<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>一个操作系统只是一个非常复杂的程序而已，它的任务就是组织它上面的各种程序怎么运行以及如何给这些程序分配计算机的时间、内存、硬件和其他的资源。常见的操作系统包括GNU&#x2F;Linux，Mac OS X和Windows这些桌面系统，当然也有安卓和iOS这些手机操作系统。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install gcc-arm-none-eabi</span><br></pre></td></tr></table></figure>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>一个操作系统只是一个非常复杂的程序而已，它的任务就是组织它上面的各种程序怎么运行以及如何给这些程序分配计算机的时间、内存、硬件和其他的资源。常见的操作系统包括GNU/Linux，Mac OS X和Windows这些桌面系统，当然也有安卓和iOS这些手机操作系统。</p>
 <p>由于操作系统必须要和实体的硬件有交互联系，所以它必须要对当前运行的硬件底层有一定的具体的了解。为了让操作系统在不同的硬件架构上都能使用，<strong>驱动</strong>的概念也被提出来了，驱动是操作系统上的一段可以添加也可以删掉的代码，通过它可以让操作系统调动硬件上的某个部分，在整个教程中，我们不会讲到如何创建可移除的驱动，但会重点介绍针对树莓派的驱动怎么来写。</p>
 <p>操作系统的设计模式有很多很多种，这个教程只能讲到一些最表面的东西。</p>
 <h2 id="汇编代码"><a href="#汇编代码" class="headerlink" title="汇编代码"></a>汇编代码</h2><p>这个课程几乎全部都要用汇编来写，毕竟汇编是最接近机器代码的。<br>那么计算机是怎么工作的呢？假如你上过计算机组成原理课，那你就知道是处理器在不断的执行指令，进行一些数字的加减，然后有内存来存这些数字，同时要和连着的硬件部分相交互，汇编代码就是这些指令的人能相对读的文本格式了。</p>
 <p>当我们正常编程写代码的时候，我们写的是C++，Java，C#和Basic等等，然后会有一个程序把这些代码转成汇编代码，然后汇编代码再转成二进制的机器码。二进制的机器码是计算机能读的代码，但对人类而言是几乎不可能读懂的一串0、1序列。</p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/bakding-pi-0-1.png"></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/bakding-pi-0-1.png" alt></p>
 <p>和普通编程一样，汇编代码也有好几种，不同的种类针对不同的处理器，这也就意味着同一份代码，想用在不同的硬件架构上，我们就需要用不同汇编语言来重写一边，这是一件让人很头大的事情，好在后来有了C语言，我们可以写一份C代码，然后让编译器转换成不同种类的汇编代码，这样就能在各种不同的硬件上都能顺利的跑起来了。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li>更多的操作系统可以看这个<a href="https://en.wikipedia.org/wiki/List_of_operating_systems">操作系统列表</a></li>
-<li>关于编程的编译过程可以看这个<a href="https://en.wikipedia.org/wiki/Compiler">资料</a></li>
+<li>更多的操作系统可以看这个<a href="https://en.wikipedia.org/wiki/List_of_operating_systems" target="_blank" rel="noopener">操作系统列表</a></li>
+<li>关于编程的编译过程可以看这个<a href="https://en.wikipedia.org/wiki/Compiler" target="_blank" rel="noopener">资料</a></li>
 </ul>
-</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2017/06/08/internet+/">上一篇</a><a class="next" href="/2017/04/14/picoCTF-17/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script></body></html>
+</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2017/06/08/internet+/">上一篇</a><a class="next" href="/2017/04/14/picoCTF-17/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script><script>(function() {
+  function renderMermaid() {
+    // Find all highlight blocks
+    const elements = document.querySelectorAll('figure.highlight');
+    if (elements.length === 0) return;
+
+    const mermaidKeywords = [
+      'graph ', 'flowchart ', 'sequenceDiagram', 'gantt', 
+      'classDiagram', 'stateDiagram', 'pie', 'erDiagram', 
+      'journey', 'gitGraph', 'requirementDiagram'
+    ];
+
+    elements.forEach(function(el) {
+      const codeEl = el.querySelector('.code');
+      if (!codeEl) return;
+      
+      // Extract text
+      const lines = codeEl.querySelectorAll('.line');
+      let code = '';
+      if (lines.length > 0) {
+        code = Array.from(lines).map(line => line.innerText).join('\n');
+      } else {
+        code = codeEl.innerText;
+      }
+      code = code.trim();
+
+      // Check if it's actually mermaid (either by class or by content)
+      const isMermaidClass = el.classList.contains('mermaid');
+      const isMermaidContent = mermaidKeywords.some(keyword => code.startsWith(keyword));
+
+      if (isMermaidClass || isMermaidContent) {
+        // Create new mermaid div
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = code;
+        
+        // Replace original element
+        el.parentNode.replaceChild(mermaidDiv, el);
+      }
+    });
+
+    // Initialize and render all .mermaid elements
+    if (typeof mermaid !== 'undefined') {
+      mermaid.initialize({ 
+        startOnLoad: false, 
+        theme: 'default',
+        securityLevel: 'loose'
+      });
+      mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    renderMermaid();
+  } else {
+    window.addEventListener('load', renderMermaid);
+  }
+})();</script></body></html>

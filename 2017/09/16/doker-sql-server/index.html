@@ -1,29 +1,78 @@
 <!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Docker化的mssql-server · 惰者集</title><meta name="description" content="Docker化的mssql-server - knowncold"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/logo.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.knowncold.me/atom.xml" title="惰者集"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="惰者集" type="application/atom+xml">
-</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Docker化的mssql-server</h1><div class="post-info">2017年9月16日</div><div class="post-content"><p>本来上数据库的课需要安装<code>mssql-server</code>，但是通过Docker，不需要在实体机上安装一堆mssql或者虚拟机，相对而言更加优雅。</p>
-<span id="more"></span>
-
+</head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Docker化的mssql-server</h1><div class="post-info">2017年9月16日</div><div class="post-content"><p>本来上数据库的课需要安装<code>mssql-server</code>，但是通过Docker，不需要在实体机上安装一堆mssql或者虚拟机，相对而言更加优雅。<br><a id="more"></a></p>
 <blockquote>
 <p>Docker是比虚拟机小的虚拟化容器技术，每个Docker镜像都有一个基本的特定的功能，比如配置好PHP环境的镜像、数据库系统。</p>
 </blockquote>
 <div class="tip">在windows上Docker是运行在hyper-v上的，所以家庭版没有hyper-v是无法使用的，或者使用跑在virtualbox上的版本。</div>
 
-<h3 id="Docker基本命令"><a href="#Docker基本命令" class="headerlink" title="Docker基本命令"></a>Docker基本命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a    <span class="comment"># 查看当前的所有容器</span></span><br><span class="line">docker <span class="built_in">rm</span> &lt;Container ID&gt; <span class="comment"># 删除容器</span></span><br><span class="line">docker start &lt;Container ID&gt; <span class="comment"># 启动容器</span></span><br><span class="line">docker stop &lt;Container ID&gt; <span class="comment"># 停止容器</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="Docker基本命令"><a href="#Docker基本命令" class="headerlink" title="Docker基本命令"></a>Docker基本命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a    <span class="comment"># 查看当前的所有容器</span></span><br><span class="line">docker rm &lt;Container ID&gt; <span class="comment"># 删除容器</span></span><br><span class="line">docker start &lt;Container ID&gt; <span class="comment"># 启动容器</span></span><br><span class="line">docker stop &lt;Container ID&gt; <span class="comment"># 停止容器</span></span><br></pre></td></tr></table></figure>
 <h2 id="mssql-server"><a href="#mssql-server" class="headerlink" title="mssql-server"></a>mssql-server</h2><div class="tip">在Mac或者Windows上，需要将Docker的内存调到4GB</div>
 
 <h4 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull microsoft/mssql-server-linux</span><br></pre></td></tr></table></figure>
-
-<h4 id="运行容器镜像"><a href="#运行容器镜像" class="headerlink" title="运行容器镜像"></a>运行容器镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -e <span class="string">&#x27;ACCEPT_EULA=Y&#x27;</span> -e <span class="string">&#x27;MSSQL_SA_PASSWORD=&lt;YourStrong!Passw0rd&gt;&#x27;</span> -e <span class="string">&#x27;MSSQL_PID=Developer&#x27;</span> --cap-add SYS_PTRACE -p 1401:1433 -d microsoft/mssql-server-linux</span><br></pre></td></tr></table></figure>
-
-<h4 id="修改SA密码"><a href="#修改SA密码" class="headerlink" title="修改SA密码"></a>修改SA密码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it &lt;Container ID&gt; /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P <span class="string">&#x27;&lt;Old Password&gt;&#x27;</span> -Q <span class="string">&#x27;ALTER LOGIN SA WITH PASSWORD=&quot;&lt;New Password&gt;&quot;;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="容器内部连接数据库"><a href="#容器内部连接数据库" class="headerlink" title="容器内部连接数据库"></a>容器内部连接数据库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it e69e056c702d <span class="string">&quot;bash&quot;</span></span><br><span class="line">/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P <span class="string">&#x27;&lt;YourPassword&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line">&gt;1 CREATE DATABASE TestDB</span><br><span class="line">&gt;2 SELECT Name from sys.Databases</span><br><span class="line">&gt;3 go</span><br><span class="line"></span><br><span class="line">&gt;1 USE TestDB</span><br><span class="line">&gt;2 CREATE TABLE Inventory (<span class="built_in">id</span> INT, name NVARCHAR(50), quantity INT)</span><br><span class="line">&gt;3 INSERT INTO Inventory VALUES (1, <span class="string">&#x27;banana&#x27;</span>, 150); INSERT INTO Inventory VALUES (2, <span class="string">&#x27;orange&#x27;</span>, 154);</span><br><span class="line">&gt;4 go</span><br><span class="line"></span><br><span class="line">&gt;1 QUIT</span><br></pre></td></tr></table></figure>
-
-<h4 id="从容器外部连接数据库"><a href="#从容器外部连接数据库" class="headerlink" title="从容器外部连接数据库"></a>从容器外部连接数据库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlcmd -S 10.3.2.4,1401 -U SA -P <span class="string">&#x27;&lt;YourPassword&gt;&#x27;</span></span><br></pre></td></tr></table></figure>
-
+<h4 id="运行容器镜像"><a href="#运行容器镜像" class="headerlink" title="运行容器镜像"></a>运行容器镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -e <span class="string">'ACCEPT_EULA=Y'</span> -e <span class="string">'MSSQL_SA_PASSWORD=&lt;YourStrong!Passw0rd&gt;'</span> -e <span class="string">'MSSQL_PID=Developer'</span> --<span class="built_in">cap</span>-add SYS_PTRACE -p 1401:1433 -d microsoft/mssql-server-linux</span><br></pre></td></tr></table></figure>
+<h4 id="修改SA密码"><a href="#修改SA密码" class="headerlink" title="修改SA密码"></a>修改SA密码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it &lt;Container ID&gt; /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P <span class="string">'&lt;Old Password&gt;'</span> -Q <span class="string">'ALTER LOGIN SA WITH PASSWORD="&lt;New Password&gt;";'</span></span><br></pre></td></tr></table></figure>
+<h4 id="容器内部连接数据库"><a href="#容器内部连接数据库" class="headerlink" title="容器内部连接数据库"></a>容器内部连接数据库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it e69e056c702d <span class="string">"bash"</span></span><br><span class="line">/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P <span class="string">'&lt;YourPassword&gt;'</span></span><br><span class="line"></span><br><span class="line">&gt;1 CREATE DATABASE TestDB</span><br><span class="line">&gt;2 SELECT Name from sys.Databases</span><br><span class="line">&gt;3 go</span><br><span class="line"></span><br><span class="line">&gt;1 USE TestDB</span><br><span class="line">&gt;2 CREATE TABLE Inventory (id INT, name NVARCHAR(50), quantity INT)</span><br><span class="line">&gt;3 INSERT INTO Inventory VALUES (1, <span class="string">'banana'</span>, 150); INSERT INTO Inventory VALUES (2, <span class="string">'orange'</span>, 154);</span><br><span class="line">&gt;4 go</span><br><span class="line"></span><br><span class="line">&gt;1 QUIT</span><br></pre></td></tr></table></figure>
+<h4 id="从容器外部连接数据库"><a href="#从容器外部连接数据库" class="headerlink" title="从容器外部连接数据库"></a>从容器外部连接数据库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlcmd -S 10.3.2.4,1401 -U SA -P <span class="string">'&lt;YourPassword&gt;'</span></span><br></pre></td></tr></table></figure>
 <h4 id="可视化工具连接数据库"><a href="#可视化工具连接数据库" class="headerlink" title="可视化工具连接数据库"></a>可视化工具连接数据库</h4><p>以DataGrip为例</p>
-<p><img src="http://o73wiy9vn.bkt.clouddn.com/docker-sql-server.png"></p>
+<p><img src="http://o73wiy9vn.bkt.clouddn.com/docker-sql-server.png" alt></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p><a href="https://hub.docker.com/r/microsoft/mssql-server-linux/">microsoft&#x2F;mssql-server-linux</a><br><a href="https://docs.microsoft.com/zh-cn/sql/linux/quickstart-install-connect-docker">使用 Docker 运行 SQL Server 2017 容器映像</a><br><a href="https://docs.microsoft.com/zh-cn/sql/linux/sql-server-linux-configure-docker">在 Docker 上配置 SQL Server 2017 容器映像</a></p>
+<p><a href="https://hub.docker.com/r/microsoft/mssql-server-linux/" target="_blank" rel="noopener">microsoft/mssql-server-linux</a><br><a href="https://docs.microsoft.com/zh-cn/sql/linux/quickstart-install-connect-docker" target="_blank" rel="noopener">使用 Docker 运行 SQL Server 2017 容器映像</a><br><a href="https://docs.microsoft.com/zh-cn/sql/linux/sql-server-linux-configure-docker" target="_blank" rel="noopener">在 Docker 上配置 SQL Server 2017 容器映像</a></p>
 </blockquote>
-</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2017/09/20/bakingPi-ok01/">上一篇</a><a class="next" href="/2017/08/03/microPython-esp32/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script></body></html>
+</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2017/09/20/bakingPi-ok01/">上一篇</a><a class="next" href="/2017/08/03/microPython-esp32/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script><script>(function() {
+  function renderMermaid() {
+    // Find all highlight blocks
+    const elements = document.querySelectorAll('figure.highlight');
+    if (elements.length === 0) return;
+
+    const mermaidKeywords = [
+      'graph ', 'flowchart ', 'sequenceDiagram', 'gantt', 
+      'classDiagram', 'stateDiagram', 'pie', 'erDiagram', 
+      'journey', 'gitGraph', 'requirementDiagram'
+    ];
+
+    elements.forEach(function(el) {
+      const codeEl = el.querySelector('.code');
+      if (!codeEl) return;
+      
+      // Extract text
+      const lines = codeEl.querySelectorAll('.line');
+      let code = '';
+      if (lines.length > 0) {
+        code = Array.from(lines).map(line => line.innerText).join('\n');
+      } else {
+        code = codeEl.innerText;
+      }
+      code = code.trim();
+
+      // Check if it's actually mermaid (either by class or by content)
+      const isMermaidClass = el.classList.contains('mermaid');
+      const isMermaidContent = mermaidKeywords.some(keyword => code.startsWith(keyword));
+
+      if (isMermaidClass || isMermaidContent) {
+        // Create new mermaid div
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = code;
+        
+        // Replace original element
+        el.parentNode.replaceChild(mermaidDiv, el);
+      }
+    });
+
+    // Initialize and render all .mermaid elements
+    if (typeof mermaid !== 'undefined') {
+      mermaid.initialize({ 
+        startOnLoad: false, 
+        theme: 'default',
+        securityLevel: 'loose'
+      });
+      mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    renderMermaid();
+  } else {
+    window.addEventListener('load', renderMermaid);
+  }
+})();</script></body></html>

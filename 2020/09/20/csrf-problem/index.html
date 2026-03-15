@@ -1,9 +1,7 @@
 <!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> CSRF问题 · 惰者集</title><meta name="description" content="CSRF问题 - knowncold"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/logo.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://blog.knowncold.me/atom.xml" title="惰者集"><meta name="generator" content="Hexo 8.1.1"><link rel="alternate" href="/atom.xml" title="惰者集" type="application/atom+xml">
 </head><body><div class="wrap"><header><a class="logo-link" href="/"><img src="/logo.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">BLOG</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://wiki.knowncold.me" target="_blank">WIKI</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://rush.knowncold.me" target="_blank">NOTE</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/knowncold" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">CSRF问题</h1><div class="post-info">2020年9月20日</div><div class="post-content"><p>在公司的实际开发环节中碰到了csrf的问题，收到SRC的报告后，进行了修复。</p>
 <p>CSRF（Cross Site Request Forgery）跨站请求伪造，是攻击者通过一些技术手段欺骗用户的浏览器去访问一个自己曾经认证过的网站并运行一些操作（如发邮件，发消息，甚至财产操作如转账和购买商品）。由于浏览器曾经认证过，所以被访问的网站会认为是真正的用户操作而去运行。这利用了web中用户身份验证的一个漏洞：简单的身份验证只能保证请求发自某个用户的浏览器，却不能保证请求本身是用户自愿发出的。</p>
-<span id="more"></span>
-
-
+<a id="more"></a>
 <h2 id="攻击方法"><a href="#攻击方法" class="headerlink" title="攻击方法"></a>攻击方法</h2><p>实际场景中，我们的网站架构是用一个node服务器来接收前台请求，获取cdn的静态资源后渲染前端，用户和前端交互过程中，对于后端的请求通过node转发给实际上的后端，响应用户的请求。<br>其中node服务器完成前端的登录认证和cookie、session状态的维护，后端不进行来源的验证，对于所有请求都会无条件的响应，只是在响应过程中通过前端给的session辨别具体的用户。</p>
 <p>那么当某一个涉及到资源修改的请求时，比如为<code>A.ke.com/modify/?des=malice&amp;cost=1000</code>，<code>des</code>参数表示资源转移的目标，<code>cost</code>表示转移的数量，后端通过接收到的session判断是哪个用户发起的，即资源转移的来源是谁；当然这种场景涉及到资金或其他重要的东西时，会有些额外的保护措施，比如加验签。</p>
 <p>这个请求并不需要打开html页面，直接是个get或者post请求，那么当Malice构造了这么一个请求，并发送给了Alice，后者不知情的情况下点开这个链接的话，后端就会认为是Alice主动发起的资源修改请求，马上执行完成，比如给Malice转账1000。</p>
@@ -11,7 +9,64 @@
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h4 id="验证HTTP-Referer"><a href="#验证HTTP-Referer" class="headerlink" title="验证HTTP Referer"></a>验证HTTP Referer</h4><p>在上面的攻击手段中，实际发起请求的来源都是Malice构造的恶意网站发起的，而HTTP的header中有一个Referer字段，用于表明浏览器是从哪个页面发起的这个请求，所以我们只要在后端加一个http的拦截器，校验每一个请求的这个header值就能判断是否为恶意请求了：正常请求的header值为<code>A.ke.com/**</code>，而恶意请求的这个header值就会是<code>malice.com/**</code>，通过域名或者前缀校验即可。</p>
 <p>这个方法最简单，只需要在node层加一个转发时的参数和后端的一个http拦截器，不需要修改具体的业务代码；但是，这种安全性是基于浏览器的安全性的，当浏览器对于referer的安全性无法保障时，这种方法也就没有效果。</p>
 <h4 id="表单中添加csrf-token"><a href="#表单中添加csrf-token" class="headerlink" title="表单中添加csrf token"></a>表单中添加csrf token</h4><h4 id="HTTP-自定义header"><a href="#HTTP-自定义header" class="headerlink" title="HTTP 自定义header"></a>HTTP 自定义header</h4><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><h4 id="Wikipedia"><a href="#Wikipedia" class="headerlink" title="Wikipedia"></a><a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">Wikipedia</a></h4></li>
-<li><h4 id="Django中csrf-token验证原理"><a href="#Django中csrf-token验证原理" class="headerlink" title="Django中csrf token验证原理"></a><a href="https://www.jianshu.com/p/7fbb60001018">Django中csrf token验证原理</a></h4></li>
+<li><h4 id="Wikipedia"><a href="#Wikipedia" class="headerlink" title="Wikipedia"></a><a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery" target="_blank" rel="noopener">Wikipedia</a></h4></li>
+<li><h4 id="Django中csrf-token验证原理"><a href="#Django中csrf-token验证原理" class="headerlink" title="Django中csrf token验证原理"></a><a href="https://www.jianshu.com/p/7fbb60001018" target="_blank" rel="noopener">Django中csrf token验证原理</a></h4></li>
 </ul>
-</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2021/08/28/buy-watermelon/">上一篇</a><a class="next" href="/2019/12/14/never-stop-lijian/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script></body></html>
+</div><div class="post-update">最后更新于2021年12月20日</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2021/08/28/buy-watermelon/">上一篇</a><a class="next" href="/2019/12/14/never-stop-lijian/">下一篇</a></div><div class="copyright"><p>© 2014 - 2026 <a href="https://blog.knowncold.me/about">knowncold</a> <br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">apollo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-50632689-1",'auto');ga('send','pageview');</script><script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script><script>(function() {
+  function renderMermaid() {
+    // Find all highlight blocks
+    const elements = document.querySelectorAll('figure.highlight');
+    if (elements.length === 0) return;
+
+    const mermaidKeywords = [
+      'graph ', 'flowchart ', 'sequenceDiagram', 'gantt', 
+      'classDiagram', 'stateDiagram', 'pie', 'erDiagram', 
+      'journey', 'gitGraph', 'requirementDiagram'
+    ];
+
+    elements.forEach(function(el) {
+      const codeEl = el.querySelector('.code');
+      if (!codeEl) return;
+      
+      // Extract text
+      const lines = codeEl.querySelectorAll('.line');
+      let code = '';
+      if (lines.length > 0) {
+        code = Array.from(lines).map(line => line.innerText).join('\n');
+      } else {
+        code = codeEl.innerText;
+      }
+      code = code.trim();
+
+      // Check if it's actually mermaid (either by class or by content)
+      const isMermaidClass = el.classList.contains('mermaid');
+      const isMermaidContent = mermaidKeywords.some(keyword => code.startsWith(keyword));
+
+      if (isMermaidClass || isMermaidContent) {
+        // Create new mermaid div
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = code;
+        
+        // Replace original element
+        el.parentNode.replaceChild(mermaidDiv, el);
+      }
+    });
+
+    // Initialize and render all .mermaid elements
+    if (typeof mermaid !== 'undefined') {
+      mermaid.initialize({ 
+        startOnLoad: false, 
+        theme: 'default',
+        securityLevel: 'loose'
+      });
+      mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    renderMermaid();
+  } else {
+    window.addEventListener('load', renderMermaid);
+  }
+})();</script></body></html>
