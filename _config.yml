@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 在清风里转
+title: 惰者集
 subtitle:
 description: 花有重开日，人无再少年
 keywords: 
@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://blog.knowncold.me
+url: https://blog.knowncold.me
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
