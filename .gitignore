@@ -10,3 +10,4 @@ db.json
 _drafts
 yarn.lock
 package-lock.json
+.vscode
